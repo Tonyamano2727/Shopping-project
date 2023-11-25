@@ -8,12 +8,36 @@ const register = asyncHandler(async (req, res) => {
         sucess: false,
       mes: "Missing input"
     });
-    const respone = await User.create(req.body)
-    return res.status(200).json({
-        sucess : respone ? true : false,
-        respone
-    })
+    const user = await User.findOne({email : email})
+    if(user) throw new Error('Has User ')
+    else{
+        const newUser = await User.create(req.body)
+        return res.status(200).json({
+            success:  newUser ? true : false,
+            mes : newUser ? 'Register succcessfull . GO to login' : ' Something went wrong'
+        })
+    }
 });
+const login = asyncHandler(async (req, res) => {
+    const { email, password} = req.body
+    if (!email || !password)
+      return res.status(400).json({
+          sucess: false,
+        mes: "Missing input"
+      });
+      const response = await User.findOne({email : email})
+    if(response && await response.isConrectPassword(password)){
+
+        const {password , role , ...userData}  = response.toObject()   // hide 2 truong
+        return res.status(200).json({
+            success : true,
+            userData
+        })
+    }else{
+        throw new Error('Invalid credentials')
+    }
+  });
 module.exports = {
-    register
+    register,
+    login
 }
