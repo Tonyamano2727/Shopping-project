@@ -5,7 +5,7 @@ const {
   generrateRefreshToken,
 } = require("../middlewares/jwt");
 const jwt = require("jsonwebtoken");
-
+const Sendemail = require("../ultils/sendemail")
 const register = asyncHandler(async (req, res) => {
   const { email, password, firstname, lastname } = req.body
   if (!email || !password || !lastname || !firstname)
@@ -104,10 +104,40 @@ const logout = asyncHandler ( async (req, res) => {
     mes: 'Logout is done'
   })
 })
+
+// Client gửi email đã đăng kí 
+// Sever kiểm tra email có hợp lệ hay không => Nếu hợp lệ thì gửi mail + kèm theo link  (password change token)
+// Client check email => click link
+// Client gửi api kèm token
+// Check token có giống token mà server gửi mail  hay không 
+// Nếu giống thì cho thay đổi và ngược lại
+
+const forgotPassword = asyncHandler(async (req, res) => {
+  const { email } = req.query
+  if (!email) throw new Error('Missing email')
+  const user = await User.findOne({ email })
+  if (!user) throw new Error('User not found')
+  const resetToken = user.createPasswordchangedToken()
+  await user.save()
+
+  const html = `Xin vui lòng click vào link dưới đây để thay đổi mật khẩu của bạn.Link này sẽ hết hạn sau 15 phút kể từ bây giờ. <a href=${process.env.URL_SERVER}/api/user/reset-password/${resetToken}>Click here</a>`
+
+  const data = {
+      email,
+      html
+  }
+  const rs = await sendMail(data)
+  return res.status(200).json({
+      success: true,
+      rs
+  })
+})
+
 module.exports = {
   register,
   login,
   getCurrent,
   refreshAcessToken,
-  logout
+  logout,
+  forgotPassword
 };

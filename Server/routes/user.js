@@ -7,4 +7,8 @@ router.post('/login', ctrls.login)
 router.get('/current',verifyToken,ctrls.getCurrent)
 router.post('/Refreshtoken',ctrls.refreshAcessToken)
 router.get('/logout', ctrls.logout)
+router.get('/forgotpassword', ctrls.forgotPassword)
 module.exports = router
+
+// CREATE(POST) + PUT - body
+// Get + delete - query
