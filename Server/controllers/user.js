@@ -6,6 +6,8 @@ const {
 } = require("../middlewares/jwt");
 const jwt = require("jsonwebtoken");
 const Sendemail = require("../ultils/sendemail")
+const crypto = require('crypto')
+
 const register = asyncHandler(async (req, res) => {
   const { email, password, firstname, lastname } = req.body
   if (!email || !password || !lastname || !firstname)
@@ -120,7 +122,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
   const resetToken = user.createPasswordchangedToken()
   await user.save()
 
-  const html = `Xin vui lòng click vào link dưới đây để thay đổi mật khẩu của bạn.Link này sẽ hết hạn sau 15 phút kể từ bây giờ. <a href=${process.env.URL_SERVER}/>api/user/reset-password/${resetToken}>Click here</a>`
+  const html = `Xin vui lòng click vào link dưới đây để thay đổi mật khẩu của bạn.Link này sẽ hết hạn sau 15 phút kể từ bây giờ. <a href="${process.env.URL_SERVER}/>api/user/reset-password/${resetToken}"> Click here</a>`
 
   const data = {
       email,
@@ -133,11 +135,28 @@ const forgotPassword = asyncHandler(async (req, res) => {
   })
 })
 
+const resetPassword = asyncHandler(async (req,res) =>{
+  const {token, password} = req.body
+  if(!password || !token) throw  new Error ('Missing inputs')
+  const passwordResetToken = crypto.createHash('sha256').update(token).digest('hex')
+  const user = await User.findOne({passwordResetToken, passwordResetExpires: {$gt: Date.now()}})
+  if(!user) throw new Error('Invalid reset token')
+  user.password = password
+  user.passwordResetToken=undefined
+  user.passwordChangArt=Date.now()
+  user.passwordResetExpires=undefined
+  await user.save()
+  return res.status(200).json({
+    success : user? true : false,
+    mes: user ? 'Update password' : 'Something went wrong'
+  })
+})
 module.exports = {
   register,
   login,
   getCurrent,
   refreshAcessToken,
   logout,
-  forgotPassword
+  forgotPassword,
+  resetPassword
 };
