@@ -43,16 +43,16 @@ var productSchema = new mongoose.Schema(
     },
     color: {
       type: String,
-      enum: ["Black", "Grown", "Red"],
+      enum: ["Black", "Grown", "Red"],  
     },
-    ratings: [
+    ratings: [          // danh gia
       {
         star: { type: Number },
         postedBy: { type: mongoose.Types.ObjectId, ref: "User" },
         comment: { type: String },
       },
     ],
-    totalRatings: {
+    totalRatings: {   // tong so danh gia
       type: Number,
       default: 0,
     },
