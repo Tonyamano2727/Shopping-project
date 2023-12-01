@@ -183,6 +183,15 @@ const updateuser =asyncHandler(async(req, res)=>{
   })
 })
 
+const updateuserbyadmin =asyncHandler(async(req, res)=>{
+  const { uid } = req.params
+  if(Object.keys(req.body).length === 0) throw new Error ('Missing input')
+  const response = await User.findByIdAndUpdate(uid, req.body, {new: true}).select('-password,-role')
+  return res.status(200).json({
+    success : response ? true : false,
+    updateuser: response ? response : 'Something went wrong'  
+  })
+})
 module.exports = {
   register,
   login,
@@ -193,5 +202,6 @@ module.exports = {
   resetPassword,
   getUser,
   deleteUser,
-  updateuser
+  updateuser,
+  updateuserbyadmin
 };
