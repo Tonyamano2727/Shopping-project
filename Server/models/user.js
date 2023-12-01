@@ -52,6 +52,8 @@ var userSchema = new mongoose.Schema({
   passwordResetExpires: {
     type: String
   },
+},{
+  timestamps:true
 });
 
 // hash password

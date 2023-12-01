@@ -13,6 +13,7 @@ router.get('/',[verifyToken,isAdmin], ctrls.getUser)
 router.delete('/',[verifyToken,isAdmin], ctrls.deleteUser)
 router.put('/updateuser',[verifyToken], ctrls.updateuser)
 router.put('/:uid',[verifyToken,isAdmin], ctrls.updateuserbyadmin)
+
 module.exports = router
 
 // CREATE(POST) + PUT - body
