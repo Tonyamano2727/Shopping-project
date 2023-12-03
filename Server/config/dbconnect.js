@@ -1,5 +1,5 @@
 const {default : mongoose} = require('mongoose')
-// mongoose.set('strictQuery' , false) // hide bug teminal
+mongoose.set('strictQuery' , false) // hide bug teminal 
 const dbConnect = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGPDB_URI)
