@@ -48,7 +48,7 @@ var productSchema = new mongoose.Schema(
     ratings: [          // danh gia
       {
         star: { type: Number },
-        postedBy: { type: mongoose.Types.ObjectId, ref: "User" },
+        postedBy: { type: mongoose.Types.ObjectId, ref: 'User' },
         comment: { type: String },
       },
     ],

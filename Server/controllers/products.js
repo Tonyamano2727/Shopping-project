@@ -25,27 +25,53 @@ const getproduct = asyncHandler(async (req, res) => {
 const getallproducts = asyncHandler(async (req, res) => {
   const queries = { ...req.query };
   // Tách các trường dặt biệt
-  const excludeFields = ['limit', 'sort', 'page', 'fields'];
-  excludeFields.forEach(el => delete queries[el]);
+  const excludeFields = ["limit", "sort", "page", "fields"];
+  excludeFields.forEach((el) => delete queries[el]);
 
-  // Format lại các operator cho đúng cú pháp mongoose      //gt is > // lt is < 
+  // Format lại các operator cho đúng cú pháp mongoose      //gt is > // lt is <
   let queryString = JSON.stringify(queries);
-  queryString = queryString.replace(/\b(gte|gt|lt|lte)\b/g, macthedEl => `$${macthedEl}`);
+  queryString = queryString.replace(
+    /\b(gte|gt|lt|lte)\b/g,
+    (macthedEl) => `$${macthedEl}`
+  );
   const formatedQueries = JSON.parse(queryString);
+
   // Filtering
   if (queries?.title)
-    formatedQueries.title = { $regex: queries.title, $options: 'i' };
-  let queryConmmand = Product.find(formatedQueries)
+    formatedQueries.title = { $regex: queries.title, $options: "i" };
+  let queryConmmand = Product.find(formatedQueries);
 
+  // Sorting
+  //abc,efg => [abc,efg] => abc efg
+  if (req.query.sort) {
+    const sortBy = req.query.sort.split(",").join(" ");
+    queryConmmand = queryConmmand.sort(sortBy);
+  }
+
+  // fields limiting    // Lấy trường
+  if (req.query.fields) {
+    const fields = req.query.fields.split(",").join(" ");
+    queryConmmand = queryConmmand.select(fields);
+  }
+  // Pagination
+  // limit: số object lấy về goin API
+  // skip: 2
+  // 1 2 3 ... 10
+
+  // + conver kieu du lieu
+  const page = +req.query.page || 1;
+  const limit = +req.query.limit || process.env.LIMIT_PRODUCTS;
+  const skip = (page - 1) * limit;
+  queryConmmand.skip(skip).limit(limit);
   // Execute query
   // Số Lượng sản phẩm thõa mản điều kiện !== số lượng sp trả về 1 lần gọi API
   queryConmmand.exec(async (err, response) => {
-    if (err) throw new Error(err.message)
-    const counts = await Product.find(formatedQueries).countDocuments()
+    if (err) throw new Error(err.message);
+    const counts = await Product.find(formatedQueries).countDocuments();
     return res.status(200).json({
       success: response ? true : false,
+      counts,
       products: response ? response : "Cant not get product",
-      counts
     });
   });
 });
@@ -72,10 +98,33 @@ const deleteProduct = asyncHandler(async (req, res) => {
   });
 });
 
+const ratings = asyncHandler(async (req, res) => {
+    const { _id } = req.user
+    const {start,comment,pid} = req.body
+    if(!start && !pid) throw new Error ('Missing inputs')
+    const ratingsProduct = await Product.findById(pid)
+    const alreadyRatings = ratingsProduct?.ratings?.find(el => el.postedBy.toString() === _id)
+    // console.log({alreadyRatings})
+    if(alreadyRatings){
+        // update start and comment
+        await Product.updateOne({})
+    }else{
+        // add start and comment
+        const response = await Product.findByIdAndUpdate(pid, {
+            $push: {ratings:{start ,comment, postedBy: _id}}
+        },{new : true})
+        console.log(response);
+    }
+    return res.status(200).json({
+        status: true
+    })
+});
+
 module.exports = {
   createproducts,
   getproduct,
   getallproducts,
   updateProduct,
   deleteProduct,
+  ratings,
 };
