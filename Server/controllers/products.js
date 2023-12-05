@@ -100,23 +100,38 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 const ratings = asyncHandler(async (req, res) => {
     const { _id } = req.user
-    const {start,comment,pid} = req.body
-    if(!start && !pid) throw new Error ('Missing inputs')
+    const {star,comment,pid} = req.body
+    if(!star && !pid) throw new Error ('Missing inputs')
     const ratingsProduct = await Product.findById(pid)
     const alreadyRatings = ratingsProduct?.ratings?.find(el => el.postedBy.toString() === _id)
     // console.log({alreadyRatings})
     if(alreadyRatings){
-        // update start and comment
-        await Product.updateOne({})
+        // update star and comment
+        await Product.updateOne({
+          ratings: { $elemMatch : alreadyRatings}
+        }, {
+          $set: { "ratings.$.star" : star , "ratings.$.comment" : comment}
+        },{new : true})
     }else{
-        // add start and comment
+        // add star and comment
         const response = await Product.findByIdAndUpdate(pid, {
-            $push: {ratings:{start ,comment, postedBy: _id}}
+            $push: {ratings:{star ,comment, postedBy: _id}}
         },{new : true})
         console.log(response);
     }
+
+    // Sum ratings
+    const updateProduct = await Product.findById(pid)
+    const ratingCount = updateProduct.ratings.length
+    const Sumratings = updateProduct.ratings.reduce((sum, el) => sum + +el.star ,0 )
+    updateProduct.totalRatings = Math.round(Sumratings * 10 / ratingCount) / 10
+
+    await updateProduct.save()
+
+
     return res.status(200).json({
-        status: true
+        status: true,
+        updateProduct
     })
 });
 
