@@ -5,7 +5,7 @@ var OrderSchema = new mongoose.Schema({
     products:[{
         product: {type : mongoose.Types.ObjectId, ref: 'Product'},
         count: Number,
-        color: String
+        color: String,
     }],
     status:{
         type:String,

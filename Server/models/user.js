@@ -29,11 +29,15 @@ var userSchema = new mongoose.Schema({
     type: String,
     default: "user",
   },
-  cart: {
-    type: Array,
-    default: [],
+  cart: [{
+    product: {type : mongoose.Types.ObjectId , ref: 'Product'},
+    quantity : Number,
+    color: String,
+  }],
+  address: {
+    types: Array,
+    default: []
   },
-  address: [{ type: mongoose.Types.ObjectId, ref: 'Address' }],
   wishlist: [{type: mongoose.Types.ObjectId, ref: 'Product'}],
 
   isBlocked: {
