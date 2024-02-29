@@ -234,6 +234,32 @@ const updateCart = asyncHandler(async (req, res) => {
   const user = await User.findById(_id).select('cart')
   const alreadyProduct = user?.cart?.find(el => el.product && el.product.toString() === pid) // đã fix bug "mes": "Cannot read properties of undefined (reading 'toString')"
   if (alreadyProduct) {
+      if(alreadyProduct.color === color){
+        // const response = await User.updateOne({cart: {$elmenMatch: alreadyProduct}}, {$set : {"cart.$.quantity":quantity}},{new:true})
+        // return res.status(200).json({
+        //   success: response ? true : false,
+        //   updateCart: response ? response : "Something went wrong",
+        // });
+        const response = await User.updateOne(
+          { cart: { $elemMatch: alreadyProduct } },
+          { $set: { "cart.$.quantity": quantity } },
+          { new: true }
+        );
+        return res.status(200).json({
+          success: response ? true : false,
+          updateCart: response ? response : "Something went wrong",
+        });
+      }else{
+        const response = await User.findByIdAndUpdate(
+          _id,
+          { $push: { cart: { product: pid, quantity, color } } },
+          { new: true }
+        );
+        return res.status(200).json({
+          success: response ? true : false,
+          updateCart: response ? response : "Something went wrong",
+        });
+      }
   } else {
     const response = await User.findByIdAndUpdate(
       _id,
