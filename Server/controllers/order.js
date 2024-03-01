@@ -1,5 +1,6 @@
 const Order = require("../models/order");
 const User = require("../models/user");
+const Coupon = require("../models/coupon");
 const asyncHandler = require("express-async-handler");
 
 const createOrder = asyncHandler(async (req, res) => {
@@ -11,9 +12,15 @@ const createOrder = asyncHandler(async (req, res) => {
     count: el.quantity,
     color: el.color
   }))
-  const total = userCart?.cart?.reduce((sum, el) => el.product.price * el.quantity + sum , 0)
-  if(coupon) total = Math.round(total * (1 - coupon/100)/1000) * 1000 // Làm tròn 3 số
-  const rs = await Order.create({products, total, orderBy: _id})
+  let total = userCart?.cart?.reduce((sum, el) => el.product.price * el.quantity + sum , 0)
+  const createData = {products,total, orderBy: _id}
+  if(coupon) {
+    const selectedcoupon = await Coupon.findById(coupon)
+    total = Math.round(total * (1 - +selectedcoupon?.discount / 100)/1000)*1000 || total
+    createData.total = total
+    createData.coupon = coupon
+  }
+  const rs = await Order.create(createData)
   return res.json({
     success: rs ? true : false,
     rs: rs ? rs : "Something went wrong",
@@ -31,7 +38,27 @@ const updateStatusorder = asyncHandler(async (req, res) => {
   })
 });
 
+const getUserOrder = asyncHandler(async (req, res) => {
+  const { _id } = req.user
+  const response = await Order.find({orderBy: _id})
+  return res.json({
+    success: response ? true : false,
+    response: response ? response : "Something went wrong",
+  })
+});
+
+const getOrderbyAdmin = asyncHandler(async (req, res) => {
+  const response = await Order.find()
+  return res.json({
+    success: response ? true : false,
+    response: response ? response : "Something went wrong",
+  })
+});
+
+
 module.exports = {
     createOrder,
-    updateStatusorder
+    updateStatusorder,
+    getUserOrder,
+    getOrderbyAdmin
 }
