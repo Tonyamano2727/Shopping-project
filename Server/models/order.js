@@ -3,7 +3,7 @@ const mongoose = require('mongoose'); // Erase if already required
 // Declare the Schema of the Mongo model
 var OrderSchema = new mongoose.Schema({
     products:[{
-        product: {type : mongoose.Types.ObjectId, ref: 'Product'},
+        product: {type : mongoose.Types.ObjectId, ref: 'Products'},
         count: Number,
         color: String,
     }],
@@ -12,7 +12,10 @@ var OrderSchema = new mongoose.Schema({
         default: 'Processing',
         enum : ['Cancelled' , 'Processing' , 'Successed'] // npm stripe if you use pay online
     },
-    paymentIntent: {},
+    total: Number,
+    coupon: {
+        type: mongoose.Types.ObjectId, ref: 'Coupon'
+    },
     orderBy:{
         type : mongoose.Types.ObjectId,
         ref: 'User'
