@@ -8,6 +8,10 @@ var productCategorySchema = new mongoose.Schema({
         unique:true,  // duy nhat 0 trung nnhau
         index:true,
     },
+    brand:{
+        type:Array,
+        required: true,
+    },
 },{
     timestamps: true
 });

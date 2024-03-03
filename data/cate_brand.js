@@ -22,5 +22,6 @@ const data = [
     {
         cate: 'Printer',
         brand: ['Samsung', 'Acer','Asus','Lenovo','Haier']
-    }
+    },
 ]
+module.exports = data
