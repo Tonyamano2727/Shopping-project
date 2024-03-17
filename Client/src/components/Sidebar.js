@@ -2,17 +2,11 @@ import React, {useEffect, useState} from 'react'
 import { apiGetCategories } from '../apis/app'
 import { NavLink } from 'react-router-dom'
 import {createSlug} from '../ultils/helper'
+import { useSelector } from 'react-redux'
+
 
 const Sidebar = () => {
-  const [categories, setCategories] = useState(null)
-  const fectcategories = async () => {
-    const response = await apiGetCategories()
-    if(response.success) setCategories(response.getallCategory)
-    
-  }
-  useEffect(() => {
-    fectcategories()
-  }, [])
+  const {categories} = useSelector(state => state.app)
   console.log(categories);
   // null ko su dung duoc ap
   return (
