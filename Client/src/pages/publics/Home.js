@@ -1,6 +1,14 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { Header,Banner,Navigation,Sidebar } from '../../components'
+import { apiGetProducts } from '../../apis/products'
 const Home = () => {
+  const fectchProducts = async () =>{
+    const response = await Promise.all(apiGetProducts())
+    console.log(response);
+  }
+  useEffect(() => {
+    fectchProducts()
+  })
   return (
     <div className='w-main flex'>
       <div className='flex flex-col gap-5 w-[20%] flex-auto '>
