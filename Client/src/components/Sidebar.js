@@ -10,7 +10,7 @@ const Sidebar = () => {
   console.log(categories);
   // null ko su dung duoc ap
   return (
-    <div className='flex flex-col border'>
+    <div className='flex justify-center'>
       {categories?.map(el => (
         <NavLink
         key={createSlug(el.title)}

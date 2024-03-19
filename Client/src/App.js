@@ -10,7 +10,7 @@ function App() {
     dispath(getCategory())
   },[])
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen font-main overflow-y-auto ">
         <Routes>
           <Route path={path.PUBLIC} element={<Public/>}>
             <Route path={path.HOME} element={<Home/>}></Route>
