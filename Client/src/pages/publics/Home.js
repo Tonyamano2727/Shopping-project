@@ -7,7 +7,7 @@ const Home = () => {
       <div className="w-[100%] justify-center flex flex-col">
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
           <Sidebar />
-          <span>Deal daily</span>
+          {/* <span>Deal daily</span> */}
         </div>
         <div className="flex flex-col gap-5 pl-5 w-[100%] flex-auto ">
           <Banner />

@@ -1,27 +1,27 @@
 [
   {
     "category": ["Home", "Smartphone"],
-    "name": "XIAOMI MI 5",
+    "name": "XIAOMI NOTE 13 PRO 4G",
     "brand": "XIAOMI",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1024x1024.jpg?v=1491404851",
+    "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-13-pro-4g_13__1.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1024x1024.jpg?v=1491404851",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1024x1024.jpg?v=1491404851",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1024x1024.jpg?v=1491404851",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z3_1024x1024.jpg?v=1491404851"
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-13-pro-4g_13__1.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-13-pro-4g_11__1.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-13-pro-4g_12__1.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-redmi-note-13-pro-4g_10__1.png"
     ],
-    "price": "7.518.240,98 VND",
+    "price": "6.790.000,98 VND ",
     "description": [
-      "Technology: GSM / HSPA / LTE",
-      "Dimensions: 144.6 x 69.2 x 7.3 mm",
-      "Weight: 129 g",
-      "Display: IPS LCD 5.15 inches",
-      "Resolution: 1080 x 1920",
-      "OS: Android OS, v6.0 (Marshmallow)",
-      "Chipset: Snapdragon 820",
-      "CPU: Quad-core",
-      "Internal: 32GB/64GB/128GB",
-      "Camera: 16 MP, f/2.0 - 4 MP, f/2.0"
+      "Technology: GSM / CDMA / HSPA / EVDO / LTE",
+      "Dimensions: 143.6 x 70.9 x 7.7 mm",
+      "Weight: 174 g",
+      "Display: Super Retina OLED, 5.8 inches",
+      "Resolution: 1125 x 2436 pixels",
+      "OS: iOS 11, upgradable to iOS 15",
+      "Chipset: Apple A11 Bionic",
+      "CPU: Hexa-core",
+      "Internal: 64GB/256GB",
+      "Camera: Dual 12 MP, f/1.8 & f/2.4"
     ],
     "variants": [
       { "label": "Internal", "variants": ["32GB", "64GB", "128GB"] },
@@ -37,15 +37,16 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "VIVO V5",
+    "name": "VIVO V29E 256GB",
     "brand": "VIVO",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-1_31cc1c0e-ac34-4c8e-946a-a5e30acf6b1a_1024x1024.jpg?v=1491404855",
+    "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/v/i/vivo-v29e_12_.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-1_31cc1c0e-ac34-4c8e-946a-a5e30acf6b1a_1024x1024.jpg?v=1491404855",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/vivo-v5-1_1024x1024.jpg?v=1491404855",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/vivo-v5-2_1024x1024.jpg?v=1491404855"
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/v/i/vivo-v29e_12_.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/v/i/vivo-v29e_3__1_2.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/v/i/vivo-v29e_4_.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/v/i/vivo-v29e_3__1.png"
     ],
-    "price": "6.162.492,61 VND",
+    "price": "7.990.492,61 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 153.8 x 75.5 x 7.6 mm",
@@ -58,7 +59,7 @@
       "Internal: 32 GB, 4 GB RAM",
       "Camera: 13MB - 20 MP"
     ],
-    "variants": [{ "label": "Color", "variants": ["GOLD", "GRAY"] }],
+    "variants": [{ "label": "Color", "variants": ["BLACK", "BLUE"] }],
     "infomations": {
       "DESCRIPTION": "\n                  \nTechnology: GSM / HSPA / LTE\nDimensions: 153.8 x 75.5 x 7.6 mm\nWeight: 154 g\nDisplay: IPS LCD 5.5 inches\nResolution: 720 x 1280\nOS: Android OS, v6.0 (Marshmallow)\nChipset: Octa-core\nCPU: Octa-core\nInternal: 32 GB, 4 GB RAM\nCamera: 13MB - 20 MP\n\n                ",
       "WARRANTY": "\n                  Warranty Information\nLIMITED WARRANTIESLimited Warranties are non-transferable. The following Limited Warranties are given to the original retail purchaser of the following Ashley Furniture Industries, Inc.Products:\nFrames Used In Upholstered and Leather ProductsLimited Lifetime Warranty A Limited Lifetime Warranty applies to all frames used in sofas, couches, love seats, upholstered chairs, ottomans, sectionals, and sleepers. Ashley Furniture Industries,Inc. warrants these components to you, the original retail purchaser, to be free from material manufacturing defects.\n                ",
@@ -70,14 +71,13 @@
     "category": ["Home", "Smartphone"],
     "name": "SONY XPERIA XA",
     "brand": "SONY",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/xperia-xa-white-D1-hero-image-35f68ba1669ba23b989e7519e4a1660d_1024x1024.jpg?v=1491404881",
+    "thumb": "https://product.hstatic.net/1000370129/product/xperia-1-v-mark-5-xanh_18916d0c0e9e4f1fa393db38c2ec0132_large.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/xperia-xa-white-D1-hero-image-35f68ba1669ba23b989e7519e4a1660d_1024x1024.jpg?v=1491404881",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/sony-xperia-xz_1024x1024.jpg?v=1491404881",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/gsmarena_015_1024x1024.jpg?v=1491404881",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/sony-xperia-xz1_1024x1024.jpg?v=1491404881"
+      "https://product.hstatic.net/1000370129/product/xperia-1-v-mark-5-xanh_18916d0c0e9e4f1fa393db38c2ec0132_large.png",
+      "https://product.hstatic.net/1000370129/product/xperia-1-v-mark-5-den_38ba7ebf4f71476f8251fcfa8ea82bbd_master.png",
+      "https://product.hstatic.net/1000370129/product/xperia-1-v-mark-5-trang_0bd74a402a6646f2a72d0c7519a13846_master.png"
     ],
-    "price": "17.452.179,06 VND",
+    "price": "26.490.179,06 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 146 x 72 x 8.1 mm",
@@ -91,10 +91,10 @@
       "Camera: 23 MP, f/2.0 - 13 MP, f/2.0"
     ],
     "variants": [
-      { "label": "Internal", "variants": ["32GB", "64GB"] },
+      { "label": "Internal", "variants": ["12GB", "512GB"] },
       {
         "label": "Color",
-        "variants": ["MINERAL BLACK", "PLATINUM", "FOREST BLUE", "DEEP PINK"]
+        "variants": ["BLACK", "WHITE"]
       }
     ],
     "infomations": {
@@ -106,14 +106,13 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "SAMSUNG GALAXY S7",
+    "name": "SAMSUNG GALAXY S23",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-s7-and-s7-edge-unveiled-with-refined-design-performance-boost-500729-4_1024x1024.jpg?v=1491404832",
+    "thumb": "https://product.hstatic.net/1000370129/product/alaxy-s23-plus-cream-digiphone_17dc5bef01644eb78dfbba3a43ed6ec8_master_468f681ba4904f55beaabec73d4a1571_master.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-s7-and-s7-edge-unveiled-with-refined-design-performance-boost-500729-4_1024x1024.jpg?v=1491404832",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung_galaxys7_heroCard_foreground_1024x1024.png?v=1491404832",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-s6_1024x1024.png?v=1491404832",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-s6-edge-plus-black-sapphire-spin.0001_1024x1024.png?v=1491404832"
+      "https://product.hstatic.net/1000370129/product/alaxy-s23-plus-cream-digiphone_17dc5bef01644eb78dfbba3a43ed6ec8_master_468f681ba4904f55beaabec73d4a1571_master.jpg",
+      "https://product.hstatic.net/1000370129/product/alaxy-s23-plus-black-digiphone_08ff2b312d544071ad66935c47aa03c9_master_3a0fcb5e2a3043e58de97ed45da2ab53_master.jpg",
+      "https://product.hstatic.net/1000370129/product/alaxy-s23-plus-green-digiphone_c54aa95421a342d0a099f71e9f29da4a_master_e9cac858a33b416aa441adf3e29f998c_master.jpg"
     ],
     "price": "22.160.323,41 VND",
     "description": [
@@ -138,16 +137,16 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "SAMSUNG GALAXY J7 PRIME",
+    "name": "SAMSUNG GALAXY S22",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-1_1024x1024.jpg?v=1491404895",
+    "thumb": "https://product.hstatic.net/1000370129/product/4cd4984bb54ecb85ba9e556_master_e70bde357daa4439888fbd6787e41a92_master_6651a95b3aee4380a1141d0b7883cbb2_master.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-1_1024x1024.jpg?v=1491404895",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-j7-prime-1_1024x1024.jpg?v=1491404895",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-j7-prime-2_1024x1024.jpg?v=1491404895",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-j7-prime-3_1024x1024.jpg?v=1491404895"
+      "https://product.hstatic.net/1000370129/product/4cd4984bb54ecb85ba9e556_master_e70bde357daa4439888fbd6787e41a92_master_6651a95b3aee4380a1141d0b7883cbb2_master.png",
+      "https://product.hstatic.net/1000370129/product/fe84ad680aba42cd30de80e_master_5228b2d2be734cfbaa03f9fe4ad56573_master_891253b67c634e5b902c2c7e50ae7f24_master.png",
+      "https://product.hstatic.net/1000370129/product/fc74d11b35704bb62a6ce7e_master_77fd3025ae094f769a1591c78fe2e0c9_master_207ac91e55004cdda92ca3b231ac8846_master.png",
+      "https://product.hstatic.net/1000370129/product/ef443118768339a3a9613c6_master_c0fb58f058bd4c08971fd7d869421d1a_master_8c9d7f099f13416e8ebcedd1a20a00b9_master.png"
     ],
-    "price": "10.292.841,65 VND",
+    "price": "7.292.841,65 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 151.7 x 75 x 8 mm",
@@ -161,8 +160,8 @@
       "Camera: 13 MP, f/1.9 - 8 MP, f/1.9"
     ],
     "variants": [
-      { "label": "Internal", "variants": ["12GB", "16GB"] },
-      { "label": "Color", "variants": ["BLACK", "GOLD"] }
+      { "label": "Internal", "variants": ["8GB", "128GB"] },
+      { "label": "Color", "variants": ["BLACK", "GOLD","BLUE","WHITE"] }
     ],
     "infomations": {
       "DESCRIPTION": "\n                  \nTechnology: GSM / HSPA / LTE\nDimensions: 151.7 x 75 x 8 mm\nWeight: 167 g\nDisplay: PLS TFT 5.5 inches\nResolution: 1080 x 1920\nOS: Android OS, v6.0.1 (Marshmallow)\nChipset: Exynos 7870 Octa\nCPU: 1.6 GHz Cortex-A53\nInternal: 16/32 GB, 3 GB RAM\nCamera: 13 MP, f/1.9 - 8 MP, f/1.9\n\n                ",
@@ -173,17 +172,15 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "LG G5",
+    "name": "LG G6",
     "brand": "LG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/modular-type-1600x840_G5_M01C_1024x1024.jpg?v=1491404872",
+    "thumb": "https://product.hstatic.net/1000370129/product/lg_g6_white_6c26ece2e2dc4dab9b4b903a6bb338d4_master.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/modular-type-1600x840_G5_M01C_1024x1024.jpg?v=1491404872",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/lg-g5-3_1024x1024.jpg?v=1491404872",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/lg-g5-01_1024x1024.jpg?v=1491404872",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/lg-g5-1_1024x1024.jpg?v=1491404872",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/lg-g5-02_1024x1024.jpg?v=1491404872"
+      "https://product.hstatic.net/1000370129/product/lg_g6_white_6c26ece2e2dc4dab9b4b903a6bb338d4_master.png",
+      "https://product.hstatic.net/1000370129/product/lg_g6_titan_dfd7580370344f40af625c40ea6ec7e2_master.png",
+      "https://product.hstatic.net/1000370129/product/lg_g6_black_71148464e76546f29f751688959c485a_master.png"
     ],
-    "price": "14.543.482,55 VND",
+    "price": "3.543.482,55 VND",
     "description": [
       "Technology: GSM / CDMA / HSPA / LTE",
       "Dimensions: 149.4 x 73.9 x 7.7 mm",
@@ -193,7 +190,7 @@
       "OS: Android OS, v6.0.1 (Marshmallow)",
       "Chipset: Snapdragon 820",
       "CPU: Quad-core",
-      "Internal: 32 GB, 4 GB RAM",
+      "Internal: 4 GB, 64 GB RAM",
       "Camera: Dual 16 MP (29mm, f/1.8) + 8 MP (12mm, f/2.4)"
     ],
     "variants": [],
@@ -206,17 +203,17 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "IPHONE 7",
+    "name": "IPHONE 7 PLUS",
     "brand": "IPHONE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/iphone_1024x1024.jpg?v=1491404827",
+    "thumb": "https://product.hstatic.net/1000370129/product/iphone-7-plus-vang-hong_f8e7ff0f36f149bca3b5c67bb3d12fcb_master_65c314ec94cd40a8ba111edd502d4fe9_master.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/iphone_1024x1024.jpg?v=1491404827",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/1_83bd7ced-da1e-4701-afac-cc3c61ea1a51_1024x1024.jpg?v=1491404827",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/2_1024x1024.jpg?v=1491404827",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/3_1024x1024.jpg?v=1491404827",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/4_1024x1024.jpg?v=1491404827"
+      "https://product.hstatic.net/1000370129/product/iphone-7-plus-vang-hong_f8e7ff0f36f149bca3b5c67bb3d12fcb_master_65c314ec94cd40a8ba111edd502d4fe9_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-7-plus-do_b250fce285a84b0d8ffbaf4d553a988c_master_f61f4058fd7140baa24ff6b603091a1e_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-7-plus-vang-hong_f8e7ff0f36f149bca3b5c67bb3d12fcb_master_65c314ec94cd40a8ba111edd502d4fe9_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-7-plus-den_a2e0c85337084bbb998a0c12f10c5a98_master_4e2b41496ae840548d55348c3d0dc8b1_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-7-plus-jet-black_c33bf180b24c4ed1af049d56b8304898_master_5cd1fb4a1d9146cba7a83b06a20fc74d_master.jpg"
     ],
-    "price": "22.160.323,41 VND",
+    "price": "4.160.323,41 VND",
     "description": [
       "Technology: GSM / CDMA / HSPA / EVDO / LTE",
       "Dimensions: 138.3 x 67.1 x 7.1 mm",
@@ -226,11 +223,11 @@
       "OS: iOS 10",
       "Chipset: Apple A10 Fusion",
       "CPU: Quad-core",
-      "Internal: 32/128 GB, 2 GB RAM",
+      "Internal: 32/128/256 GB, 2 GB RAM",
       "Camera: 12 MP - 7 MP"
     ],
     "variants": [
-      { "label": "Capacity", "variants": ["32GB", "64GB", "128GB"] },
+      { "label": "Capacity", "variants": ["32GB", "128GB", "156GB"] },
       { "label": "Color", "variants": ["BLACK", "GOLD", "WHITE"] }
     ],
     "infomations": {
@@ -242,15 +239,16 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "HTC 10",
-    "brand": "HTC",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/HTC-10-1_1024x1024.jpg?v=1491404875",
+    "name": "IPHONE 8 PLUS",
+    "brand": "IPHONE",
+    "thumb": "https://product.hstatic.net/1000370129/product/iphone-8-plus-trang_611d4d87aab04451a383fab254956428_master_8b4be046fb09446c9ed4038d1ff43f73_master.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/HTC-10-1_1024x1024.jpg?v=1491404875",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/htc-10-5_1024x1024.jpg?v=1491404875",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/htc-10-r_1024x1024.jpg?v=1491404875"
+      "https://product.hstatic.net/1000370129/product/iphone-8-plus-trang_611d4d87aab04451a383fab254956428_master_8b4be046fb09446c9ed4038d1ff43f73_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-8-plus-gold_8f1d5368d0bb418888cdb512f64876ab_master_71ee391939eb404594c2a3999b81bcc9_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-8-plus-do_eef20012d0624e38b7a9195c525f2e06_master_391278d3a95a48958c07d2be13869b31_master.jpg",
+      "https://product.hstatic.net/1000370129/product/iphone-8-plus-den_5c9ba9ca725840a2814b29227f8a3bb9_master_c4bb1a03b29f486e8f2d92967d945f43_master.jpg"
     ],
-    "price": "12.744.034,71 VND",
+    "price": "5.744.034,71 VND",
     "description": [
       "Technology: GSM / CDMA / HSPA / LTE",
       "Dimensions: 145.9 x 71.9 x 9 mm",
@@ -260,11 +258,11 @@
       "OS: Android OS, v6.0.1 (Marshmallow)",
       "Chipset: Snapdragon 820",
       "CPU: Quad-core",
-      "Internal: 32/64 GB, 4 GB RAM",
+      "Internal: 64/256 GB, 4 GB RAM",
       "Camera: 12 MP, f/1.8 - 5 MP, f/1.8"
     ],
     "variants": [
-      { "label": "Internal", "variants": ["32GB", "64GB"] },
+      { "label": "Internal", "variants": ["64GB", "256GB"] },
       {
         "label": "Color",
         "variants": [
@@ -284,19 +282,16 @@
   },
   {
     "category": ["Home", "Smartphone"],
-    "name": "GOOGLE PIXEL",
+    "name": "GOOGLE PIXEL 7",
     "brand": "GOOGLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/u3_1024x1024.jpg?v=1491404903",
+    "thumb": "https://product.hstatic.net/1000370129/product/ss_digiphone_642_le_hong_phong_0ee85a76a7dc4517932908e183876210_master_6978aa55371740f3a2a34aecae0248ba_master.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/u3_1024x1024.jpg?v=1491404903",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/u2_1024x1024.jpg?v=1491404903",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/google-pixel-04_1024x1024.jpg?v=1491404903",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/google-pixel-02_1024x1024.jpg?v=1491404903",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/google-pixel-03_1024x1024.jpg?v=1491404903",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/gsmarena_020_1024x1024.jpg?v=1491404903",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/gsmarena_023_1024x1024.jpg?v=1491404903"
+      "https://product.hstatic.net/1000370129/product/ss_digiphone_642_le_hong_phong_0ee85a76a7dc4517932908e183876210_master_6978aa55371740f3a2a34aecae0248ba_master.jpg",
+      "https://product.hstatic.net/1000370129/product/ck_digiphone_642_le_hong_phong_c70af8840ac84d7997eced889c2977d1_master_975655326ddb467d8121984b3184976b_master.jpg",
+      "https://product.hstatic.net/1000370129/product/ow_digiphone_642_le_hong_phong_508f06fda2e147f48bd22e8747c7ebb3_master_8976f23c4b9d4e16a754a667c5fc8ba9_master.jpg"
+     
     ],
-    "price": "20.565.470,32 VND",
+    "price": "7.965.470,32 VND",
     "description": [
       "Technology: GSM / CDMA / HSPA / EVDO / LTE",
       "Dimensions: 143.8 x 69.5 x 8.5 mm",
@@ -325,17 +320,15 @@
   },
   {
     "category": ["Home", "Tablet"],
-    "name": "XIAOMI MI PAD 3",
+    "name": "XIAOMI PAD 6 8GB 256GB",
     "brand": "XIAOMI",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-1_1_1024x1024.jpg?v=1491404888",
+    "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/p/h/photo_2023-08-03_11-45-13_1.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-1_1_1024x1024.jpg?v=1491404888",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/SS6_1024x1024.jpg?v=1491404888",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/xiaomi-redmi-note-3-1_1024x1024.jpg?v=1491404888",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/xiaomi-redmi-note-3-2_1024x1024.jpg?v=1491404888",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/xiaomi-redmi-note-3-3_1024x1024.jpg?v=1491404889"
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/p/h/photo_2023-08-03_11-45-13_1.jpg",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/m/i/mi-pad-6-cps-doc-quyen-xanh-001.jpg",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-mi-pad-6-8gb-128gb_4__1.jpg"
     ],
-    "price": "4.338.148,29 VND",
+    "price": "9.338.148,29 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 150 x 76 x 8.7 mm",
@@ -345,11 +338,11 @@
       "OS: Android OS, v5.1.1 (Lollipop)",
       "Chipset: Snapdragon 650",
       "CPU: Hexa-core",
-      "Internal: 16GB/2GB - 32GB/3GB",
+      "Internal: 8GB/2GB - 256GB/3GB",
       "Camera: 16 MP, f/2.0 - 5 MP, f/2.0"
     ],
     "variants": [
-      { "label": "Internal", "variants": ["12GB", "32GB"] },
+      { "label": "Internal", "variants": ["8GB", "256GB"] },
       { "label": "Color", "variants": ["SILVER", "GRAY", "GOLD"] },
       { "label": "Ram", "variants": ["2GB", "3GB"] }
     ],
@@ -364,7 +357,7 @@
     "category": ["Home", "Tablet"],
     "name": "SONY XPERIA Z4 TABLET LTE",
     "brand": "SONY",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-11_1024x1024.jpg?v=1491404927",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-11_1024x1024.jpg?v=1491404927",
       "https://digital-world-2.myshopify.com/cdn/shop/products/sony-xperia-z4-tablet-1_1024x1024.jpg?v=1491404927",
@@ -372,7 +365,7 @@
       "https://digital-world-2.myshopify.com/cdn/shop/products/sony-xperia-z4-tablet-2_1024x1024.jpg?v=1491404927",
       "https://digital-world-2.myshopify.com/cdn/shop/products/sony-xperia-z4-tablet-2_dbebeed1-de5c-4bff-9c53-8aa708c32ca5_1024x1024.jpg?v=1491404927"
     ],
-    "price": "17.230.329,32 VND",
+    "price": "5.230.329,32 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 254 x 167 x 6.1 mm",
@@ -395,15 +388,16 @@
   },
   {
     "category": ["Home", "Tablet"],
-    "name": "SAMSUNG GALAXY TAB S 8.4 LTE",
+    "name": "SAMSUNG GALAXY TAB S9 ",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/ss8_1024x1024.jpg?v=1491404867",
+    "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-tab-s9-wifi-12gb-256gb_1.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/ss8_1024x1024.jpg?v=1491404867",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-tab-s-84-1_1024x1024.jpg?v=1491404867",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/samsung-galaxy-tab-s-84-3_1024x1024.jpg?v=1491404867"
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-tab-s9-wifi-12gb-256gb_1.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/a/tab-s9-xam-4_4.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/a/tab-s9-xam-2_2.png",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/a/tab-s9-xam-7_2.png"
     ],
-    "price": "13.778.840,47 VND",
+    "price": "16.778.840,47 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 212.8 x 125.6 x 6.6 mm",
@@ -413,11 +407,11 @@
       "OS: Android OS, v4.4.2 (KitKat)",
       "Chipset: Snapdragon 800",
       "CPU: Quad-core 2.3 GHz",
-      "Internal: 16/32 GB, 3 GB RAM",
+      "Internal: 8/128 GB, 3 GB RAM",
       "Camera: 8 MP - 2.1 MP"
     ],
     "variants": [
-      { "label": "Size", "variants": ["16GB", "32GB"] },
+      { "label": "Size", "variants": ["8GB", "128GB"] },
       { "label": "Color", "variants": ["DAZZLING WHITE", "TITANIUM BRONZE"] }
     ],
     "infomations": {
@@ -431,7 +425,7 @@
     "category": ["Home", "Tablet"],
     "name": "LG G PAD III 10.1 FHD",
     "brand": "LG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-2_1024x1024.jpg?v=1491404930",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-2_1024x1024.jpg?v=1491404930",
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-3_1024x1024.jpg?v=1491404930"
@@ -459,11 +453,11 @@
   },
   {
     "category": ["Home", "Tablet"],
-    "name": "LENOVO YOGA TAB 3 PLUS",
+    "name": "LENOVO YOGA TAB 11",
     "brand": "LENOVO",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/ss3_1024x1024.jpg?v=1491404819",
+    "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/e/n/enovo-yoga-tab-11.png",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/ss3_1024x1024.jpg?v=1491404819",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/e/n/enovo-yoga-tab-11.png",
       "https://digital-world-2.myshopify.com/cdn/shop/products/lenovo-yoga-tab3-plus_1024x1024.jpg?v=1491404819",
       "https://digital-world-2.myshopify.com/cdn/shop/products/lenovo-yoga-tab3-plus1_1024x1024.jpg?v=1491404819",
       "https://digital-world-2.myshopify.com/cdn/shop/products/lenovo-yoga-tab3-plus2_1024x1024.jpg?v=1491404819"
@@ -493,7 +487,7 @@
     "category": ["Home", "Tablet"],
     "name": "HUAWEI MEDIAPAD T1 7.0",
     "brand": "HUAWEI",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/ss4_1024x1024.jpg?v=1491404838",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/ss4_1024x1024.jpg?v=1491404838",
       "https://digital-world-2.myshopify.com/cdn/shop/products/huawei-mediapad-t1-70-1_1024x1024.jpg?v=1491404838",
@@ -525,7 +519,7 @@
     "category": ["Home", "Tablet"],
     "name": "ASUS ZENPAD 3 8.0 Z581KL",
     "brand": "ASUS",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/ss9_1024x1024.jpg?v=1491404859",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/ss9_1024x1024.jpg?v=1491404859",
       "https://digital-world-2.myshopify.com/cdn/shop/products/asus-zenpad-3-80-z581kl-1_1024x1024.jpg?v=1491404859",
@@ -556,7 +550,7 @@
     "category": ["Home", "Tablet"],
     "name": "APPLE IPAD PRO",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/ss5_1024x1024.jpg?v=1491404844",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/ss5_1024x1024.jpg?v=1491404844",
       "https://digital-world-2.myshopify.com/cdn/shop/products/apple-ipad-pro-2_1024x1024.jpg?v=1491404844",
@@ -592,7 +586,7 @@
     "category": ["Home", "Tablet"],
     "name": "APPLE IPAD AIR 2",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/SS7_1_1024x1024.jpg?v=1491404862",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/SS7_1_1024x1024.jpg?v=1491404862",
       "https://digital-world-2.myshopify.com/cdn/shop/products/SS7_1024x1024.jpg?v=1491404862",
@@ -627,7 +621,7 @@
     "category": ["Home", "Laptop"],
     "name": "LENOVO IDEAPAD 110",
     "brand": "LENOVO",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_877559ca-7315-44b0-9f7f-f393bd0808bd_1024x1024.jpg?v=1491404790",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_877559ca-7315-44b0-9f7f-f393bd0808bd_1024x1024.jpg?v=1491404790",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_6f644814-23bf-4439-80ff-0b5d50baf196_1024x1024.jpg?v=1491404790",
@@ -658,7 +652,7 @@
     "category": ["Home", "Laptop"],
     "name": "HP PROBOOK 450",
     "brand": "HP",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_6dbdaadc-bd0c-454b-b4c1-395b60a2e2a7_1024x1024.jpg?v=1491404782",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_6dbdaadc-bd0c-454b-b4c1-395b60a2e2a7_1024x1024.jpg?v=1491404782",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_b21a3aa8-86ed-4338-985d-0bfca8fea6e0_1024x1024.jpg?v=1491404782",
@@ -689,7 +683,7 @@
     "category": ["Home", "Laptop"],
     "name": "HP PAVILION 15 AU072TX",
     "brand": "HP",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/x2_1024x1024.jpg?v=1491404795",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/x2_1024x1024.jpg?v=1491404795",
       "https://digital-world-2.myshopify.com/cdn/shop/products/x3_1024x1024.jpg?v=1491404795",
@@ -720,7 +714,7 @@
     "category": ["Home", "Laptop"],
     "name": "DELL INSPIRON 7460",
     "brand": "DELL",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_8ad649f4-de63-464c-a7d1-7573c1b53a2d_1024x1024.jpg?v=1491404804",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_8ad649f4-de63-464c-a7d1-7573c1b53a2d_1024x1024.jpg?v=1491404804",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_eda0eb59-ee79-4c50-b724-c9ed562d180b_1024x1024.jpg?v=1491404804",
@@ -751,7 +745,7 @@
     "category": ["Home", "Laptop"],
     "name": "ASUS ROG G752VM",
     "brand": "ASUS",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_33133681-0515-48fa-a6ee-fce4fc68afea_1024x1024.jpg?v=1491404807",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_33133681-0515-48fa-a6ee-fce4fc68afea_1024x1024.jpg?v=1491404807",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_f7b95ca1-d4cf-4b52-a22a-481db6b06c82_1024x1024.jpg?v=1491404807",
@@ -782,7 +776,7 @@
     "category": ["Home", "Laptop"],
     "name": "APPLE MACBOOK PRO 13\"",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z6_1_1024x1024.jpg?v=1491404800",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z6_1_1024x1024.jpg?v=1491404800",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1_4c7eeac9-df0b-4725-8a45-cb6c87b42eba_1024x1024.jpg?v=1491404800",
@@ -813,7 +807,7 @@
     "category": ["Home", "Laptop"],
     "name": "APPLE MACBOOK AIR",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_4_1024x1024.jpg?v=1491404771",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_4_1024x1024.jpg?v=1491404771",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_4_1024x1024.jpg?v=1491404771",
@@ -844,7 +838,7 @@
     "category": ["Home", "Laptop"],
     "name": "ACER ASPIRE E5",
     "brand": "ACER",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_00d0ce5d-e30b-4a9a-bffd-357614f67b8d_1024x1024.jpg?v=1491404787",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_00d0ce5d-e30b-4a9a-bffd-357614f67b8d_1024x1024.jpg?v=1491404787",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_bac0625f-a20a-431b-b73b-0ca2ec0e1495_1024x1024.jpg?v=1491404787",
@@ -875,7 +869,7 @@
     "category": ["Home", "Camera"],
     "name": "USB SANDISK",
     "brand": "USB",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z5_1024x1024.jpg?v=1491404811"
@@ -903,7 +897,7 @@
     "category": ["Home", "Camera"],
     "name": "SENNHEISER EZX 80",
     "brand": "SENNHEISER",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "1.700.847,96 VND",
     "description": [
@@ -931,7 +925,7 @@
     "category": ["Home", "Camera"],
     "name": "SAMSUNG GEAR VR",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_1024x1024.jpg?v=1491404913",
@@ -961,7 +955,7 @@
     "category": ["Home", "Camera"],
     "name": "MOTOROLA MOTO 360 (2ND GEN)",
     "brand": "MOTOROLA",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
       "https://digital-world-2.myshopify.com/cdn/shop/products/motorola-moto-360-2015-1_1024x1024.jpg?v=1491404918",
@@ -1000,7 +994,7 @@
     "category": ["Home", "Camera"],
     "name": "LOGITECH WIRELESS KEYBOARD MK240 NANO",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z6_1024x1024.jpg?v=1491404809",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "599.980,28 VND",
     "description": [
@@ -1025,7 +1019,7 @@
     "category": ["Home", "Camera"],
     "name": "LOGITECH MX ANYWHERE 2",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_5229b270-7b1c-4b40-8100-204f96c43f88_1024x1024.jpg?v=1491404814",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
@@ -1058,7 +1052,7 @@
     "category": ["Home", "Camera"],
     "name": "JBL CHARGE 3",
     "brand": "JBL",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_2_1024x1024.jpg?v=1491404907",
@@ -1090,7 +1084,7 @@
     "category": ["Home", "Camera"],
     "name": "APPLE WATCH EDITION SERIES 2",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
       "https://digital-world-2.myshopify.com/cdn/shop/products/apple-watch2-edition-42mm2_1024x1024.jpg?v=1491404922"
@@ -1124,7 +1118,7 @@
     "category": ["Home", "Printer"],
     "name": "USB SANDISK",
     "brand": "USB",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z5_1024x1024.jpg?v=1491404811"
@@ -1152,7 +1146,7 @@
     "category": ["Home", "Printer"],
     "name": "SENNHEISER EZX 80",
     "brand": "SENNHEISER",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_1024x1024.jpg?v=1491404910",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "1.700.847,96 VND",
     "description": [
@@ -1180,7 +1174,7 @@
     "category": ["Home", "Printer"],
     "name": "SAMSUNG GEAR VR",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_1024x1024.jpg?v=1491404913",
@@ -1210,7 +1204,7 @@
     "category": ["Home", "Printer"],
     "name": "MOTOROLA MOTO 360 (2ND GEN)",
     "brand": "MOTOROLA",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
       "https://digital-world-2.myshopify.com/cdn/shop/products/motorola-moto-360-2015-1_1024x1024.jpg?v=1491404918",
@@ -1249,7 +1243,7 @@
     "category": ["Home", "Printer"],
     "name": "LOGITECH WIRELESS KEYBOARD MK240 NANO",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z6_1024x1024.jpg?v=1491404809",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "599.980,28 VND",
     "description": [
@@ -1274,7 +1268,7 @@
     "category": ["Home", "Printer"],
     "name": "LOGITECH MX ANYWHERE 2",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_5229b270-7b1c-4b40-8100-204f96c43f88_1024x1024.jpg?v=1491404814",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
@@ -1307,7 +1301,7 @@
     "category": ["Home", "Printer"],
     "name": "JBL CHARGE 3",
     "brand": "JBL",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_2_1024x1024.jpg?v=1491404907",
@@ -1339,7 +1333,7 @@
     "category": ["Home", "Printer"],
     "name": "APPLE WATCH EDITION SERIES 2",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
       "https://digital-world-2.myshopify.com/cdn/shop/products/apple-watch2-edition-42mm2_1024x1024.jpg?v=1491404922"
@@ -1373,7 +1367,7 @@
     "category": ["Home", "Speaker"],
     "name": "USB SANDISK",
     "brand": "USB",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z5_1024x1024.jpg?v=1491404811"
@@ -1401,7 +1395,7 @@
     "category": ["Home", "Speaker"],
     "name": "SENNHEISER EZX 80",
     "brand": "SENNHEISER",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_1024x1024.jpg?v=1491404910",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "1.700.847,96 VND",
     "description": [
@@ -1429,7 +1423,7 @@
     "category": ["Home", "Speaker"],
     "name": "SAMSUNG GEAR VR",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_1024x1024.jpg?v=1491404913",
@@ -1459,7 +1453,7 @@
     "category": ["Home", "Speaker"],
     "name": "MOTOROLA MOTO 360 (2ND GEN)",
     "brand": "MOTOROLA",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
       "https://digital-world-2.myshopify.com/cdn/shop/products/motorola-moto-360-2015-1_1024x1024.jpg?v=1491404918",
@@ -1498,7 +1492,7 @@
     "category": ["Home", "Speaker"],
     "name": "LOGITECH WIRELESS KEYBOARD MK240 NANO",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z6_1024x1024.jpg?v=1491404809",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "599.980,28 VND",
     "description": [
@@ -1523,7 +1517,7 @@
     "category": ["Home", "Speaker"],
     "name": "LOGITECH MX ANYWHERE 2",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_5229b270-7b1c-4b40-8100-204f96c43f88_1024x1024.jpg?v=1491404814",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
@@ -1556,7 +1550,7 @@
     "category": ["Home", "Speaker"],
     "name": "JBL CHARGE 3",
     "brand": "JBL",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_2_1024x1024.jpg?v=1491404907",
@@ -1588,7 +1582,7 @@
     "category": ["Home", "Speaker"],
     "name": "APPLE WATCH EDITION SERIES 2",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
       "https://digital-world-2.myshopify.com/cdn/shop/products/apple-watch2-edition-42mm2_1024x1024.jpg?v=1491404922"
@@ -1622,7 +1616,7 @@
     "category": ["Home", "Accessories"],
     "name": "SAMSUNG GEAR VR",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_1024x1024.jpg?v=1491404913",
@@ -1652,7 +1646,7 @@
     "category": ["Home", "Accessories"],
     "name": "MOTOROLA MOTO 360 (2ND GEN)",
     "brand": "MOTOROLA",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
       "https://digital-world-2.myshopify.com/cdn/shop/products/motorola-moto-360-2015-1_1024x1024.jpg?v=1491404918",
@@ -1691,7 +1685,7 @@
     "category": ["Home", "Accessories"],
     "name": "LOGITECH WIRELESS KEYBOARD MK240 NANO",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z6_1024x1024.jpg?v=1491404809",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "599.980,28 VND",
     "description": [
@@ -1716,7 +1710,7 @@
     "category": ["Home", "Accessories"],
     "name": "LOGITECH MX ANYWHERE 2",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_5229b270-7b1c-4b40-8100-204f96c43f88_1024x1024.jpg?v=1491404814",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
@@ -1749,7 +1743,7 @@
     "category": ["Home", "Accessories"],
     "name": "JBL CHARGE 3",
     "brand": "JBL",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_2_1024x1024.jpg?v=1491404907",
@@ -1781,7 +1775,7 @@
     "category": ["Home", "Accessories"],
     "name": "APPLE WATCH EDITION SERIES 2",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
       "https://digital-world-2.myshopify.com/cdn/shop/products/apple-watch2-edition-42mm2_1024x1024.jpg?v=1491404922"
@@ -1815,7 +1809,7 @@
     "category": ["Home", "Accessories"],
     "name": "USB SANDISK",
     "brand": "USB",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z5_1024x1024.jpg?v=1491404811"
@@ -1843,7 +1837,7 @@
     "category": ["Home", "Accessories"],
     "name": "SENNHEISER EZX 80",
     "brand": "SENNHEISER",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_1024x1024.jpg?v=1491404910",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "1.700.847,96 VND",
     "description": [
@@ -1871,7 +1865,7 @@
     "category": ["Home", "Television"],
     "name": "USB SANDISK",
     "brand": "USB",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z4_1b6e3a93-aa84-4a15-8324-deab9b1d4711_1024x1024.jpg?v=1491404811",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z5_1024x1024.jpg?v=1491404811"
@@ -1899,7 +1893,7 @@
     "category": ["Home", "Television"],
     "name": "SENNHEISER EZX 80",
     "brand": "SENNHEISER",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_1024x1024.jpg?v=1491404910",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "1.700.847,96 VND",
     "description": [
@@ -1927,7 +1921,7 @@
     "category": ["Home", "Television"],
     "name": "SAMSUNG GEAR VR",
     "brand": "SAMSUNG",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_1_1024x1024.jpg?v=1491404913",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_1_1024x1024.jpg?v=1491404913",
@@ -1957,7 +1951,7 @@
     "category": ["Home", "Television"],
     "name": "MOTOROLA MOTO 360 (2ND GEN)",
     "brand": "MOTOROLA",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-189_1024x1024.jpg?v=1491404918",
       "https://digital-world-2.myshopify.com/cdn/shop/products/motorola-moto-360-2015-1_1024x1024.jpg?v=1491404918",
@@ -1996,7 +1990,7 @@
     "category": ["Home", "Television"],
     "name": "LOGITECH WIRELESS KEYBOARD MK240 NANO",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [],
     "price": "599.980,28 VND",
     "description": [
@@ -2021,7 +2015,7 @@
     "category": ["Home", "Television"],
     "name": "LOGITECH MX ANYWHERE 2",
     "brand": "LOGITECH",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_5229b270-7b1c-4b40-8100-204f96c43f88_1024x1024.jpg?v=1491404814",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z1_377a4aa6-df39-466b-8234-d7c2f6f4ca1a_1024x1024.jpg?v=1491404814",
@@ -2054,7 +2048,7 @@
     "category": ["Home", "Television"],
     "name": "JBL CHARGE 3",
     "brand": "JBL",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_1024x1024.jpg?v=1491404907",
       "https://digital-world-2.myshopify.com/cdn/shop/products/z3_2_1024x1024.jpg?v=1491404907",
@@ -2086,7 +2080,7 @@
     "category": ["Home", "Television"],
     "name": "APPLE WATCH EDITION SERIES 2",
     "brand": "APPLE",
-    "thumb": "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
+    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
       "https://digital-world-2.myshopify.com/cdn/shop/products/Untitled-123_1024x1024.jpg?v=1491404922",
       "https://digital-world-2.myshopify.com/cdn/shop/products/apple-watch2-edition-42mm2_1024x1024.jpg?v=1491404922"

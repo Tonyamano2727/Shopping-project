@@ -10,7 +10,7 @@ const Sidebar = () => {
   console.log(categories);
   // null ko su dung duoc ap
   return (
-    <div className='flex justify-center'>
+    <div className='flex justify-center mb-5'>
       {categories?.map(el => (
         <NavLink
         key={createSlug(el.title)}
