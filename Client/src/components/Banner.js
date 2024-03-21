@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef} from 'react';
 // import Slider from "react-slick";
 import { CiPause1 } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
@@ -19,9 +19,9 @@ const Banner = () => {
   };
   return (
     
-    <div className="w-100% flex flex-col relative">
+    <div className="w-full flex flex-col relative">
       
-      <video className='h-[680px] w-full object-cover'
+      <video className='h-[700px] w-full object-cover'
         ref={videoRef}
         controls={false} // Ẩn thanh điều khiển mặc định
         

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apiGetProducts } from "../apis/products";
-import {Product} from './'
+import { Product } from "./";
 import Slider from "react-slick";
 
 const tabs = [
@@ -22,14 +22,15 @@ const Bestseller = () => {
   const [tablet, setTablet] = useState(null);
   const [bestseller, setBestSeller] = useState(null);
   const [newproducts, setNewproducts] = useState(null);
-  
+
   const [products, setProducts] = useState(null);
   const fectchProducts = async () => {
-    const [bestSellerResponse, newProductsResponse, tabletResponse] = await Promise.all([
-      apiGetProducts({ sort: "-sold" }),
-      apiGetProducts({ sort: "createdAt" }),
-      apiGetProducts({ sort: "brand" })
-    ]);
+    const [bestSellerResponse, newProductsResponse, tabletResponse] =
+      await Promise.all([
+        apiGetProducts({ sort: "-sold" }),
+        apiGetProducts({ sort: "createdAt" }),
+        apiGetProducts({ sort: "brand" }),
+      ]);
     if (bestSellerResponse?.success) {
       setBestSeller(bestSellerResponse.products);
       setProducts(bestSellerResponse.products);
@@ -57,13 +58,13 @@ const Bestseller = () => {
     fectchProducts();
   }, []);
   useEffect(() => {
-    if(activedTab === 1) setProducts(bestseller) 
-    if(activedTab === 2) setProducts(newproducts) 
-    if(activedTab === 3) setProducts(tablet) 
-  }, [activedTab]);
+    if (activedTab === 1) setProducts(bestseller);
+    if (activedTab === 2) setProducts(newproducts);
+    if (activedTab === 3) setProducts(tablet);
+  }, [activedTab, bestseller, newproducts, tablet]);
   return (
     <div>
-      <div className="flex text-[20px] gap-8 pb-4 mt-6 border-b-2 border-main">
+      <div className="flex text-[20px] gap-8 pb-4 mt-6 border-b-2 border-main justify-center">
         {tabs.map((el) => (
           <span
             key={el.id}
@@ -75,15 +76,32 @@ const Bestseller = () => {
           </span>
         ))}
       </div>
-      <div className="mt-4 mx-[-10px]">
-        <Slider  {...settings}>
-        {products?.map(el => (
+      <div className="w-full flex justify-between">
+        <div className="w-22%">
+          <span>Deal daily</span>
+        </div>
+        <div className="w-[78%]">
+          <div className="mt-4">
+            <Slider {...settings}>
+              {products?.map((el) => (
                 <Product
-                key = {el.id}
-                productData={el}
+                  key={el.id}
+                  pid={el.id}
+                  productData={el}
+                  isNew={activedTab === 1 ? false : true}
                 />
-            ))}
-        </Slider>
+              ))}
+            </Slider>
+          </div>
+          <div className="flex px-[10px] justify-between mt-4">
+            <img className='w-[49%] h-[250px] object-fill'
+              src="https://media.binglee.com.au/f/0/4/1/f04185510d8913e0b42730ad78a103c86ada48dd_Apple_MPXV3ZP_A_iPhone_Banner_2.jpg"
+              alt="banner products"></img>
+            <img className='w-[49%] h-[250px] object-fill'
+              src="https://th.bing.com/th/id/R.1aaf5e65043645c1bdb0612b8e954dfa?rik=OYsXYWI2QthuXQ&pid=ImgRaw&r=0"
+              alt="banner products"></img>
+          </div>
+        </div>
       </div>
     </div>
   );
