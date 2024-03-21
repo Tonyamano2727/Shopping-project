@@ -35,17 +35,17 @@ const Product = ({ productData, isNew }) => {
           <img
             src={productData?.thumb || ""}
             alt=""
-            className="h-[343px] object-contain"></img>
-          <img
+            className="h-[303px] object-fill "></img>
+          {/* <img
             src={isNew ? label : labelblue}
             alt=""
-            className={`absolute w-[100px]  ${isNew ? 'w-[120px] top-[-20px] left-[-28px]' : ' w-[120px] top-[-20px] left-[-30px]'} object-cover`}></img>
-           <span className={`font-bold top-[0px] left-[5px] text-white absolute ${isNew ? '' : 'text-sm top-[6px] left-[-5px]'}`}>
+            className={`absolute w-[100px]  ${isNew ? 'w-[120px] top-[-20px] left-[-28px]' : ' w-[120px] top-[-20px] left-[-30px]'} object-cover`}></img> */}
+           {/* <span className={`font-bold top-[0px] left-[5px] text-white absolute ${isNew ? '' : 'text-sm top-[6px] left-[-5px]'}`}>
               {isNew ? 'New' : 'Trending'}
-            </span>
+            </span> */}
         </div>
-        <div className="flex flex-col items-center gap-1 w-full ">
-          <span className="line-clamp-1">{productData?.title}</span>
+        <div className="flex flex-col items-center gap-1 w-full leading-10">
+          <span className="line-clamp-1 font-semibold text-[20px] mt-4">{productData?.title}</span>
           <span className="flex h-4">{renderStarFromNumber(productData?.totalRatings)}</span>
           <span>{`${formatMoney(productData?.price)} VNĐ `}</span>
         </div>

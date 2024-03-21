@@ -11,7 +11,7 @@ const Home = () => {
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
           <Banner />
         </div>
-        <div className="flex flex-col gap-5 px-5 w-[100%] flex-auto ">
+        <div className="flex flex-col gap-5 w-[100%] flex-auto ">
         <Bestseller />
         </div>
       </div>

@@ -29,7 +29,7 @@ const Bestseller = () => {
       await Promise.all([
         apiGetProducts({ sort: "-sold" }),
         apiGetProducts({ sort: "createdAt" }),
-        apiGetProducts({ sort: "brand" }),
+        apiGetProducts({ sort: "brand", brand: "SAMSUNG" }),
       ]);
     if (bestSellerResponse?.success) {
       setBestSeller(bestSellerResponse.products);
@@ -64,9 +64,9 @@ const Bestseller = () => {
   }, [activedTab, bestseller, newproducts, tablet]);
   return (
     <div>
-      <div className="flex text-[20px] gap-8 pb-4 mt-6 border-b-2 border-main justify-center">
+      <div className="flex text-[25px] gap-8  mt-[50px] mb-[50px] ml-[80px]">
         {tabs.map((el) => (
-          <span
+          <span 
             key={el.id}
             className={`font-semibold capitalize cursor-pointer ${
               activedTab === el.id ? "text-main" : ""
@@ -76,11 +76,9 @@ const Bestseller = () => {
           </span>
         ))}
       </div>
-      <div className="w-full flex justify-between">
-        <div className="w-22%">
-          <span>Deal daily</span>
-        </div>
-        <div className="w-[78%]">
+      <div className="w-full pb-8">
+        
+        <div className="w-[100%]">
           <div className="mt-4">
             <Slider {...settings}>
               {products?.map((el) => (
@@ -93,7 +91,7 @@ const Bestseller = () => {
               ))}
             </Slider>
           </div>
-          <div className="flex px-[10px] justify-between mt-4">
+          <div className="flex px-[10px] justify-between mt-[50px]">
             <img className='w-[49%] h-[250px] object-fill'
               src="https://media.binglee.com.au/f/0/4/1/f04185510d8913e0b42730ad78a103c86ada48dd_Apple_MPXV3ZP_A_iPhone_Banner_2.jpg"
               alt="banner products"></img>

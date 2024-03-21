@@ -25,7 +25,7 @@ const Banner = () => {
         ref={videoRef}
         controls={false} // Ẩn thanh điều khiển mặc định
         
-        autoPlay
+        autoPlay={true}
         onClick={togglePlay}
       >
         <source src={videobanner} type="video/mp4" />

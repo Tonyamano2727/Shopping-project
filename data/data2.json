@@ -485,16 +485,16 @@
   },
   {
     "category": ["Home", "Tablet"],
-    "name": "HUAWEI MEDIAPAD T1 7.0",
-    "brand": "HUAWEI",
-    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
+    "name": "IPAD GEN 10 2002 10.9",
+    "brand": "IPHONE",
+    "thumb": "https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2022/11/29/638053168020402739_Pad%20Gen%2010th%20Wifi%20(2).jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/ss4_1024x1024.jpg?v=1491404838",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/huawei-mediapad-t1-70-1_1024x1024.jpg?v=1491404838",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/huawei-mediapad-t1-70-2_1024x1024.jpg?v=1491404838",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/huawei-mediapad-t1-70-11_1024x1024.jpg?v=1491404838"
+      "https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2022/11/29/638053168020402739_Pad%20Gen%2010th%20Wifi%20(2).jpg",
+      "https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2022/11/29/638053168111807020_Pad%20Gen%2010th%20Wifi%20(10).jpg",
+      "https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2022/11/29/638053168021739180_iPad%20Gen%2010th%20Wifi.jpg",
+      "https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2022/11/29/638053168021739180_iPad%20Gen%2010th%20Wifi.jpg"
     ],
-    "price": "2.440.347,07 VND",
+    "price": "10.440.347,07 VND",
     "description": [
       "Technology: GSM / HSPA",
       "Dimensions: 191.8 x 107 x 8.5 mm",
@@ -525,7 +525,7 @@
       "https://digital-world-2.myshopify.com/cdn/shop/products/asus-zenpad-3-80-z581kl-1_1024x1024.jpg?v=1491404859",
       "https://digital-world-2.myshopify.com/cdn/shop/products/asus-zenpad-3-80-z581kl-2_1024x1024.jpg?v=1491404859"
     ],
-    "price": "6.901.991,72 VND",
+    "price": "4.901.991,72 VND",
     "description": [
       "Technology: GSM / HSPA / LTE",
       "Dimensions: 205.4 x 136.4 x 7.6 mm",
@@ -548,17 +548,16 @@
   },
   {
     "category": ["Home", "Tablet"],
-    "name": "APPLE IPAD PRO",
+    "name": "APPLE IPAD PRO 11 2021 M1",
     "brand": "APPLE",
-    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
+    "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/ipad-pro-2021-11inch-grey_2.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/ss5_1024x1024.jpg?v=1491404844",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/apple-ipad-pro-2_1024x1024.jpg?v=1491404844",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/apple-ipad-pro-3_1024x1024.jpg?v=1491404844",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/apple-ipad-pro-4_1024x1024.jpg?v=1491404844",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/apple-ipad-pro-5_1024x1024.jpg?v=1491404844"
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/ipad-pro-2021-11inch-grey_2.jpg",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/a/p/apple_ipad_pro_2021_silver_11_1-_tejar.jpg",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/ipad-pro-m1-11-inch-wifi-128gb-2021.jpg",
+      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/ipad-pro-m1-11-inch-wifi-128gb-2021-bac.jpg"
     ],
-    "price": "34.509.958,59 VND",
+    "price": "18.509.958,59 VND",
     "description": [
       "Technology: GSM / CDMA / HSPA / EVDO / LTE",
       "Dimensions: 305.7 x 220.6 x 6.9 mm",
@@ -584,7 +583,7 @@
   },
   {
     "category": ["Home", "Tablet"],
-    "name": "APPLE IPAD AIR 2",
+    "name": "APPLE IPAD PRO 11 INCH 2022 M2 521GB",
     "brand": "APPLE",
     "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
     "images": [
@@ -607,7 +606,7 @@
       "Camera: 8 MP, f/2.4 - 1.2 MP, f/2.2"
     ],
     "variants": [
-      { "label": "Size", "variants": ["16GB", "32GB", "64GB", "128GB"] },
+      { "label": "Size", "variants": ["521GB"] },
       { "label": "Color", "variants": ["SPACE GRAY", "SILVER", "GOLD"] }
     ],
     "infomations": {
@@ -619,13 +618,13 @@
   },
   {
     "category": ["Home", "Laptop"],
-    "name": "LENOVO IDEAPAD 110",
+    "name": "LENOVO V14 G3 ABA",
     "brand": "LENOVO",
-    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
+    "thumb": "https://cdn.tgdd.vn/Products/Images/44/315957/lenovo-v14-g3-aba-r5-82tu006svn-1.jpg",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z1_877559ca-7315-44b0-9f7f-f393bd0808bd_1024x1024.jpg?v=1491404790",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z2_6f644814-23bf-4439-80ff-0b5d50baf196_1024x1024.jpg?v=1491404790",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z3_76a134cf-ab12-45ae-bf1d-54a1ec20982d_1024x1024.jpg?v=1491404790"
+      "https://cdn.tgdd.vn/Products/Images/44/315957/lenovo-v14-g3-aba-r5-82tu006svn-1.jpg",
+      "https://cdn.tgdd.vn/Products/Images/44/315957/lenovo-v14-g3-aba-r5-82tu006svn-3.jpg",
+      "https://cdn.tgdd.vn/Products/Images/44/315957/lenovo-v14-g3-aba-r5-82tu006svn-5.jpg"
     ],
     "price": "18.462.827,84 VND",
     "description": [
@@ -640,7 +639,10 @@
       "Dimensions: 377 x 264 x 22.9 cmM",
       "Weight: 2.3 kg"
     ],
-    "variants": [],
+    "variants": [
+      { "label": "Size", "variants": ["521GB"] },
+      { "label": "Color", "variants": ["SPACE GRAY", "SILVER", "GOLD"] }
+    ],
     "infomations": {
       "DESCRIPTION": "\n                  \nProcessor: Intel, Core i7 Skylake\nMemory: DDR4 - 8 GB\nDisplay: 15.6\" 1366 x 768\nGraphic: AMD Radeon R5 M430\nStorage: HDD, 1 TB\nCamera: 0.3 MP\nNetworking: 802.11 b/g/n\nBattery: Li-Ion 4 cell\nDimensions: 377 x 264 x 22.9 cmM\nWeight: 2.3 kg\n\n                ",
       "WARRANTY": "\n                  Warranty Information\nLIMITED WARRANTIESLimited Warranties are non-transferable. The following Limited Warranties are given to the original retail purchaser of the following Ashley Furniture Industries, Inc.Products:\nFrames Used In Upholstered and Leather ProductsLimited Lifetime Warranty A Limited Lifetime Warranty applies to all frames used in sofas, couches, love seats, upholstered chairs, ottomans, sectionals, and sleepers. Ashley Furniture Industries,Inc. warrants these components to you, the original retail purchaser, to be free from material manufacturing defects.\n                ",
@@ -652,11 +654,11 @@
     "category": ["Home", "Laptop"],
     "name": "HP PROBOOK 450",
     "brand": "HP",
-    "thumb": "https://media.ldlc.com/ld/products/00/05/44/00/LD0005440098_2_0005440176.jpg",
+    "thumb": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08473464.png?impolicy=Png_Res",
     "images": [
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z1_2_6dbdaadc-bd0c-454b-b4c1-395b60a2e2a7_1024x1024.jpg?v=1491404782",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z2_2_b21a3aa8-86ed-4338-985d-0bfca8fea6e0_1024x1024.jpg?v=1491404782",
-      "https://digital-world-2.myshopify.com/cdn/shop/products/z3_2_86e4ff89-2434-4fe7-b758-49d789152900_1024x1024.jpg?v=1491404782"
+      "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08473464.png?impolicy=Png_Res",
+      "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08473572.png?impolicy=Png_Res",
+      "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08473404.png?impolicy=Png_Res"
     ],
     "price": "20.927.824,89 VND",
     "description": [
