@@ -63,45 +63,39 @@ const Bestseller = () => {
     if (activedTab === 3) setProducts(tablet);
   }, [activedTab, bestseller, newproducts, tablet]);
   return (
-    <div>
-      <div className="flex text-[25px] gap-8  mt-[50px] mb-[50px] ml-[80px]">
-        {tabs.map((el) => (
-          <span 
-            key={el.id}
-            className={`font-semibold capitalize cursor-pointer ${
-              activedTab === el.id ? "text-main" : ""
-            }`}
-            onClick={() => setActivedTab(el.id)}>
-            {el.name}
-          </span>
-        ))}
-      </div>
-      <div className="w-full pb-8">
-        
-        <div className="w-[100%]">
-          <div className="mt-4">
-            <Slider {...settings}>
-              {products?.map((el) => (
-                <Product
-                  key={el.id}
-                  pid={el.id}
-                  productData={el}
-                  isNew={activedTab === 1 ? false : true}
-                />
-              ))}
-            </Slider>
-          </div>
-          <div className="flex px-[10px] justify-between mt-[50px]">
-            <img className='w-[49%] h-[250px] object-fill'
-              src="https://media.binglee.com.au/f/0/4/1/f04185510d8913e0b42730ad78a103c86ada48dd_Apple_MPXV3ZP_A_iPhone_Banner_2.jpg"
-              alt="banner products"></img>
-            <img className='w-[49%] h-[250px] object-fill'
-              src="https://th.bing.com/th/id/R.1aaf5e65043645c1bdb0612b8e954dfa?rik=OYsXYWI2QthuXQ&pid=ImgRaw&r=0"
-              alt="banner products"></img>
+    <>
+      <div>
+        <div className="flex text-[25px] gap-8  mt-[50px] mb-[50px] ml-[80px]">
+          {tabs.map((el) => (
+            <span
+              key={el.id}
+              className={`font-semibold capitalize cursor-pointer ${
+                activedTab === el.id ? "text-main" : ""
+              }`}
+              onClick={() => setActivedTab(el.id)}>
+              {el.name}
+            </span>
+          ))}
+        </div>
+        <div className="w-full pb-8">
+          <div className="w-[100%]">
+            <div className="mt-4">
+              <Slider {...settings}>
+                {products?.map((el) => (
+                  <Product
+                    key={el.id}
+                    pid={el.id}
+                    productData={el}
+                    isNew={activedTab === 1 ? false : true}
+                  />
+                ))}
+              </Slider>
+            </div>
+            
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
