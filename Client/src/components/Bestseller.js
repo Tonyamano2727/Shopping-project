@@ -6,7 +6,6 @@ import Slider from "react-slick";
 const tabs = [
   { id: 1, name: "Best Seller" },
   { id: 2, name: "New Arrivals" },
-  { id: 3, name: "Tablet" },
 ];
 //Setting Slider
 var settings = {
@@ -19,17 +18,16 @@ var settings = {
 const Bestseller = () => {
   const [activedTab, setActivedTab] = useState(1);
 
-  const [tablet, setTablet] = useState(null);
   const [bestseller, setBestSeller] = useState(null);
   const [newproducts, setNewproducts] = useState(null);
 
   const [products, setProducts] = useState(null);
   const fectchProducts = async () => {
-    const [bestSellerResponse, newProductsResponse, tabletResponse] =
+    const [bestSellerResponse, newProductsResponse] =
       await Promise.all([
-        apiGetProducts({ sort: "-sold" }),
-        apiGetProducts({ sort: "createdAt" }),
-        apiGetProducts({ sort: "brand", brand: "SAMSUNG" }),
+        apiGetProducts({ sort: "-totalRatings" }),
+        apiGetProducts({ sort: "category", category: "Smartphone"}),
+        
       ]);
     if (bestSellerResponse?.success) {
       setBestSeller(bestSellerResponse.products);
@@ -40,9 +38,6 @@ const Bestseller = () => {
       setNewproducts(newProductsResponse.products);
     }
 
-    if (tabletResponse?.success) {
-      setTablet(tabletResponse.products);
-    }
     // if (response[0]?.success) {
     //   setBestSeller(response[0].products);
     //   setProducts(response[0].products)
@@ -60,8 +55,7 @@ const Bestseller = () => {
   useEffect(() => {
     if (activedTab === 1) setProducts(bestseller);
     if (activedTab === 2) setProducts(newproducts);
-    if (activedTab === 3) setProducts(tablet);
-  }, [activedTab, bestseller, newproducts, tablet]);
+  }, [activedTab, bestseller, newproducts]);
   return (
     <>
       <div>

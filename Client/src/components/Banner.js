@@ -1,43 +1,91 @@
-import React, { useState, useRef} from 'react';
-// import Slider from "react-slick";
+import React, { useState, useRef } from "react";
+import Slider from "react-slick";
 import { CiPause1 } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
-import videobanner from '../assets/videobanner.mp4'
-const Banner = () => {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+import videobanneriphone from "../assets/videobanneriphone.mp4";
+import videobannersamsung from "../assets/videobannersamsung.mp4";
 
-  const togglePlay = () => {
-    const video = videoRef.current;
+var settings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+const Banner = () => {
+  const [isPlaying1, setIsPlaying1] = useState(true);
+  const [isPlaying2, setIsPlaying2] = useState(true);
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+
+  const togglePlay1 = () => {
+    const video = videoRef1.current;
     if (video.paused) {
       video.play();
-      setIsPlaying(true);
+      setIsPlaying1(true);
     } else {
       video.pause();
-      setIsPlaying(false);
+      setIsPlaying1(false);
     }
   };
-  return (
-    
-    <div className="w-full flex flex-col relative">
-      
-      <video className='h-[700px] w-full object-cover'
-        ref={videoRef}
-        controls={false} // Ẩn thanh điều khiển mặc định
-        
-        autoPlay={true}
-        onClick={togglePlay}
-      >
-        <source src={videobanner} type="video/mp4" />
-        
-      </video>
-      <button className='absolute bottom-[15px] right-[20px]' onClick={togglePlay}>
-        {isPlaying ? <CiPause1 className='text-white text-3xl'  /> : <FaPlay className='text-white text-3xl'  />}
-      </button>
 
-        {/* <iframe className="h-[500px] w-full object-cover" src="https://www.youtube.com/embed/7B-rzR2avR0?si=DxTx_XJa_gcd68I5" title="banner video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
+  const togglePlay2 = () => {
+    const video = videoRef2.current;
+    if (video.paused) {
+      video.play();
+      setIsPlaying2(true);
+    } else {
+      video.pause();
+      setIsPlaying2(false);
+    }
+  };
+
+  return (
+    <div className="w-full flex flex-col">
+      <Slider {...settings}>
+        <div className=" relative">
+          <video
+            className="h-[700px] w-full object-cover"
+            ref={videoRef1}
+            controls={false} // Ẩn thanh điều khiển mặc định
+            autoPlay={true}
+            onClick={togglePlay1}>
+            <source src={videobanneriphone} type="video/mp4" />
+          </video>
+          <button
+            className="absolute bottom-[15px] right-[20px]"
+            onClick={togglePlay1}>
+            {isPlaying1 ? (
+              <CiPause1 className="text-white text-3xl" />
+            ) : (
+              <FaPlay className="text-white text-3xl" />
+            )}
+          </button>
+        </div>
+        <div className=" relative">
+          <video
+            className="h-[700px] w-full object-cover"
+            ref={videoRef2}
+            controls={false} // Ẩn thanh điều khiển mặc định
+            autoPlay={true}
+            onClick={togglePlay2}>
+            <source src={videobannersamsung} type="video/mp4" />
+          </video>
+          <button
+            className="absolute bottom-[15px] right-[20px]"
+            onClick={togglePlay2}>
+            {isPlaying2 ? (
+              <CiPause1 className="text-white text-3xl" />
+            ) : (
+              <FaPlay className="text-white text-3xl" />
+            )}
+          </button>
+        </div>
+      </Slider>
     </div>
   );
 };
+
 
 export default Banner;

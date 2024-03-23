@@ -35,7 +35,7 @@ const Product = ({ productData, isNew }) => {
           <img
             src={productData?.thumb || ""}
             alt=""
-            className="h-[303px] object-fill "></img>
+            className="h-[303px] object-contain "></img>
           {/* <img
             src={isNew ? label : labelblue}
             alt=""
