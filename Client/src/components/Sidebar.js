@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
   const {categories} = useSelector(state => state.app)
-  console.log(categories);
+  // console.log(categories);
   // null ko su dung duoc ap
   return (
     <div className='flex justify-center mb-5'>

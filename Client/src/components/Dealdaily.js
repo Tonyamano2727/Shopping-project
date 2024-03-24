@@ -8,28 +8,54 @@ const { AiFillStar, IoMenu } = icons;
 
 const Dealdaily = () => {
   const [dealdaily, setDealdaily] = useState(null);
-  const [hour, setHour] = useState(0)
-  const  [minute, setMinute] = useState(0)
-  const  [second, setSecond] = useState(0)
+  const [hour, setHour] = useState(0);
+  const [minute, setMinute] = useState(0);
+  const [second, setSecond] = useState(0);
+  const [expire, setExpire] = useState(false);
 
   const fetchDealdaily = async () => {
     const responese = await apiGetProducts({
       limit: 1,
-      page: 1,
+      page: Math.round(Math.random() * 10),
       totalRatings: 5,
     });
     console.log(responese);
     if (responese.success) setDealdaily(responese.products[0]);
   };
 
+  // useEffect(() => {
+  //   fetchDealdaily();
+  // }, []);
   useEffect(() => {
     fetchDealdaily();
-  },[]);
+    // console.log(123);
+    setHour(1);
+    setMinute(1);
+    setSecond(5);
+  }, [expire]);
   useEffect(() => {
     let idInterval = setInterval(() => {
-      
-    })
-  },[])
+      // console.log('iterval');
+      if (second > 0) setSecond(prev => prev - 1);
+      else {
+        if (minute > 0) {
+          setMinute(prev => prev - 1);
+          setSecond(5);
+        } else {
+          if (hour > 0) {
+            setHour(prev => prev - 1);
+            setMinute(1);
+            setSecond(5);
+          } else {
+            setExpire(!expire);
+          }
+        }
+      }
+    }, 1000);
+    return () => {
+      clearInterval(idInterval);
+    };
+  }, [second, minute, hour, expire]);
   return (
     <div className="w-full justify-between flex">
       <div className="w-[30%] text-center text-lg border flex-auto justify-center items-center flex flex-col">
@@ -42,7 +68,7 @@ const Dealdaily = () => {
         </div>
         <div className="w-full flex flex-col items-center pt-4">
           <img
-            src={dealdaily?.thumb || ""}
+            src={dealdaily?.thumb || ''}
             alt=""
             className="w-full h-[400px] object-contain"></img>
           <div className="flex flex-col items-center gap-1 w-full leading-10">
@@ -56,9 +82,9 @@ const Dealdaily = () => {
           </div>
         </div>
         <div className="px-4 flex justify-center w-full gap-2">
-          <Countdow unit={'Hours'} number={hour}/>
-          <Countdow unit={'Minutes'} number={minute}/>
-          <Countdow unit={'Seconds'} number={second}/>
+          <Countdow unit={"Hours"} number={hour} />
+          <Countdow unit={"Minutes"} number={minute} />
+          <Countdow unit={"Seconds"} number={second} />
         </div>
         <button
           type="button"

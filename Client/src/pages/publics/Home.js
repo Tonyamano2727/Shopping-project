@@ -1,5 +1,12 @@
 import React from "react";
-import { Banner, Sidebar, Bestseller,Dealdaily,TabletandIpad } from "../../components";
+import {
+  Banner,
+  Sidebar,
+  Bestseller,
+  Dealdaily,
+  TabletandIpad,
+  Featureproducts,
+} from "../../components";
 
 const Home = () => {
   return (
@@ -7,18 +14,20 @@ const Home = () => {
       <div className="w-[100%] justify-center flex flex-col">
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
           <Sidebar />
-          
         </div>
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
           <Banner />
         </div>
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
-        <Bestseller />
-        <Dealdaily/>
+          <Bestseller />
+          <Dealdaily />
         </div>
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
-        <TabletandIpad />
+          <TabletandIpad />
         </div>
+      </div>
+      <div className='my-8'>
+        <Featureproducts/>
       </div>
       <div className="w-full h-[500px]"></div>
     </div>

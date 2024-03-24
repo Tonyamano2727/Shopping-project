@@ -20,12 +20,20 @@ const getproduct = asyncHandler(async (req, res) => {
     productData: product ? product : "Cant not get product",
   });
 });
-
+const searchproduct = asyncHandler(async (req, res) => {
+  const { title } = req.params; // Lấy title từ req.params thay vì pid
+  const regex = new RegExp(title, "i"); // Tạo biểu thức chính quy không phân biệt chữ hoa chữ thường
+  const product = await Product.find({ title: regex }); // Tìm sản phẩm theo title
+  return res.status(200).json({
+    success: product.length > 0,
+    productData: product.length > 0 ? product : "Cannot get product", // Trả về thông báo lỗi nếu không tìm thấy sản phẩm
+  });
+});
 // Filtering, Sorting & pagination
 const getallproducts = asyncHandler(async (req, res) => {
   const queries = { ...req.query };
   // Tách các trường dặt biệt
-  const excludeFields = ["limit", "sort", "page", "fields"];
+  const excludeFields = ['limit', 'sort', 'page', 'fields'];
   excludeFields.forEach((el) => delete queries[el]);
 
   // Format lại các operator cho đúng cú pháp mongoose      //gt is > // lt is <
@@ -171,4 +179,5 @@ module.exports = {
   deleteProduct,
   ratings,
   uploadImagesProduct,
+  searchproduct,
 };
