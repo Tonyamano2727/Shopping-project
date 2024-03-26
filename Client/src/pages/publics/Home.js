@@ -5,9 +5,8 @@ import {
   Bestseller,
   Dealdaily,
   TabletandIpad,
-  Featureproducts,
+  Featureproducts,Blog,
 } from "../../components";
-
 const Home = () => {
   return (
     <div className="w-full flex justify-center flex-col p-[20px]">
@@ -29,7 +28,9 @@ const Home = () => {
       <div className='my-8'>
         <Featureproducts/>
       </div>
-      <div className="w-full h-[500px]"></div>
+      <div className='my-8'>
+        <Blog/>
+      </div>
     </div>
   );
 };

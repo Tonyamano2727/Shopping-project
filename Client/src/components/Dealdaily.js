@@ -3,9 +3,9 @@ import icons from "../ultils/icons";
 import { apiGetProducts } from "../apis/products";
 import { renderStarFromNumber, formatMoney } from "../ultils/helper";
 import { Countdow } from "./";
-
+import BannerDealIphone from '../assets/Bannerdeal.png'
 const { AiFillStar, IoMenu } = icons;
-
+let idInterval
 const Dealdaily = () => {
   const [dealdaily, setDealdaily] = useState(null);
   const [hour, setHour] = useState(0);
@@ -20,30 +20,39 @@ const Dealdaily = () => {
       totalRatings: 5,
     });
     console.log(responese);
-    if (responese.success) setDealdaily(responese.products[0]);
+    if (responese.success) {
+      setDealdaily(responese.products[0]);
+      const h = 24 - new Date().getHours()
+      const m = 60 - new Date().getMinutes()
+      const s = 60 - new Date().getSeconds
+      setHour(h);
+      setMinute(m);
+      setSecond(s);
+    }else{
+      setHour(0);
+      setMinute(59);
+      setSecond(59);
+    }
   };
 
   // useEffect(() => {
   //   fetchDealdaily();
   // }, []);
   useEffect(() => {
-    fetchDealdaily();
-    // console.log(123);
-    setHour(1);
-    setMinute(1);
-    setSecond(5);
+    idInterval && clearInterval(idInterval)
+    fetchDealdaily()
   }, [expire]);
   useEffect(() => {
-    let idInterval = setInterval(() => {
-      // console.log('iterval');
-      if (second > 0) setSecond(prev => prev - 1);
+     idInterval = setInterval(() => {
+      console.log('interval');
+      if (second > 0) setSecond((prev) => prev - 1);
       else {
         if (minute > 0) {
-          setMinute(prev => prev - 1);
+          setMinute((prev) => prev - 1);
           setSecond(5);
         } else {
           if (hour > 0) {
-            setHour(prev => prev - 1);
+            setHour((prev) => prev - 1);
             setMinute(1);
             setSecond(5);
           } else {
@@ -68,7 +77,7 @@ const Dealdaily = () => {
         </div>
         <div className="w-full flex flex-col items-center pt-4">
           <img
-            src={dealdaily?.thumb || ''}
+            src={dealdaily?.thumb || ""}
             alt=""
             className="w-full h-[400px] object-contain"></img>
           <div className="flex flex-col items-center gap-1 w-full leading-10">
@@ -96,7 +105,7 @@ const Dealdaily = () => {
       <div className="w-[70%]">
         <img
           className="w-[100%] h-[400px] object-cover mb-8"
-          src="https://media.binglee.com.au/f/0/4/1/f04185510d8913e0b42730ad78a103c86ada48dd_Apple_MPXV3ZP_A_iPhone_Banner_2.jpg"
+          src={BannerDealIphone}
           alt="banner products"></img>
         <img
           className="w-[100%] h-[400px] object-fill"

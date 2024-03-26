@@ -13,11 +13,7 @@ const data = [
     },
     {
         cate: 'Speaker',
-        brand: []
-    },
-    {
-        cate: 'Camera',
-        brand: []
+        brand: ['Samsung','Apple']
     },
     {
         cate: 'Accessories',
@@ -26,10 +22,6 @@ const data = [
     {
         cate: 'Television',
         brand: ['Apple', 'Samsung','LG','Asus','Nokia','BlackBerry']
-    },
-    {
-        cate: 'Printer',
-        brand: ['Samsung', 'Acer','Asus','Lenovo','Haier']
     },
 ]
 module.exports = data

@@ -49,7 +49,7 @@ const Banner = () => {
             className="h-[700px] w-full object-cover"
             ref={videoRef1}
             controls={false} // Ẩn thanh điều khiển mặc định
-            autoPlay={true}
+            // autoPlay={true}
             onClick={togglePlay1}>
             <source src={videobanneriphone} type="video/mp4" />
           </video>
@@ -68,7 +68,7 @@ const Banner = () => {
             className="h-[700px] w-full object-cover"
             ref={videoRef2}
             controls={false} // Ẩn thanh điều khiển mặc định
-            autoPlay={true}
+            // autoPlay={true}
             onClick={togglePlay2}>
             <source src={videobannersamsung} type="video/mp4" />
           </video>

@@ -25,7 +25,7 @@ const Bestseller = () => {
   const fectchProducts = async () => {
     const [bestSellerResponse, newProductsResponse] =
       await Promise.all([
-        apiGetProducts({ sort: "-totalRatings" }),
+        apiGetProducts({ sort: "-sold" }),
         apiGetProducts({ sort: "category", category: "Smartphone"}),
         
       ]);
