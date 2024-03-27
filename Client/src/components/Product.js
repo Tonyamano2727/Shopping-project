@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { formatMoney } from "../ultils/helper";
-import label from "../assets/label.png";
-import labelblue from "../assets/labelblue.png";
 import { renderStarFromNumber } from "../ultils/helper";
 import { Selectoption } from "./";
 import icons from "../ultils/icons";
@@ -36,13 +34,6 @@ const Product = ({ productData, isNew }) => {
             src={productData?.thumb || ""}
             alt=""
             className="h-[303px] object-contain "></img>
-          {/* <img
-            src={isNew ? label : labelblue}
-            alt=""
-            className={`absolute w-[100px]  ${isNew ? 'w-[120px] top-[-20px] left-[-28px]' : ' w-[120px] top-[-20px] left-[-30px]'} object-cover`}></img> */}
-          {/* <span className={`font-bold top-[0px] left-[5px] text-white absolute ${isNew ? '' : 'text-sm top-[6px] left-[-5px]'}`}>
-              {isNew ? 'New' : 'Trending'}
-            </span> */}
         </div>
         <div className="flex flex-col items-center gap-1 w-full leading-10">
           <span className="line-clamp-1 font-semibold text-[20px] mt-4">

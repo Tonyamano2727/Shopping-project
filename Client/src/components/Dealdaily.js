@@ -19,7 +19,7 @@ const Dealdaily = () => {
       page: Math.round(Math.random() * 10),
       totalRatings: 5,
     });
-    console.log(responese);
+    // console.log(responese);
     if (responese.success) {
       setDealdaily(responese.products[0]);
       const h = 24 - new Date().getHours()
@@ -44,7 +44,7 @@ const Dealdaily = () => {
   }, [expire]);
   useEffect(() => {
      idInterval = setInterval(() => {
-      console.log('interval');
+      // console.log('interval');
       if (second > 0) setSecond((prev) => prev - 1);
       else {
         if (minute > 0) {

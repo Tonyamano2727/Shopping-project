@@ -29,21 +29,9 @@ const TabletandIpad = () => {
         setLaptop(laptopResponse.products);
         setProducts(laptopResponse.products);
       }
-  
-  
       if (tabletResponse?.success) {
         setTablet(tabletResponse.products);
       }
-      // if (response[0]?.success) {
-      //   setBestSeller(response[0].products);
-      //   setProducts(response[0].products)
-      //   setTablet(response[0].products);
-      // }
-      // if (response[1]?.success) setNewproducts(response[1].products);
-      // setProducts(response[0].products)
-  
-      // if (response[1]?.success) setTablet(response[1].products);
-      // setTablet(response[0].products)
     };
     useEffect(() => {
       fectchProducts();
@@ -81,7 +69,6 @@ const TabletandIpad = () => {
                 ))}
               </Slider>
             </div>
-            
           </div>
         </div>
       </div>
