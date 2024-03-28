@@ -14,7 +14,7 @@ const userConfig = {
   whitelist: ['isLoggedIn','token']
 }
 
- export const store = configureStore({
+export const store = configureStore({
   reducer: {
     app: appslice,
     user: persistReducer(userConfig, userSlice)

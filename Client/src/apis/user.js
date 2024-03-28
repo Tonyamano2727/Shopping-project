@@ -9,3 +9,8 @@ export const apiLogin = (data) => axios({
     method: 'post',
     data : data
 })
+export const apiForgotPassword = (data) => axios({
+    url: '/user/forgotpassword',
+    method: 'post',
+    data : data
+})
