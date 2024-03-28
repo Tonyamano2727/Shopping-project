@@ -3,7 +3,7 @@ import { renderStarFromNumber, formatMoney } from "../ultils/helper";
 import { Link } from "react-router-dom";
 import path from "../ultils/path";
 const ProductsCard = ({id, images, totalRatings, title, price}) => {
-  console.log(id);
+  
   return (
     <>
       <Link to={`/${path.DETAIL_PRODUCT}/${id}/${title}`} className="w-1/3 flex-auto flex p-4 ">

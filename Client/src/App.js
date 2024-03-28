@@ -2,13 +2,13 @@ import React,{useEffect} from 'react';
 import {Route, Routes} from 'react-router-dom'
 import {Home,Login,Public,FAQ,Service,Detailproducts,Blogs,Products} from './pages/publics'
 import path from './ultils/path';
-import {getCategory} from './store/asyncAction';
+import {getCategory} from './store/app/asyncAction';
 import {useDispatch} from 'react-redux'
 function App() {
   const dispath = useDispatch()
   useEffect(() => {
     dispath(getCategory())
-  },[])
+  },[dispath])
   return (
     <div className="min-h-screen font-main overflow-y-auto ">
         <Routes>

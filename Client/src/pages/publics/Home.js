@@ -7,7 +7,10 @@ import {
   TabletandIpad,
   Featureproducts,Blog,
 } from "../../components";
+// import {useSelector} from 'react-redux'
 const Home = () => {
+  // const {isLoggedIn , current} = useSelector(state = state.user)
+  // console.log(isLoggedIn,current);
   return (
     <div className="w-full flex justify-center flex-col p-[20px]">
       <div className="w-[100%] justify-center flex flex-col">

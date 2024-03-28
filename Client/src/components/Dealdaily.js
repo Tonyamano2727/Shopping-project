@@ -17,7 +17,7 @@ const Dealdaily = () => {
     const responese = await apiGetProducts({
       limit: 1,
       page: Math.round(Math.random() * 10),
-      totalRatings: 5,
+      totalRatings: 4,
     });
     // console.log(responese);
     if (responese.success) {

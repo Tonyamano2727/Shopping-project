@@ -12,7 +12,7 @@ const register = asyncHandler(async (req, res) => {
   const { email, password, firstname, lastname } = req.body;
   if (!email || !password || !lastname || !firstname)
     return res.status(400).json({
-      sucess: false,
+      success: false,
       mes: "Missing input",
     });
   const user = await User.findOne({ email: email });
@@ -20,7 +20,7 @@ const register = asyncHandler(async (req, res) => {
   else {
     const newUser = await User.create(req.body);
     return res.status(200).json({
-      sucess: newUser ? true : false,
+      success: newUser ? true : false,
       mes: newUser
         ? "Register succcessfull . GO to login"
         : " Something went wrong",
@@ -33,7 +33,7 @@ const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
     return res.status(400).json({
-      sucess: false,
+      success: false,
       mes: "Missing input",
     });
   const response = await User.findOne({ email: email });
@@ -56,7 +56,7 @@ const login = asyncHandler(async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     return res.status(200).json({
-      sucess: true,
+      success: true,
       Accesstoken,
       userData,
     });
@@ -71,7 +71,7 @@ const getCurrent = asyncHandler(async (req, res) => {
     "-refreshToken -password -role"
   ); // select is hide truong trong database
   return res.status(200).json({
-    sucess: user ? true : false,
+    success: user ? true : false,
     rs: user ? user : "User not found",
   });
 });
@@ -89,7 +89,7 @@ const refreshAcessToken = asyncHandler(async (req, res) => {
     refreshToken: cookie.refreshToken,
   });
   return res.status(200).json({
-    sucess: response ? true : false,
+    success: response ? true : false,
     newAccessToken: response
       ? generrateAccessToken(response._id, response.role)
       : "Refresh token not matcheed",
@@ -111,7 +111,7 @@ const logout = asyncHandler(async (req, res) => {
     secure: true,
   });
   return res.status(200).json({
-    sucess: true,
+    success: true,
     mes: "Logout is done",
   });
 });

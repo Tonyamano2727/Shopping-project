@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ProductsCard } from "./";
 import { apiGetProducts } from "../apis/products";
-import { Link } from "react-router-dom";
-import path from "../ultils/path";
 const Featureproducts = () => {
   const [products, setProducts] = useState(null);
 
