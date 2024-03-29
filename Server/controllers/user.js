@@ -139,8 +139,9 @@ const forgotPassword = asyncHandler(async (req, res) => {
   };
   const rs = await Sendemail(data);
   return res.status(200).json({
-    success: true,
-    rs,
+    success:true,
+    mes: rs.response?.includes('OK') ? 'Check your email' : 'Email wrong try last'
+    
   });
 });
 
