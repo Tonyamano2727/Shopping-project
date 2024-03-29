@@ -7,7 +7,7 @@ const Featureproducts = () => {
   const fetchProducts = async () => {
     const responese = await apiGetProducts({
       limit: 9,
-      totalRatings: 4
+      totalRatings: 4,
     });
     if (responese.success) setProducts(responese.products);
   };

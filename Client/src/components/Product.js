@@ -10,7 +10,7 @@ const { FaEye, IoMenu, FaHeart } = icons;
 const Product = ({ productData, isNew }) => {
   const [isShowOption, setIsShowOption] = useState(false);
   return (
-    <div className="w-full px-[10px]  text-base">
+    <div className="w-full px-[10px] text-base">
       <Link
         className="w-full flex flex-col items-center"
         to={`/${path.DETAIL_PRODUCT}/${productData?._id}/${productData?.title}`}
