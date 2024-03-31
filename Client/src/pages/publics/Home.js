@@ -1,21 +1,16 @@
 import React from "react";
 import {
   Banner,
-  Sidebar,
   Bestseller,
   Dealdaily,
   TabletandIpad,
   Featureproducts,Blog,
 } from "../../components";
-import {useSelector} from 'react-redux'
 const Home = () => {
   
   return (
     <div className="w-full flex justify-center flex-col p-[20px]">
       <div className="w-[100%] justify-center flex flex-col">
-        <div className="flex flex-col gap-5 w-[100%] flex-auto ">
-          <Sidebar />
-        </div>
         <div className="flex flex-col gap-5 w-[100%] flex-auto ">
           <Banner />
         </div>

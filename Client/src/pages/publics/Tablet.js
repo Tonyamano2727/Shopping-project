@@ -3,15 +3,16 @@ import { apiGetProducts } from "../../apis/products";
 import { Productcategory } from "../../components";
 
 
-const Smartphone = () => {
+
+const Tablet = () => {
     const [products, setProducts] = useState(null);
     const fectchProducts = async () => {
-      const [phonetResponse] =
+      const [ tabletResponse] =
         await Promise.all([
-          apiGetProducts({ sort: "category", category: "Smartphone" }),
+          apiGetProducts({ sort: "category", category: "Tablet" }),
         ]);
-      if (phonetResponse?.success) {
-        setProducts(phonetResponse.products);
+      if (tabletResponse?.success) {
+        setProducts(tabletResponse.products);
       }
     };
     useEffect(() => {
@@ -40,5 +41,5 @@ const Smartphone = () => {
   );
 };
 
-export default Smartphone;
+export default Tablet;
 

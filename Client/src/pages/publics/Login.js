@@ -4,7 +4,7 @@ import { apiRegister, apiLogin, apiForgotPassword } from "../../apis/user";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import path from "../../ultils/path";
-import { register } from "../../store/user/userSlice";
+import { login } from "../../store/user/userSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 const Login = () => {
@@ -41,6 +41,7 @@ const Login = () => {
     const { firstname, lastname, mobile, ...data } = payload;
     if (isRegister) {
       const response = await apiRegister(payload);
+      console.log("regiser", response);
       if (response.success) {
         Swal.fire("Congratulation", response.mes, "Success").then(() => {
           setisRegister(false);
@@ -51,9 +52,10 @@ const Login = () => {
       }
     } else {
       const rs = await apiLogin(data);
+      console.log("signin" , rs);
       if (rs.success) {
         dispath(
-          register({
+          login({
             isLoggedIn: true,
             token: rs.Accesstoken,
             userData: rs.userData,

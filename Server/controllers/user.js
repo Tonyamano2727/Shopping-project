@@ -24,6 +24,7 @@ const register = asyncHandler(async (req, res) => {
       mes: newUser
         ? "Register succcessfull . GO to login"
         : " Something went wrong",
+      rs
     });
   }
 });
@@ -66,6 +67,7 @@ const login = asyncHandler(async (req, res) => {
 });
 
 const getCurrent = asyncHandler(async (req, res) => {
+  //console.log('req   ', req);
   const { _id } = req.user;
   const user = await User.findById({ _id: _id }).select(
     "-refreshToken -password -role"

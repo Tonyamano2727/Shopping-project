@@ -25,8 +25,8 @@ const searchproduct = asyncHandler(async (req, res) => {
   const regex = new RegExp(title, "i"); // Tạo biểu thức chính quy không phân biệt chữ hoa chữ thường
   const product = await Product.find({ title: regex }); // Tìm sản phẩm theo title
   return res.status(200).json({
-    success: product.length > 0,
-    productData: product.length > 0 ? product : "Cannot get product", // Trả về thông báo lỗi nếu không tìm thấy sản phẩm
+    success: product !== null,
+    productData: product !== null ? product : "Cannot get product", // Trả về thông báo lỗi nếu không tìm thấy sản phẩm
   });
 });
 // Filtering, Sorting & pagination
