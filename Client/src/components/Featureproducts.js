@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ProductsCard } from "./";
 import { apiGetProducts } from "../apis/products";
-const Featureproducts = () => {
+const Featureproducts = (productData) => {
   const [products, setProducts] = useState(null);
 
   const fetchProducts = async () => {
@@ -23,12 +23,13 @@ const Featureproducts = () => {
         <div className="flex flex-wrap mt-[15px] ">
           {products?.map((el) => (
             <ProductsCard
-              // key={el.id}
+              key={el.id}
               id={el._id}
-              images={el.thumb}
-              title={el.title}
-              totalRatings={el.totalRatings}
-              price={el.price}
+              // images={el.thumb}
+              // title={el.title}
+              // totalRatings={el.totalRatings}
+              // price={el.price}
+              productData={el}
             />
           ))}
         </div>

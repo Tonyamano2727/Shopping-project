@@ -4,20 +4,20 @@ import { apiGetProduct } from "../../apis/products";
 import { Breadcrumb } from "../../components";
 const Detailproducts = () => {
   const { pid, title } = useParams();
-  // console.log({pid, title});
+  const [product, setproduct] = useState(null)
   const fetchProductdata = async () => {
     const response = await apiGetProduct(pid)
-    console.log(response);
+    if(response.success) setproduct(response.productData)
   }
   useEffect (() => {
     if(pid) fetchProductdata()
   },[pid])
   return (
     <div>
-      <div className="h-[81px flex justify-center">
+      <div className="h-[81px flex justify-center ">
         <div className="w-main">
-          <h3>{title}</h3>
-          <Breadcrumb/>
+          <span className="text-[19px] font-medium ">{title}</span>
+          <Breadcrumb title={title} category={product?.category}/>
         </div>
       </div>
     </div>

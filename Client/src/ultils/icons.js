@@ -9,6 +9,7 @@ import { IoMenu } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
+import { GrFormNext } from "react-icons/gr";
 
 const icons ={
     MdPhone,
@@ -22,7 +23,8 @@ const icons ={
     IoMenu,
     FaHeart,
     MdOutlineEmail,
-    IoLogOut
+    IoLogOut,
+    GrFormNext
 }
 
 export default icons
