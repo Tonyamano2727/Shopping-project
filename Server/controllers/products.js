@@ -20,15 +20,7 @@ const getproduct = asyncHandler(async (req, res) => {
     productData: product ? product : "Cant not get product",
   });
 });
-const searchproduct = asyncHandler(async (req, res) => {
-  const { title } = req.params; // Lấy title từ req.params thay vì pid
-  const regex = new RegExp(title, "i"); // Tạo biểu thức chính quy không phân biệt chữ hoa chữ thường
-  const product = await Product.find({ title: regex }); // Tìm sản phẩm theo title
-  return res.status(200).json({
-    success: product !== null,
-    productData: product !== null ? product : "Cannot get product", // Trả về thông báo lỗi nếu không tìm thấy sản phẩm
-  });
-});
+
 // Filtering, Sorting & pagination
 const getallproducts = asyncHandler(async (req, res) => {
   const queries = { ...req.query };
@@ -179,5 +171,5 @@ module.exports = {
   deleteProduct,
   ratings,
   uploadImagesProduct,
-  searchproduct,
+ 
 };

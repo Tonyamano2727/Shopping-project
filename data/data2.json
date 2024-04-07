@@ -4,12 +4,11 @@
     "name": "IPHONE X BLACK",
     "brand": "APPLE",
     "thumb": "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/_/0/_0001_finish_iphone-x_dark_gray_large.jpg",
-    "images": [
-      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/_/0/_0001_finish_iphone-x_dark_gray_large.jpg",
-      "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-mau-den-1-org.jpg",
-      "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-mau-den-12-org.jpg",
-      "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-bac-3-1-org.jpg",
-      "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-bac-4-1-org.jpg"
+    "images": [ "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/_/0/_0001_finish_iphone-x_dark_gray_large.jpg",
+    "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-mau-den-1-org.jpg",
+    "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-mau-den-12-org.jpg",
+    "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-bac-3-1-org.jpg",
+    "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-bac-4-1-org.jpg"
     ],
     "price": "6.160.323,41 VND",
     "description": [

@@ -8,7 +8,7 @@ export const apiGetProducts = (params) =>
   });
 export const apiGetProduct = (pid) =>
   axios({
-    url: '/products/'+pid,
-    method: 'get',
+    url: "/products/" + pid,
+    method: "get",
   });
-
+  

@@ -10,6 +10,11 @@ import { FaHeart } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
 import { GrFormNext } from "react-icons/gr";
+import { FaUserShield } from "react-icons/fa";
+import { FaTruckArrowRight } from "react-icons/fa6";
+import { FaGift } from "react-icons/fa";
+import { MdOutlineReplyAll } from "react-icons/md";
+import { FaTty } from "react-icons/fa";
 
 const icons ={
     MdPhone,
@@ -24,7 +29,12 @@ const icons ={
     FaHeart,
     MdOutlineEmail,
     IoLogOut,
-    GrFormNext
+    GrFormNext,
+    FaUserShield,
+    FaTruckArrowRight,
+    FaGift,
+    MdOutlineReplyAll,
+    FaTty
 }
 
 export default icons
