@@ -113,3 +113,8 @@ export const Productinfortabs = [
        
     }
 ]
+
+export const colors = [
+    'Black',
+    'White',
+]

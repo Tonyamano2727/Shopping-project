@@ -15,6 +15,7 @@ import { FaTruckArrowRight } from "react-icons/fa6";
 import { FaGift } from "react-icons/fa";
 import { MdOutlineReplyAll } from "react-icons/md";
 import { FaTty } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 
 const icons ={
     MdPhone,
@@ -34,7 +35,8 @@ const icons ={
     FaTruckArrowRight,
     FaGift,
     MdOutlineReplyAll,
-    FaTty
+    FaTty,
+    FaAngleDown
 }
 
 export default icons
