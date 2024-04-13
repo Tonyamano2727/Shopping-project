@@ -27,7 +27,6 @@ const Bestseller = () => {
       await Promise.all([
         apiGetProducts({ sort: "-sold" }),
         apiGetProducts({ sort: "category", category: "Smartphone"}),
-        
       ]);
     if (bestSellerResponse?.success) {
       setBestSeller(bestSellerResponse.products);

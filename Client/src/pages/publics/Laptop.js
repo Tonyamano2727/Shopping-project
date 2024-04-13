@@ -1,8 +1,8 @@
 // import React, { useEffect, useState } from "react";
 // import { apiGetProducts } from "../../apis/products";
 // import { Productcategory } from "../../components";
-
-
+// import {Breadcrumb} from "../../components";
+// import { useParams } from "react-router-dom";
 
 // const Laptop = () => {
 //     const [products, setProducts] = useState(null);
@@ -15,12 +15,20 @@
 //         setProducts(LaptopResponse.products);
 //       }
 //     };
+//     const { category } = useParams();
+//     console.log(category);
 //     useEffect(() => {
 //       fectchProducts();
 //     }, []);
    
 //   return (
-//     <>
+//     <div className="flex flex-col">
+//       <div className="h-[81px flex justify-center ">
+//         <div className="w-main">
+//           <span className="text-[19px] font-medium uppercase">{category}</span>
+//           <Breadcrumb category={category} />
+//         </div>
+//       </div>
 //       <div className="w-full mt-8 flex">
 //         <div className="w-full pb-8 flex">
 //           <div className="w-[100%] justify-center flex">
@@ -37,11 +45,12 @@
 //           </div>
 //         </div>
 //       </div>
-//     </>
+//     </div>
 //   );
 // };
 
 // export default Laptop;
+
 
 import React from 'react'
 

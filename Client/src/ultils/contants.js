@@ -117,4 +117,8 @@ export const Productinfortabs = [
 export const colors = [
     'Black',
     'White',
+    'Blue',
+    'Yellow',
+    'Pink',
+    'Purple'
 ]

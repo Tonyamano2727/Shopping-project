@@ -25,7 +25,7 @@ const getproduct = asyncHandler(async (req, res) => {
 const getallproducts = asyncHandler(async (req, res) => {
   const queries = { ...req.query };
   // Tách các trường dặt biệt
-  const excludeFields = ['limit', 'sort', 'page', 'fields'];
+  const excludeFields = ["limit", "sort", "page", "fields"];
   excludeFields.forEach((el) => delete queries[el]);
 
   // Format lại các operator cho đúng cú pháp mongoose      //gt is > // lt is <
@@ -35,11 +35,20 @@ const getallproducts = asyncHandler(async (req, res) => {
     (macthedEl) => `$${macthedEl}`
   );
   const formatedQueries = JSON.parse(queryString);
-
+  let colorQueryObject = {}
   // Filtering
   if (queries?.title)
     formatedQueries.title = { $regex: queries.title, $options: "i" };
-  let queryConmmand = Product.find(formatedQueries);
+  if (queries?.category)
+    formatedQueries.category = { $regex: queries.category, $options: "i" };
+  if (queries?.color){
+    delete formatedQueries.color
+    const colorArr = queries.color?.split(',')
+    const colorQuery = colorArr.map(el => ({color: {$regex : el , $options: 'i'}}))
+    colorQueryObject = {$or: colorQuery}
+  }
+  const q = {...colorQueryObject, ...formatedQueries}
+  let queryConmmand = Product.find(q);
 
   // Sorting
   //abc,efg => [abc,efg] => abc efg
@@ -67,7 +76,7 @@ const getallproducts = asyncHandler(async (req, res) => {
   // Số Lượng sản phẩm thõa mản điều kiện !== số lượng sp trả về 1 lần gọi API
   queryConmmand.exec(async (err, response) => {
     if (err) throw new Error(err.message);
-    const counts = await Product.find(formatedQueries).countDocuments();
+    const counts = await Product.find(q).countDocuments();
     return res.status(200).json({
       success: response ? true : false,
       counts,
@@ -161,8 +170,6 @@ const uploadImagesProduct = asyncHandler(async (req, res) => {
   });
 });
 
-
-
 module.exports = {
   createproducts,
   getproduct,
@@ -171,5 +178,4 @@ module.exports = {
   deleteProduct,
   ratings,
   uploadImagesProduct,
- 
 };

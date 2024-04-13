@@ -14,23 +14,52 @@ const breakpointColumnsObj = {
 const Products = () => {
   const [products, setproducts] = useState(null);
 
-  const [activedclick, setactivedclick] = useState(null)
+  const [activedclick, setactivedclick] = useState(null);
 
-  const fetchProductsByCategory = async (queries) => {
+  const [params] = useSearchParams();
+  // console.log(params.entries());
+
+  // const fetchProductsByCategory = async (queries) => {
+  //   if (category === "tablet") {
+  //           queries.category = "tablet";
+  //         } else if (category === "laptop") {
+  //           queries.category = "laptop";
+  //         }
+  //   const response = await apiGetProducts(queries);
+  //   if (response.success) setproducts(response.products);
+  // };
+  const fetchProductsByCategory = async ({queries,category}) => {
+    if (category === "speaker") {
+      queries.category = "speaker";
+    } 
+    if (category === "tablet") {
+      queries.category = "tablet";
+    } else if (category === "laptop") {
+      queries.category = "laptop";
+    }
+
     const response = await apiGetProducts(queries);
-    if (response.success) setproducts(response.products);
+    if (response.success) {
+      setproducts(response.products);
+    }
   };
   const { category } = useParams();
   useEffect(() => {
-    fetchProductsByCategory();
-  },[]);
+    let param = [];
+    for (let i of params.entries()) param.push(i);
+    const queries = {};
+    for (let i of params) queries[i[0]] = i[1];
 
-  const ChangeActiveFilter = useCallback((name) => {
-    if(activedclick === name)setactivedclick(null)
-    else setactivedclick(name)
-  },[activedclick]
-  )
-  console.log(category);
+    fetchProductsByCategory({queries,category});
+  }, [params,category]);
+
+  const ChangeActiveFilter = useCallback(
+    (name) => {
+      if (activedclick === name) setactivedclick(null);
+      else setactivedclick(name);
+    },
+    [activedclick]
+  );
   return (
     <div className="w-full">
       <div className="h-[81px flex justify-center ">
@@ -43,14 +72,16 @@ const Products = () => {
         <div className="w-4/5 flex-auto flex flex-col gap-3">
           <span className="font-semibold text-sm">Filter by</span>
           <div className="flex items-center gap-4">
-            <Search name="price" 
-            activedclick = {activedclick}
-            ChangeActiveFilter={ChangeActiveFilter}
-            type='input'
+            <Search
+              name="price"
+              activedclick={activedclick}
+              ChangeActiveFilter={ChangeActiveFilter}
+              type="input"
             />
-            <Search name="color" 
-            activedclick = {activedclick}
-            ChangeActiveFilter={ChangeActiveFilter}
+            <Search
+              name="color"
+              activedclick={activedclick}
+              ChangeActiveFilter={ChangeActiveFilter}
             />
           </div>
         </div>
@@ -66,7 +97,6 @@ const Products = () => {
           ))}
         </Masonry>
       </div>
-      
     </div>
   );
 };
