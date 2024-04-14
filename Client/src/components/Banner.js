@@ -44,6 +44,25 @@ const Banner = () => {
   return (
     <div className="w-full flex flex-col">
       <Slider {...settings}>
+      <div className=" relative">
+          <video
+            className="h-[700px] w-full object-cover"
+            ref={videoRef2}
+            controls={false} // Ẩn thanh điều khiển mặc định
+            // autoPlay={true}
+            onClick={togglePlay2}>
+            <source src={videobannersamsung} type="video/mp4" />
+          </video>
+          <button
+            className="absolute bottom-[15px] right-[20px]"
+            onClick={togglePlay2}>
+            {isPlaying2 ? (
+              <CiPause1 className="text-white text-3xl" />
+            ) : (
+              <FaPlay className="text-white text-3xl" />
+            )}
+          </button>
+        </div>
         <div className=" relative">
           <video
             className="h-[700px] w-full object-cover"
@@ -63,25 +82,7 @@ const Banner = () => {
             )}
           </button>
         </div>
-        <div className=" relative">
-          <video
-            className="h-[700px] w-full object-cover"
-            ref={videoRef2}
-            controls={false} // Ẩn thanh điều khiển mặc định
-            // autoPlay={true}
-            onClick={togglePlay2}>
-            <source src={videobannersamsung} type="video/mp4" />
-          </video>
-          <button
-            className="absolute bottom-[15px] right-[20px]"
-            onClick={togglePlay2}>
-            {isPlaying2 ? (
-              <CiPause1 className="text-white text-3xl" />
-            ) : (
-              <FaPlay className="text-white text-3xl" />
-            )}
-          </button>
-        </div>
+        
       </Slider>
     </div>
   );
