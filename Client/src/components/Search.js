@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import icons from "../ultils/icons";
 import { colors } from "../ultils/contants";
 import { createSearchParams, useNavigate, useParams } from "react-router-dom";
+import { apiGetProducts } from "../apis";
+import useDebounce from "../hooks/useDebounce";
 import path from "../ultils/path";
 
 const { FaAngleDown } = icons;
@@ -15,6 +17,11 @@ const Search = ({
   const { category } = useParams();
   const navigate = useNavigate();
   const [selected, setselected] = useState([]);
+  const [price, setprice] = useState({
+    from: '',
+    to: ''
+  });
+  const [bestprice, setbestprice] = useState(null);
 
   const handleSelect = (e) => {
     const alreadyEl = selected.find((el) => el === e.target.value);
@@ -36,6 +43,29 @@ const Search = ({
       navigate(`/${category}`);
     }
   }, [selected]);
+
+  const fetchBestPricesProduct = async () => {
+    const response = await apiGetProducts({ sort: "-price", limit: 1 });
+    if (response.success) setbestprice(response.products[0]?.price);
+  };
+  useEffect(() => {
+    if (type === "input") fetchBestPricesProduct();
+  }, [type]);
+
+
+  const deboupricefrom = useDebounce(price.from, 500)
+  const deboupriceto = useDebounce(price.to, 500)
+  useEffect(() => {
+    console.log(price);
+    const data = {}
+
+    if(Number(price.from) > 0) data.from = price.from
+    if(Number(price.to) > 0) data.to = price.to
+    navigate({
+      pathname: `/${category}`,
+      search: createSearchParams(data).toString(),
+    });
+  }, [deboupricefrom,deboupriceto]);
   return (
     <div
       className="p-4 cursor-pointer text-gray-800 gap-6 text-xs relative border w-auto border-gray-400 flex justify-between items-center"
@@ -80,6 +110,50 @@ const Search = ({
               </div>
             </div>
           )}
+          {type === "input" && (
+            <div onClick={(e) => e.stopPropagation()}>
+              <div className="p-4 items-center flex justify-center gap-8">
+                <span className="whitespace-nowrap">
+                  {`The highest price is ${Number(
+                    bestprice
+                  ).toLocaleString()} VND`}
+                </span>
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setprice({from: '', to: ''});
+                    ChangeActiveFilter(null)
+                  }}
+                  className="underline cursor-pointer hover:text-main">Reset</span>
+              </div>
+              <div className="flex items-center gap-2 p-2">
+                <div className="flex items-center gap-2">
+                  <label htmlFor="from">From</label>
+                  <input
+                    className="p-2  text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
+                    type="number"
+                    id="from"
+                    value={price.from}
+                    onChange={(e) =>
+                      setprice((prev) => ({ ...prev, from: e.target.value }))
+                    }
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="to">To</label>
+                  <input
+                    className="p-2  text-blue-600 bg-gray-100 rounded border-red-600 focus:ring-blue-500"
+                    type="number"
+                    id="to"
+                    value={price.to}
+                    onChange={(e) =>
+                      setprice((prev) => ({ ...prev, to: e.target.value }))
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -87,4 +161,3 @@ const Search = ({
 };
 
 export default Search;
-

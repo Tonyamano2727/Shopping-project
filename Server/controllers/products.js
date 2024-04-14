@@ -32,7 +32,7 @@ const getallproducts = asyncHandler(async (req, res) => {
   let queryString = JSON.stringify(queries);
   queryString = queryString.replace(
     /\b(gte|gt|lt|lte)\b/g,
-    (macthedEl) => `$${macthedEl}`
+    macthedEl => `$${macthedEl}`
   );
   const formatedQueries = JSON.parse(queryString);
   let colorQueryObject = {}

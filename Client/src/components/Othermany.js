@@ -25,8 +25,6 @@ const Othermany = () => {
     const [bestSellerResponse ] =
       await Promise.all([
         apiGetProducts({ sort: "-sold" }),
-        
-        
       ]);
     if (bestSellerResponse?.success) {
       setBestSeller(bestSellerResponse.products);

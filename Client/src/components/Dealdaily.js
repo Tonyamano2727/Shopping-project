@@ -4,6 +4,8 @@ import { apiGetProducts } from "../apis/products";
 import { renderStarFromNumber, formatMoney } from "../ultils/helper";
 import { Countdow } from "./";
 import BannerDealIphone from '../assets/Bannerdeal.png'
+import path from "../ultils/path";
+import { Link } from "react-router-dom";
 const { AiFillStar, IoMenu } = icons;
 let idInterval
 const Dealdaily = () => {
@@ -67,7 +69,7 @@ const Dealdaily = () => {
   }, [second, minute, hour, expire]);
   return (
     <div className="w-full justify-between flex">
-      <div className="w-[30%] text-center text-lg border flex-auto justify-center items-center flex flex-col">
+      <Link to={`/${dealdaily?.category.toLowerCase()}/${dealdaily?._id}/${dealdaily?.title}`} className="w-[30%] text-center text-lg border flex-auto justify-center items-center flex flex-col">
         <div className="flex items-center justify-between  pt-4 gap-2">
           <span className="flex-2 flex justify-center items-center">
             <AiFillStar size={20} color="#DD1111" />
@@ -101,7 +103,7 @@ const Dealdaily = () => {
           <IoMenu />
           <span>Options</span>
         </button>
-      </div>
+      </Link>
       <div className="w-[70%]">
         <img
           className="w-[100%] h-[400px] object-cover mb-8"

@@ -16,27 +16,34 @@ import { FaGift } from "react-icons/fa";
 import { MdOutlineReplyAll } from "react-icons/md";
 import { FaTty } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
+import { FaStreetView } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa";
 
-const icons ={
-    MdPhone,
-    IoMdMail,
-    HiOutlineShoppingBag,
-    FaUserCircle,
-    IoMdHome,
-    AiFillStar,
-    AiOutlineStar,
-    FaEye,
-    IoMenu,
-    FaHeart,
-    MdOutlineEmail,
-    IoLogOut,
-    GrFormNext,
-    FaUserShield,
-    FaTruckArrowRight,
-    FaGift,
-    MdOutlineReplyAll,
-    FaTty,
-    FaAngleDown
-}
+import { MdOutlinePhoneIphone } from "react-icons/md";
 
-export default icons
+const icons = {
+  MdPhone,
+  IoMdMail,
+  HiOutlineShoppingBag,
+  FaUserCircle,
+  IoMdHome,
+  AiFillStar,
+  AiOutlineStar,
+  FaEye,
+  IoMenu,
+  FaHeart,
+  MdOutlineEmail,
+  IoLogOut,
+  GrFormNext,
+  FaUserShield,
+  FaTruckArrowRight,
+  FaGift,
+  MdOutlineReplyAll,
+  FaTty,
+  FaAngleDown,
+  FaStreetView,
+  FaCheck,
+  MdOutlinePhoneIphone,
+};
+
+export default icons;

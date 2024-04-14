@@ -28,10 +28,16 @@ const Products = () => {
   //   const response = await apiGetProducts(queries);
   //   if (response.success) setproducts(response.products);
   // };
-  const fetchProductsByCategory = async ({queries,category}) => {
+  const fetchProductsByCategory = async ({ queries, category }) => {
+    if (category === "television") {
+      queries.category = "television";
+    }
+    if (category === "accessories") {
+      queries.category = "accessories";
+    }
     if (category === "speaker") {
       queries.category = "speaker";
-    } 
+    }
     if (category === "tablet") {
       queries.category = "tablet";
     } else if (category === "laptop") {
@@ -48,10 +54,24 @@ const Products = () => {
     let param = [];
     for (let i of params.entries()) param.push(i);
     const queries = {};
-    for (let i of params) queries[i[0]] = i[1];
+    let priceQuery = {};
 
-    fetchProductsByCategory({queries,category});
-  }, [params,category]);
+    for (let i of params) queries[i[0]] = i[1];
+    if (queries.to && queries.from) {
+      priceQuery = {
+        $and: [
+          { price: { gte: queries.from } },
+          { price: { lte: queries.to } },
+        ],
+      }
+      delete queries.price
+    }
+    if (queries.from) queries.price = { gte: queries.from };
+    if (queries.to) queries.price = { lte: queries.to };
+    delete queries.to
+    delete queries.from
+    fetchProductsByCategory({ priceQuery, queries, category });
+  }, [params, category ]);
 
   const ChangeActiveFilter = useCallback(
     (name) => {
