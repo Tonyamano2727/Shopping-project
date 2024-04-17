@@ -32,6 +32,9 @@ const Products = () => {
   //   if (response.success) setproducts(response.products);
   // };
   const fetchProductsByCategory = async ({ queries, category }) => {
+    if (category === "smartphone") {
+      queries.category = "smartphone";
+    }
     if (category === "television") {
       queries.category = "television";
     }
@@ -49,7 +52,7 @@ const Products = () => {
 
     const response = await apiGetProducts(queries);
     if (response.success) {
-      setproducts(response.products);
+      setproducts(response);
     }
   };
   const { category } = useParams();
@@ -76,6 +79,8 @@ const Products = () => {
     fetchProductsByCategory({ priceQuery, queries, category });
   }, [params, category]);
 
+  window.scrollTo(0 , 0)
+
   const ChangeActiveFilter = useCallback(
     (name) => {
       if (activedclick === name) setactivedclick(null);
@@ -92,12 +97,14 @@ const Products = () => {
   );
 
   useEffect(() => {
-    navigate({
-      pathname: `/${category}`,
-      search: createSearchParams({
-        sort
-      }).toString(),
-    })
+    if(sort){
+      navigate({
+        pathname: `/${category}`,
+        search: createSearchParams({
+          sort
+        }).toString(),
+      })
+    }
   },[sort])
   return (
     <div className="w-full">
@@ -136,13 +143,13 @@ const Products = () => {
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column">
-          {products?.map((el) => (
+          {products?.products?.map((el) => (
             <Product key={el._id} pid={el.id} productData={el} />
           ))}
         </Masonry>
       </div>
       <div className=" w-main m-auto my-4 flex justify-end">
-        <Pagination/>
+        <Pagination totalCount={products?.counts}/>
       </div>
     </div>
   );

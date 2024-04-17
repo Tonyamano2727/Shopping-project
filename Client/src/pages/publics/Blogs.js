@@ -1,6 +1,7 @@
 import React from "react";
 
 const Blogs = () => {
+  window.scrollTo(0 , 0)
   return (
     <div className="w-full flex justify-center items-center">
       <div className="w-main flex justify-center mt-5">

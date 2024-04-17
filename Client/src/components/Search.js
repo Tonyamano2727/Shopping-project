@@ -56,7 +56,7 @@ const Search = ({
   const deboupricefrom = useDebounce(price.from, 500)
   const deboupriceto = useDebounce(price.to, 500)
   useEffect(() => {
-    console.log(price);
+    // console.log(price);
     const data = {}
 
     if(Number(price.from) > 0) data.from = price.from

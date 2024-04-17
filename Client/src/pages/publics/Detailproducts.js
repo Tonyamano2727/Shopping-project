@@ -48,7 +48,7 @@ const Detailproducts = () => {
   useEffect(() => {
     if (pid) fetchProductdata();
   }, [pid]);
-
+  window.scrollTo(0 , 0)
   const handleQuantity = useCallback((number) => {
     let previous
     if(!Number(number) || Number(number) < 1) {
