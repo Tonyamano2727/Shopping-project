@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
-import { Breadcrumb, Product, Search } from "../../components";
+import { useParams, useSearchParams ,useNavigate, createSearchParams} from "react-router-dom";
+import { Breadcrumb, Product, Search, Selectinput , Pagination} from "../../components";
 import { apiGetProducts } from "../../apis";
 import Masonry from "react-masonry-css";
+import { sorts } from "../../ultils/contants";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -17,6 +18,8 @@ const Products = () => {
   const [activedclick, setactivedclick] = useState(null);
 
   const [params] = useSearchParams();
+  const [sort, setsort] = useState("");
+  const navigate = useNavigate()
   // console.log(params.entries());
 
   // const fetchProductsByCategory = async (queries) => {
@@ -63,15 +66,15 @@ const Products = () => {
           { price: { gte: queries.from } },
           { price: { lte: queries.to } },
         ],
-      }
-      delete queries.price
+      };
+      delete queries.price;
     }
     if (queries.from) queries.price = { gte: queries.from };
     if (queries.to) queries.price = { lte: queries.to };
-    delete queries.to
-    delete queries.from
+    delete queries.to;
+    delete queries.from;
     fetchProductsByCategory({ priceQuery, queries, category });
-  }, [params, category ]);
+  }, [params, category]);
 
   const ChangeActiveFilter = useCallback(
     (name) => {
@@ -80,6 +83,22 @@ const Products = () => {
     },
     [activedclick]
   );
+
+  const changeValue = useCallback(
+    (value) => {
+      setsort(value);
+    },
+    [sort]
+  );
+
+  useEffect(() => {
+    navigate({
+      pathname: `/${category}`,
+      search: createSearchParams({
+        sort
+      }).toString(),
+    })
+  },[sort])
   return (
     <div className="w-full">
       <div className="h-[81px flex justify-center ">
@@ -105,7 +124,12 @@ const Products = () => {
             />
           </div>
         </div>
-        <div className="w-1/5 flex">Sort by</div>
+        <div className="w-1/5 flex flex-col gap-3 ">
+          <span className="font-semibold text-sm">Sort by</span>
+          <div className="w-full">
+            <Selectinput changeValue={changeValue} value={sort} options={sorts} />
+          </div>
+        </div>
       </div>
       <div className="mt-8 w-main m-auto">
         <Masonry
@@ -116,6 +140,9 @@ const Products = () => {
             <Product key={el._id} pid={el.id} productData={el} />
           ))}
         </Masonry>
+      </div>
+      <div className=" w-main m-auto my-4 flex justify-end">
+        <Pagination/>
       </div>
     </div>
   );

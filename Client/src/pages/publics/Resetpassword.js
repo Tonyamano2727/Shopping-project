@@ -14,7 +14,7 @@ const Resetpassword = () => {
   return (
     <div className=" flex items-center z-50 py-8 justify-center h-full">
       <div className="flex flex-col">
-        <label htmlFor="password">Enter new email:</label>
+        <label htmlFor="password">Enter email </label>
         <input
           type="text"
           id="password"

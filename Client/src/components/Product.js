@@ -4,7 +4,6 @@ import { renderStarFromNumber } from "../ultils/helper";
 import { Selectoption } from "./";
 import icons from "../ultils/icons";
 import { Link } from "react-router-dom";
-import path from "../ultils/path";
 
 const { FaEye, IoMenu, FaHeart } = icons;
 const Product = ({ productData, isNew }) => {

@@ -42,7 +42,7 @@ const Blog = () => {
                   </div>
                 </div>
               </Link>
-              <div className="text-center text-[15px]">
+              <Link to={`/${path.BLOGS}`} className="text-center text-[15px]">
                 <div className="w-full flex justify-center flex-col items-center">
                   <img
                     className="h-[280px] w-[80%] object-cover"
@@ -63,8 +63,8 @@ const Blog = () => {
                     </span>
                   </div>
                 </div>
-              </div>
-              <div className="text-center text-[15px]">
+              </Link>
+              <Link to={`/${path.BLOGS}`} className="text-center text-[15px]">
                 <div className="w-full flex justify-center flex-col items-center">
                   <img
                     className="h-[280px] w-[80%] object-cover"
@@ -85,8 +85,8 @@ const Blog = () => {
                     </span>
                   </div>
                 </div>
-              </div>
-              <div className="text-center text-[15px]">
+              </Link>
+              <Link to={`/${path.BLOGS}`} className="text-center text-[15px]">
                 <div className="w-full flex justify-center flex-col items-center">
                   <img
                     className="h-[280px] w-[80%] object-cover"
@@ -107,7 +107,7 @@ const Blog = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             </Slider>
           </div>
         </div>

@@ -41,7 +41,7 @@ const Login = () => {
     const { firstname, lastname, mobile, ...data } = payload;
     if (isRegister) {
       const response = await apiRegister(payload);
-      console.log("regiser", response);
+      // console.log("regiser", response);
       if (response.success) {
         Swal.fire("Congratulation", response.mes, "Success").then(() => {
           setisRegister(false);
@@ -81,7 +81,7 @@ const Login = () => {
               placeholder="email@gmail.com"
               value={email}
               onChange={(e) => Setemail(e.target.value)}></input>
-            <div className="flex items-center justify-center mt-5">
+            <div className="flex items-center justify-center mt-5 gap-6">
               <Button name="Submit" handleOnclick={handleForgotPassword} />
               <Button
                 name="Back"

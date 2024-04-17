@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({children, handleOnclick, style, fw }) => {
+const Button = ({children, handleOnclick, style, fw ,name}) => {
   return (
     <div>
       <button
@@ -16,6 +16,7 @@ const Button = ({children, handleOnclick, style, fw }) => {
           handleOnclick && handleOnclick();
         }}>
        {children}
+       {name}
       </button>
     </div>
   );

@@ -22,3 +22,7 @@ export {default as Productextraifitem} from './Productextraifitem'
 export {default as Productinformation} from './Productinformation'
 export {default as Othermany} from './Othermany'
 export {default as Search} from './Search'
+export {default as Selectinput} from './Selectinput'
+export {default as Pagination} from './Pagination'
+export {default as Pagiitem} from './Pagiitem'
+
