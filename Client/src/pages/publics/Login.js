@@ -41,12 +41,12 @@ const Login = () => {
     const { firstname, lastname, mobile, ...data } = payload;
     if (isRegister) {
       const response = await apiRegister(payload);
-      // console.log("regiser", response);
+      
       if (response.success) {
         Swal.fire("Congratulation", response.mes, "Success").then(() => {
           setisRegister(false);
           resetPayLoad();
-        });
+        })
       } else {
         Swal.fire("Oops", response.mes, "eroor");
       }

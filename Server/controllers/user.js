@@ -9,7 +9,7 @@ const Sendemail = require("../ultils/sendemail");
 const crypto = require("crypto");
 
 const register = asyncHandler(async (req, res) => {
-  const { email, password, firstname, lastname } = req.body;
+  const { email, password, firstname, lastname  } = req.body;
   if (!email || !password || !lastname || !firstname)
     return res.status(400).json({
       success: false,
@@ -24,7 +24,6 @@ const register = asyncHandler(async (req, res) => {
       mes: newUser
         ? "Register succcessfull . GO to login"
         : " Something went wrong",
-      rs
     });
   }
 });
@@ -65,6 +64,7 @@ const login = asyncHandler(async (req, res) => {
     throw new Error("Invalid credentials");
   }
 });
+
 
 const getCurrent = asyncHandler(async (req, res) => {
   //console.log('req   ', req);
