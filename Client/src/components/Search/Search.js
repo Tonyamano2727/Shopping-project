@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import icons from "../ultils/icons";
-import { colors } from "../ultils/contants";
+import icons from "../../ultils/icons";
+import { colors } from "../../ultils/contants";
 import { createSearchParams, useNavigate, useParams } from "react-router-dom";
-import { apiGetProducts } from "../apis";
-import useDebounce from "../hooks/useDebounce";
-import path from "../ultils/path";
+import { apiGetProducts } from "../../apis";
+import useDebounce from "../../hooks/useDebounce";
 
 const { FaAngleDown } = icons;
 

@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import { CiPause1 } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
-import videobanneriphone from "../assets/videobanneriphone.mp4";
-import videobannersamsung from "../assets/videobannersamsung.mp4";
+import videobanneriphone from "../../assets/videobanneriphone.mp4";
+import videobannersamsung from "../../assets/videobannersamsung.mp4";
 
 var settings = {
   dots: false,

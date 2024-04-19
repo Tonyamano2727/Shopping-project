@@ -1,5 +1,5 @@
 import React from "react";
-import icons from "../ultils/icons";
+import icons from "../../ultils/icons";
 const { MdOutlineEmail } = icons;
 const Footer = () => {
   return (

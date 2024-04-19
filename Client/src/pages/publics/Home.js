@@ -1,11 +1,11 @@
 import React from "react";
 import {
   Banner,
-  Bestseller,
   Dealdaily,
   TabletandIpad,
   Featureproducts,Blog,
 } from "../../components";
+import Bestseller from "../../components/Tabproducts/Bestseller";
 const Home = () => {
   
   return (

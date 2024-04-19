@@ -70,7 +70,7 @@ const getCurrent = asyncHandler(async (req, res) => {
   //console.log('req   ', req);
   const { _id } = req.user;
   const user = await User.findById({ _id: _id }).select(
-    "-refreshToken -password -role"
+    "-refreshToken -password "
   ); // select is hide truong trong database
   return res.status(200).json({
     success: user ? true : false,

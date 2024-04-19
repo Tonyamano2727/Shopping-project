@@ -11,11 +11,20 @@ import {
   Products,
   Resetpassword,
 } from "./pages/publics";
+import {
+  AdminLayout,
+  CreateProducts,
+  Dashboard,
+  ManageOrder,
+  Manageuser,
+  ManageProducts,
+} from "./pages/admin";
+import { Personal, MemberLayout } from "./pages/Member";
 import path from "./ultils/path";
 import { getCategory } from "./store/app/asyncAction";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const dispath = useDispatch();
   useEffect(() => {
@@ -36,7 +45,16 @@ function App() {
           <Route path={path.RESET_PASSWORD} element={<Resetpassword />}></Route>
           <Route path={path.LOGIN} element={<Login />}></Route>
         </Route>
-        
+        <Route path={path.ADMIN} element={<AdminLayout />}>
+          <Route path={path.DASHBOARD} element={<Dashboard />}></Route>
+          <Route path={path.MANAGE_ORDER} element={<ManageOrder />}></Route>
+          <Route path={path.MANAGE_PRODUCTS} element={<ManageProducts />}></Route>
+          <Route path={path.MANAGE_USER} element={<Manageuser />}></Route>
+          <Route path={path.CREATE_PRODUCTS} element={<CreateProducts />}></Route>
+        </Route>
+        <Route path={path.MEMBER} element={<MemberLayout />}>
+          <Route path={path.PERSONAL} element={<Personal />}></Route>
+        </Route>
       </Routes>
       <ToastContainer
         position="top-right"
