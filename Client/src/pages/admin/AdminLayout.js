@@ -15,7 +15,7 @@ const AdminLayout = () => {
       <div className='w-[327px]'>
 
       </div>
-      <div className='flex-auto'>
+      <div className='w-[80%]'>
         <Outlet/>
       </div>
     </div>

@@ -236,14 +236,13 @@ const getUser = asyncHandler(async (req, res) => {
 });
 
 const deleteUser = asyncHandler(async (req, res) => {
-  const { _id } = req.query;
-  if (!_id) throw new Error("Missing input");
-  const response = await User.findByIdAndDelete(_id);
+  const { uid } = req.params;
+  const response = await User.findByIdAndDelete(uid);
   return res.status(200).json({
     success: response ? true : false,
-    deleteUser: response
+    mes: response
       ? `User with email ${response.email} deleted`
-      : "no user delete",
+      : "No user delete",
   });
 });
 
@@ -269,7 +268,7 @@ const updateuserbyadmin = asyncHandler(async (req, res) => {
   }).select("-password -role ");
   return res.status(200).json({
     success: response ? true : false,
-    updateuser: response ? response : "Something went wrong",
+    mes: response ? 'Updated' : "Something went wrong",
   });
 });
 
