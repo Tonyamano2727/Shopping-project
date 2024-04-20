@@ -171,10 +171,67 @@ const resetPassword = asyncHandler(async (req, res) => {
 });
 
 const getUser = asyncHandler(async (req, res) => {
-  const respone = await User.find().select("-refreshToken -password -role"); // select is hide truong trong database
-  return res.status(200).json({
-    success: respone ? true : false,
-    users: respone,
+  
+  const queries = { ...req.query };
+  // Tách các trường dặt biệt
+  const excludeFields = ["limit", "sort", "page", "fields"];
+  excludeFields.forEach((el) => delete queries[el]);
+
+  // Format lại các operator cho đúng cú pháp mongoose      //gt is > // lt is <
+  let queryString = JSON.stringify(queries);
+  queryString = queryString.replace(
+    /\b(gte|gt|lt|lte)\b/g,
+    macthedEl => `$${macthedEl}`
+  );
+  const formatedQueries = JSON.parse(queryString);
+  // Filtering
+  if (queries?.name)
+    formatedQueries.name = { $regex: queries.name, $options: "i" };
+  
+  if(req.query.q){
+      delete formatedQueries.q
+      formatedQueries['$or'] = [
+        {firstname : { $regex: req.query.q, $options: "i" }},
+        {lastname : { $regex: req.query.q, $options: "i" }},
+        {email : { $regex: req.query.q, $options: "i" }}
+      ]
+  }
+  let queryConmmand = User.find(formatedQueries);
+
+  // Sorting
+  //abc,efg => [abc,efg] => abc efg
+  if (req.query.sort) {
+    const sortBy = req.query.sort.split(",").join(" ");
+    queryConmmand = queryConmmand.sort(sortBy);
+  }
+
+  // fields limiting    // Lấy trường
+  if (req.query.fields) {
+    const fields = req.query.fields.split(",").join(" ");
+    queryConmmand = queryConmmand.select(fields);
+  }
+
+  
+  // Pagination
+  // limit: số object lấy về goin API
+  // skip: 2
+  // 1 2 3 ... 10
+
+  // + conver kieu du lieu
+  const page = +req.query.page || 1;
+  const limit = +req.query.limit || process.env.LIMIT_PRODUCTS;
+  const skip = (page - 1) * limit;
+  queryConmmand.skip(skip).limit(limit);
+  // Execute query
+  // Số Lượng sản phẩm thõa mản điều kiện !== số lượng sp trả về 1 lần gọi API
+  queryConmmand.exec(async (err, response) => {
+    if (err) throw new Error(err.message);
+    const counts = await User.find(formatedQueries).countDocuments();
+    return res.status(200).json({
+      success: response ? true : false,
+      counts,
+      users: response ? response : "Cant not get product",
+    });
   });
 });
 

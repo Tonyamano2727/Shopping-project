@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { apiGetProducts } from "../../apis/products";
-import Product from "../Product";
+import Product from "../Product/Product";
 import Slider from "react-slick";
 
 const tabs = [
@@ -77,3 +77,5 @@ const TabletandIpad = () => {
 };
 
 export default TabletandIpad;
+
+

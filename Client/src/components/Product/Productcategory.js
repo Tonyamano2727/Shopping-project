@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { formatMoney } from "../ultils/helper";
-import { renderStarFromNumber } from "../ultils/helper";
-import { Selectoption } from "./";
-import icons from "../ultils/icons";
+import { formatMoney } from "../../ultils/helper";
+import { renderStarFromNumber } from "../../ultils/helper";
+import { Selectoption } from "..";
+import icons from "../../ultils/icons";
 import { Link } from "react-router-dom";
 
 const { FaEye, IoMenu, FaHeart } = icons;
-const Product = ({ productData, isNew }) => {
+const Productcategory = ({ productData, isNew }) => {
   const [isShowOption, setIsShowOption] = useState(false);
   return (
     <div className="w-full px-[10px] text-base">
@@ -49,4 +49,4 @@ const Product = ({ productData, isNew }) => {
 };
 
 // line-clamp la dau 3 cham khi qua dai
-export default Product;
+export default Productcategory;

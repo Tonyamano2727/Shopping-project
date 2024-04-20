@@ -18,9 +18,11 @@ import { FaTty } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { FaStreetView } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
-
+import { BiSolidDashboard } from "react-icons/bi";
+import { MdGroups2 } from "react-icons/md";
 import { MdOutlinePhoneIphone } from "react-icons/md";
-
+import { TbBrandProducthunt } from "react-icons/tb";
+import { FaRegMoneyBillAlt } from "react-icons/fa";
 const icons = {
   MdPhone,
   IoMdMail,
@@ -44,6 +46,10 @@ const icons = {
   FaStreetView,
   FaCheck,
   MdOutlinePhoneIphone,
+  BiSolidDashboard,
+  MdGroups2,
+  TbBrandProducthunt,
+  FaRegMoneyBillAlt
 };
 
 export default icons;

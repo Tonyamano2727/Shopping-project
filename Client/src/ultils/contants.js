@@ -161,3 +161,57 @@ export const sorts = [
         text: 'Date, old to new',
     },
 ]
+
+ 
+const {BiSolidDashboard , MdGroups2 , TbBrandProducthunt , FaRegMoneyBillAlt} = icons
+
+export const AdminSidebar = [
+    {
+        id : 1,
+        type : 'SINGLE',
+        text : 'Dasboard',
+        path: `/${path.ADMIN}/${path.DASHBOARD}`,
+        icon: <BiSolidDashboard/>
+    },
+    {
+        id : 2,
+        type : 'SINGLE',
+        text : 'Manage users',
+        path: `/${path.ADMIN}/${path.MANAGE_USER}`,
+        icon: <MdGroups2/>
+    },
+    {
+        id : 3,
+        type : 'PARENT',
+        text : 'Manage products',
+        icon: <TbBrandProducthunt/>,
+        submenu: [
+            {
+                text: 'Create product',
+                path: `/${path.ADMIN}/${path.CREATE_PRODUCTS}`
+            },
+            {
+                text: 'Manage Products',
+                path: `/${path.ADMIN}/${path.MANAGE_PRODUCTS}`
+            },
+        ]
+    },
+    {
+        id : 4,
+        type : 'SINGLE',
+        text : 'Manage order',
+        path: `/${path.ADMIN}/${path.MANAGE_ORDER}`,
+        icon: <FaRegMoneyBillAlt/>
+    },
+]
+
+export const roles = [
+    {
+        code: 1945,
+        value: 'Admin'
+    },
+    {
+        code: 1979,
+        value: 'User'
+    }
+]

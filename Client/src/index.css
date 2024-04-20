@@ -69,3 +69,6 @@ button.slick-prev::before {
   
   margin-bottom: 30px;
 }
+.w500{
+  width: 500px;
+}

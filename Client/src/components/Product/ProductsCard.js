@@ -1,5 +1,5 @@
 import React from "react";
-import { renderStarFromNumber, formatMoney } from "../ultils/helper";
+import { renderStarFromNumber, formatMoney } from "../../ultils/helper";
 import { Link } from "react-router-dom";
 // import path from "../ultils/path";
 const ProductsCard = ({productData}) => {

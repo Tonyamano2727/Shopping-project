@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Productinfortabs, productExtraif } from "../ultils/contants";
+import { Productinfortabs } from "../../ultils/contants";
 
-const ActivedStyle = "";
-const notActivedStyles = "";
 const Productinformation = () => {
   const [activedtab, setactivedtab] = useState(1);
   return (

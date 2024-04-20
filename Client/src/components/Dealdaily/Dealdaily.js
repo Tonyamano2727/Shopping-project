@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import icons from "../ultils/icons";
-import { apiGetProducts } from "../apis/products";
-import { renderStarFromNumber, formatMoney } from "../ultils/helper";
-import { Countdow } from "./";
-import BannerDealIphone from '../assets/Bannerdeal.png'
-import path from "../ultils/path";
+import icons from "../../ultils/icons";
+import { apiGetProducts } from "../../apis/products";
+import { renderStarFromNumber, formatMoney } from "../../ultils/helper";
+import { Countdow } from "..";
 import { Link } from "react-router-dom";
+
+
 const { AiFillStar, IoMenu } = icons;
 let idInterval
 const Dealdaily = () => {

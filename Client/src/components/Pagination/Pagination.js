@@ -1,5 +1,5 @@
 import React from "react";
-import usePAganation from "../hooks/usePAganation";
+import usePAganation from "../../hooks/usePAganation";
 import Pagiitem from "./Pagiitem";
 
 const Pagination = ({ totalCount }) => {
