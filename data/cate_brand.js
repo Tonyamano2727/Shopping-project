@@ -1,11 +1,11 @@
 const data = [
     {
         cate: 'Smartphone',
-        brand: ['Apple', 'Samsung','LG','Asus','Nokia','BlackBerry']
+        brand: ['Apple', 'Samsung']
     },
     {
         cate: 'Tablet',
-        brand: ['Ipad', 'SamSung','Acer','Asus','Lenovo','Haier']
+        brand: ['Ipad', 'SamSung']
     },
     {
         cate: 'Laptop',
@@ -17,11 +17,11 @@ const data = [
     },
     {
         cate: 'Accessories',
-        brand: ['Smat', 'Headphone','Bluetooth','Keyboard','Mouse','Cases']
+        brand: ['Samsung','Apple','JBL']
     },
     {
         cate: 'Television',
-        brand: ['Apple', 'Samsung','LG','Asus','Nokia','BlackBerry']
+        brand: ['Apple', 'Samsung']
     },
 ]
 module.exports = data

@@ -11,7 +11,7 @@ const createCategory = asyncHandler(async(req, res)=>{
 })
 
 const getallCategory = asyncHandler(async(req, res)=>{
-    const response = await productCategory.find().select('title _id')
+    const response = await productCategory.find().select('title _id brand')
     return res.json({
         success : response ? true : false,
         getallCategory: response ? response : 'Cannot create category products'

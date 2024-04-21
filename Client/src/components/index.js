@@ -25,6 +25,8 @@ export {default as Productinformation} from './Detail/Productinformation'
 export {default as Othermany} from './Tabproducts/Othermany'
 export {default as Search} from './Search/Search'
 export {default as Selectinput} from './Input/Selectinput'
+export {default as Markdoweditor} from './Input/Markdoweditor'
+export {default as Select} from './Input/Select'
 export {default as Pagination} from './Pagination/Pagination'
 export {default as Pagiitem} from './Pagination/Pagiitem'
 

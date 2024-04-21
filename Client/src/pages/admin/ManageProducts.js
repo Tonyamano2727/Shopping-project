@@ -1,9 +1,10 @@
 import React from 'react'
 
+
 const ManageProducts = () => {
   return (
-    <div>
-      ManageProducts
+    <div className="w-full">
+        
     </div>
   )
 }
