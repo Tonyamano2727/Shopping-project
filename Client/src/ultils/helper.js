@@ -9,7 +9,8 @@ export const createSlug = (string) =>
     .replace(/[\u0300-\u036f]/g, "")
     .split(" ")
     .join("-");
-export const formatMoney = (number) => Number(number?.toFixed(1)).toLocaleString();
+export const formatMoney = (number) =>
+  Number(number?.toFixed(1)).toLocaleString();
 
 export const renderStarFromNumber = (number) => {
   if (!Number(number)) return null; // Returning null if number is not a valid number
@@ -40,13 +41,26 @@ export const generateRage = (start, end) => {
 //   return invalids
 // }
 export const validate = (payload, setinvalidFields) => {
-  let invalids = 0
-  const formatPayload = Object.entries(payload)
+  let invalids = 0;
+  const formatPayload = Object.entries(payload);
   for (let arr of formatPayload) {
-    if (arr[1].trim() === '') {
-      invalids++
-      setinvalidFields(prev => [...prev, { name: arr[0], mes: 'Required this field' }])
+    if (arr[1].trim() === "") {
+      invalids++;
+      setinvalidFields((prev) => [
+        ...prev,
+        { name: arr[0], mes: "Required this field" },
+      ]);
     }
   }
-  return invalids
+  return invalids;
+};
+
+export function getBase64(file) {
+  if (!file) return ''
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
 }

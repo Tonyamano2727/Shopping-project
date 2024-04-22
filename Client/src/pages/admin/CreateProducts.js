@@ -1,8 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { InputForm, Select, Button, Markdoweditor } from "../../components";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { validate } from "../../ultils/helper";
+import { validate, getBase64 } from "../../ultils/helper";
+import { toast } from "react-toastify";
+import icons from "../../ultils/icons";
+import path from "../../ultils/path";
+import { apiCreateProduct } from "../../apis";
+const {IoTrashBin} = icons
 
 const CreateProducts = () => {
   const { categories } = useSelector((state) => state.app);
@@ -19,6 +24,10 @@ const CreateProducts = () => {
   const [payload, setpayload] = useState({
     description: "",
   });
+  const [preview, setpreview] = useState({
+    thumb: null,
+    images: [],
+  });
   const [invalidFields, setInvalidFields] = useState([]);
   const changeValue = useCallback(
     (e) => {
@@ -26,17 +35,56 @@ const CreateProducts = () => {
     },
     [payload]
   );
+  const [hover, sethover] = useState(null)
+  const handlePreviewThumb = async (file) => {
+    const base64Thumb = await getBase64(file);
+    setpreview((prev) => ({ ...prev, thumb: base64Thumb }));
+  };
 
-  const handleCreateProduct = (data) => {
+  const handlePreviewimages = async (files) => {
+    const imagesPreview = [];
+    for (let file of files) {
+      if (file.type !== "image/png" && file.type !== "image/jpeg") {
+        toast.warning("file not support");
+        return;
+      }
+      const base64 = await getBase64(file);
+      imagesPreview.push({name: file.name, path: base64});
+    }
+    setpreview((prev) => ({ ...prev, images: imagesPreview }));
+  };
+  useEffect(() => {
+    handlePreviewThumb(watch("thumb")[0]);
+  }, [watch("thumb")]);
+
+  useEffect(() => {
+    handlePreviewimages(watch("images"));
+  }, [watch("images")]);
+
+  const handleCreateProduct = async (data) => {
     const invalids = validate(payload, setInvalidFields);
     if (invalids === 0) {
       if (data.category)
         data.category = categories?.find(
           (el) => el._id === data.category
         )?.title;
-      console.log({ ...data, ...payload });
+      const finalPayload = { ...data, ...payload };
+      const formData = new FormData();
+      for (let i of Object.entries(finalPayload)) formData.append(i[0], i[1]);
+      const response = await apiCreateProduct (finalPayload)
+      console.log(response);
     }
   };
+  
+  const handleRemoveimage = (name) => {
+    const files = [...watch('images')]
+
+    reset({
+      images: files?.filter(el => el.name !== name)
+    })
+    if(preview.images?.some(el => el.name === name)) setpreview(prev => ({...prev , images: prev.images.filter(el => el.name !==name)}))
+  }
+  
   return (
     <div className="w-full">
       <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
@@ -126,15 +174,70 @@ const CreateProducts = () => {
             setinvalidFields={setInvalidFields}
           />
           <div className="flex flex-col gap-2 mt-8">
-                <label className="font-semibold" htmlFor="thumb">Upload thumb</label>
-                <input type="file" id="thumb"></input>
+            <label className="font-semibold" htmlFor="thumb">
+              Upload thumb
+            </label>
+            <input
+              type="file"
+              id="thumb"
+              register={register}
+              {...register("thumb", { required: "Need fill" })}
+            />
+            {errors["thumb"] && (
+              <small className="text-xs text-red-500">
+                {errors["thumb"]?.message}
+              </small>
+            )}
           </div>
+          {preview.thumb && (
+            <div className="my-4">
+              <img
+                src={preview.thumb}
+                alt="thumb"
+                className="w-[200px] object-contain"></img>
+            </div>
+          )}
           <div className="flex flex-col gap-2 mt-8">
-                <label className="font-semibold" htmlFor="products">Upload images of products</label>
-                <input type="file" id="products" multiple ></input>
+            <label className="font-semibold" htmlFor="products">
+              Upload images of products
+            </label>
+            <input
+              type="file"
+              id="images"
+              multiple
+              register={register}
+              {...register("images", { required: "Need fill" })}
+            />
+            {errors["images"] && (
+              <small className="text-xs text-red-500">
+                {errors["images"]?.message}
+              </small>
+            )}
           </div>
+          {preview.images.length > 0 && (
+            <div className="my-4 flex w-full gap-3 flex-wrap">
+              {preview.images?.map((el, idx) => (
+                
+                  <div onMouseEnter={() => sethover(el.name)} className="w-fit flex relative"
+                  onMouseLeave={() => sethover(null)}
+                  >
+                    <img 
+                    key={idx}
+                    src={el.path}
+                    alt="product"
+                    className="w-[200px] object-contain "></img>
+                    {hover === el.name && <div className='absolute cursor-pointer flex justify-end inset-0 bg-orange-200'
+                    onClick={() => handleRemoveimage(el.name)}
+                    > 
+                        <IoTrashBin className="p-2" size={44} color="black" />
+                      </div>}
+                  </div>
+               
+              ))}
+            </div>
+          )}
           <div className="mt-8">
-          <Button type="submit">Create new product</Button>
+            <Button type="submit">Create new product</Button>
           </div>
         </form>
       </div>

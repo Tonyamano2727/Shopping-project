@@ -23,6 +23,7 @@ import { MdGroups2 } from "react-icons/md";
 import { MdOutlinePhoneIphone } from "react-icons/md";
 import { TbBrandProducthunt } from "react-icons/tb";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
+import { IoTrashBin } from "react-icons/io5";
 const icons = {
   MdPhone,
   IoMdMail,
@@ -49,7 +50,8 @@ const icons = {
   BiSolidDashboard,
   MdGroups2,
   TbBrandProducthunt,
-  FaRegMoneyBillAlt
+  FaRegMoneyBillAlt,
+  IoTrashBin
 };
 
 export default icons;
