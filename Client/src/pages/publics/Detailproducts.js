@@ -4,6 +4,7 @@ import { apiGetProduct } from "../../apis/products";
 import { Breadcrumb, Button , Selectquantity , Productextraifitem , Productinformation ,Othermany} from "../../components";
 import Slider from "react-slick";
 import { formatMoney, renderStarFromNumber } from "../../ultils/helper";
+import DOMPurify  from 'dompurify'
 
 import { productExtraif } from "../../ultils/contants";
 const Detailproducts = () => {
@@ -91,7 +92,10 @@ const Detailproducts = () => {
           <span className="flex mt-3">
             {renderStarFromNumber(product?.totalRatings)}
           </span>
-          <span className="flex leading-8 mt-4">{product?.description}</span>
+          <div>
+              {product?.description?.length > 1 && <span className="flex leading-8 mt-4">{product?.description}</span>}
+              {product?.description?.length === 1 && <div className="flex leading-8 mt-4" dangerouslySetInnerHTML={{__html : DOMPurify.sanitize(product?.description[0]) }}></div>}
+          </div>
           <span className="text-[17px] mt-4 font-semibold">
             Sold :{product?.sold}
           </span>

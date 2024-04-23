@@ -71,7 +71,11 @@ const CreateProducts = () => {
       const finalPayload = { ...data, ...payload };
       const formData = new FormData();
       for (let i of Object.entries(finalPayload)) formData.append(i[0], i[1]);
-      const response = await apiCreateProduct (finalPayload)
+      if(finalPayload.thumb) formData.append('thumb', finalPayload.thumb[0])
+      if(finalPayload.images) {
+        for ( let image of finalPayload.images) formData.append('images',image)
+      }
+      const response = await apiCreateProduct (formData)
       console.log(response);
     }
   };

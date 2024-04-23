@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import logo from "../../assets/logo.png";
 import { AdminSidebar } from "../../ultils/contants";
-import { NavLink } from "react-router-dom";
+import { NavLink , Link} from "react-router-dom";
 import clsx from "clsx";
 import { FaAngleDown } from "react-icons/fa";
 
@@ -20,10 +20,10 @@ const Adminsidebar = () => {
   
   return (
     <div className="bg-white h-full py-4">
-      <div className="flex flex-col justify-center gap-2 p-4 items-center">
+      <Link to={"/"} className="flex flex-col justify-center gap-2 p-4 items-center">
         <img src={logo} alt="logo" className="w-[200px] object-contain"></img>
         <small>Admin Workspace</small>
-      </div>
+      </Link>
       <div>
         {AdminSidebar.map(el => (
           <Fragment key={el.id}>
