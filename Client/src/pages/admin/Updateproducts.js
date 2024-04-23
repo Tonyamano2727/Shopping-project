@@ -1,25 +1,23 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { InputForm, Select, Button, Markdoweditor } from "../../components";
+import React, { useState, useEffect, useCallback } from "react";
+import { Button, InputForm, Markdoweditor, Select } from "../../components";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 import { validate, getBase64 } from "../../ultils/helper";
 import { toast } from "react-toastify";
 import icons from "../../ultils/icons";
 import { apiCreateProduct } from "../../apis";
+import { useSelector } from "react-redux";
 
-const {IoTrashBin} = icons
+const { IoTrashBin } = icons;
 
-const CreateProducts = () => {
+const Updateproducts = ({ editproduct, render }) => {
   const { categories } = useSelector((state) => state.app);
   const {
     register,
+    handleSubmit,
     formState: { errors },
     reset,
-    handleSubmit,
     watch,
-  } = useForm({
-    category: "",
-  });
+  } = useForm();
 
   const [payload, setpayload] = useState({
     description: "",
@@ -28,6 +26,18 @@ const CreateProducts = () => {
     thumb: null,
     images: [],
   });
+
+  // useEffect(() => {
+  //   reset({
+  //     title : editproduct.title || '',
+  //     price : editproduct.price || '',
+  //     quantity : editproduct.quantity || '',
+  //     color : editproduct.color || '',
+
+
+  //   },[editproduct])
+  // })
+
   const [invalidFields, setInvalidFields] = useState([]);
   const changeValue = useCallback(
     (e) => {
@@ -35,12 +45,11 @@ const CreateProducts = () => {
     },
     [payload]
   );
-  const [hover, sethover] = useState(null)
   const handlePreviewThumb = async (file) => {
     const base64Thumb = await getBase64(file);
     setpreview((prev) => ({ ...prev, thumb: base64Thumb }));
   };
-
+  const [hover, sethover] = useState(null);
   const handlePreviewimages = async (files) => {
     const imagesPreview = [];
     for (let file of files) {
@@ -49,7 +58,7 @@ const CreateProducts = () => {
         return;
       }
       const base64 = await getBase64(file);
-      imagesPreview.push({name: file.name, path: base64});
+      imagesPreview.push({ name: file.name, path: base64 });
     }
     setpreview((prev) => ({ ...prev, images: imagesPreview }));
   };
@@ -60,7 +69,6 @@ const CreateProducts = () => {
   useEffect(() => {
     handlePreviewimages(watch("images"));
   }, [watch("images")]);
-
   const handleCreateProduct = async (data) => {
     const invalids = validate(payload, setInvalidFields);
     if (invalids === 0) {
@@ -71,39 +79,40 @@ const CreateProducts = () => {
       const finalPayload = { ...data, ...payload };
       const formData = new FormData();
       for (let i of Object.entries(finalPayload)) formData.append(i[0], i[1]);
-      if(finalPayload.thumb) formData.append('thumb', finalPayload.thumb[0])
-      if(finalPayload.images) {
-        for ( let image of finalPayload.images) formData.append('images',image)
+      if (finalPayload.thumb) formData.append("thumb", finalPayload.thumb[0]);
+      if (finalPayload.images) {
+        for (let image of finalPayload.images) formData.append("images", image);
       }
-      const response = await apiCreateProduct (formData)
+      const response = await apiCreateProduct(formData);
       if (response.success) {
-        toast.success(response.mes)
-        reset()
+        toast.success(response.mes);
+        reset();
         setpayload({
-          thumb: '',
-          images: []
-
-        })
-      }
-      else toast.error(response.mes)
+          thumb: "",
+          images: [],
+        });
+      } else toast.error(response.mes);
     }
   };
-  
+
   const handleRemoveimage = (name) => {
-    const files = [...watch('images')]
+    const files = [...watch("images")];
 
     reset({
-      images: files?.filter(el => el.name !== name)
-    })
-    if(preview.images?.some(el => el.name === name)) setpreview(prev => ({...prev , images: prev.images.filter(el => el.name !==name)}))
-  }
-  
+      images: files?.filter((el) => el.name !== name),
+    });
+    if (preview.images?.some((el) => el.name === name))
+      setpreview((prev) => ({
+        ...prev,
+        images: prev.images.filter((el) => el.name !== name),
+      }));
+  };
   return (
-    <div className="w-full">
-      <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
-        <span>Create new products</span>
-      </h1>
-      <div className="p-4">
+    <div className="w-full flex flex-col gap-4 text-start relative">
+      <div className="p-4 border-b w-full flex justify-between items-center">
+        <h1 className="text-3xl font-bold tracking-tight ">Updateproducts</h1>
+      </div>
+      <div>
         <form onSubmit={handleSubmit(handleCreateProduct)}>
           <InputForm
             label="Name product"
@@ -230,22 +239,23 @@ const CreateProducts = () => {
           {preview.images.length > 0 && (
             <div className="my-4 flex w-full gap-3 flex-wrap">
               {preview.images?.map((el, idx) => (
-                
-                  <div onMouseEnter={() => sethover(el.name)} className="w-fit flex relative"
-                  onMouseLeave={() => sethover(null)}
-                  >
-                    <img 
+                <div
+                  onMouseEnter={() => sethover(el.name)}
+                  className="w-fit flex relative"
+                  onMouseLeave={() => sethover(null)}>
+                  <img
                     key={idx}
                     src={el.path}
                     alt="product"
                     className="w-[200px] object-contain "></img>
-                    {hover === el.name && <div className='absolute cursor-pointer flex justify-end inset-0 bg-orange-200'
-                    onClick={() => handleRemoveimage(el.name)}
-                    > 
-                        <IoTrashBin className="p-2" size={44} color="black" />
-                      </div>}
-                  </div>
-               
+                  {hover === el.name && (
+                    <div
+                      className="absolute cursor-pointer flex justify-end inset-0 bg-orange-200"
+                      onClick={() => handleRemoveimage(el.name)}>
+                      <IoTrashBin className="p-2" size={44} color="black" />
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           )}
@@ -258,4 +268,4 @@ const CreateProducts = () => {
   );
 };
 
-export default CreateProducts;
+export default Updateproducts;

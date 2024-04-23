@@ -1,26 +1,29 @@
-import React,{useEffect , useState} from "react";
+import React,{useCallback, useEffect , useState} from "react";
 import { InputForm , Pagination } from "../../components";
 import { useForm } from "react-hook-form";
 import { apiGetProducts } from "../../apis";
 import { formatMoney , renderStarFromNumber } from "../../ultils/helper";
 import {useSearchParams} from 'react-router-dom'
 import useDebounce from "../../hooks/useDebounce";
+import Updateproducts from "./Updateproducts";
 const ManageProducts = () => {
   const {
     register,
     formState: { errors },
-    handleSubmit,
-    reset,
     watch
   } = useForm();
-
-  const handleSearchProducts = (data) => {
-    console.log(data);
-  };
 
   const [params] = useSearchParams()
   const [products, setProducts] = useState(null)
   const [counts, setcounts] = useState(0)
+  const [editproduct, seteditproduct] = useState(null)
+  const [Update, setUpdate] = useState(false)
+
+
+  const render = useCallback(() => {
+    setUpdate(!Update)
+  })
+
   const fetchProducts = async (params) =>{
     const response = await apiGetProducts({...params , limit: process.env.REACT_APP_PRODUCT_LIMIT})
     if(response.success) {
@@ -35,11 +38,14 @@ const ManageProducts = () => {
     const searchParams = Object.fromEntries([...params])
     if (querydeBounce) searchParams.q = querydeBounce
     fetchProducts(searchParams)
-  },[params , querydeBounce])
+  },[params , querydeBounce , Update])
   
   console.log(products);
   return (
-    <div className="w-full flex flex-col gap-4 text-center">
+    <div className="w-full flex flex-col gap-4 text-center relative">
+      {editproduct && <div className="absolute inset-0 bg-white">
+        <Updateproducts editproduct={editproduct} render/>
+      </div>}
       <div className="p-4 border-b w-full flex justify-between items-center">
         <h1 className="text-3xl font-bold tracking-tight ">ManageProducts</h1>
       </div>
@@ -67,11 +73,12 @@ const ManageProducts = () => {
               <th>Sold</th>
               <th>Color</th>
               <th>Ratings</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
               {products?.map((el , idx) => (
-                <tr className="border-b" key={el._id}>
+                <tr className="border-b " key={el._id}>
                     <td>{idx + 1 }</td>
                     <td className="flex justify-center"><img src={el.thumb} alt="thumb" className="w-12 h-12 object-cover"/></td>
                     <td>{el.title}</td>
@@ -81,7 +88,11 @@ const ManageProducts = () => {
                     <td>{el.quantity}</td>
                     <td>{el.sold}</td>
                     <td>{el.color}</td>
-                    <td className="flex justify-center">{renderStarFromNumber(el?.totalRatings)}</td>
+                    <td>{el.totalRatings}</td>
+                    <td>
+                      <span onClick={() => seteditproduct(el)} className="text-red-500 hover:underline cursor-pointer px-2">Edit</span>
+                      <span className="text-red-500 hover:underline cursor-pointer px-2">Delete</span>
+                      </td>
                 </tr>
               ))}
           </tbody>
