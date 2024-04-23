@@ -76,7 +76,16 @@ const CreateProducts = () => {
         for ( let image of finalPayload.images) formData.append('images',image)
       }
       const response = await apiCreateProduct (formData)
-      console.log(response);
+      if (response.success) {
+        toast.success(response.mes)
+        reset()
+        setpayload({
+          thumb: '',
+          images: []
+
+        })
+      }
+      else toast.error(response.mes)
     }
   };
   

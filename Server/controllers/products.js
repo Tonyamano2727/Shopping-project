@@ -15,7 +15,7 @@ const createproducts = asyncHandler(async (req, res) => {
   const newproducts = await Product.create(req.body);
   return res.status(200).json({
     success: newproducts ? true : false,
-    createdproducts: newproducts ? newproducts : "Cant not create new products",
+    mes: newproducts ? 'Product have created' : "Fail created product",
   });
 });
 const getproduct = asyncHandler(async (req, res) => {
@@ -53,8 +53,18 @@ const getallproducts = asyncHandler(async (req, res) => {
     const colorQuery = colorArr.map(el => ({color: {$regex : el , $options: 'i'}}))
     colorQueryObject = {$or: colorQuery}
   }
-  const q = {...colorQueryObject, ...formatedQueries}
-  let queryConmmand = Product.find(q);
+  let queryObject = {}
+  if(queries?.q){
+    delete formatedQueries.q
+    queryObject = {$or: [
+      {color: {$regex : queries.q , $options: 'i'}} , 
+      {title: {$regex : queries.q , $options: 'i'}},
+      {category: {$regex : queries.q , $options: 'i'}},
+      {brand: {$regex : queries.q , $options: 'i'}},
+      ]}
+  }
+  const qr = {...colorQueryObject, ...formatedQueries, ...queryObject}
+  let queryConmmand = Product.find(qr);
 
   // Sorting
   //abc,efg => [abc,efg] => abc efg
@@ -82,7 +92,7 @@ const getallproducts = asyncHandler(async (req, res) => {
   // Số Lượng sản phẩm thõa mản điều kiện !== số lượng sp trả về 1 lần gọi API
   queryConmmand.exec(async (err, response) => {
     if (err) throw new Error(err.message);
-    const counts = await Product.find(q).countDocuments();
+    const counts = await Product.find(qr).countDocuments();
     return res.status(200).json({
       success: response ? true : false,
       counts,

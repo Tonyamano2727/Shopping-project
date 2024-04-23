@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { apigetuser , apiupdateUser , apideleteUser} from "../../apis/user";
 import { roles } from "../../ultils/contants";
 import moment from "moment";
-import { Inputfields, InputForm , Button } from "../../components";
+import { Inputfields, InputForm , Button , Pagination} from "../../components";
 import useDebounce from "../../hooks/useDebounce";
 import { useForm } from "react-hook-form";
 import {toast} from 'react-toastify'
@@ -28,7 +28,7 @@ const Manageuser = () => {
   const [EditEl, setEditEl] = useState(null);
 
   const fetchUser = async (params) => {
-    const response = await apigetuser(params);
+    const response = await apigetuser({...params , limit:process.env.REACT_APP_PRODUCT_LIMIT});
     if (response.success) setUsers(response.users);
   };
 
@@ -53,7 +53,7 @@ const Manageuser = () => {
       toast.success(response.mes)
     }else toast.error(response.mes)
   };
-
+  
   const deleteUser =(uid) => {
     Swal.fire({
       title: "Are you sure",
@@ -72,7 +72,6 @@ const Manageuser = () => {
     )
       
   }
-  
   return (
     <div className="w-full">
       <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">

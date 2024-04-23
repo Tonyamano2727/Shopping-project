@@ -3,7 +3,7 @@ import { generateRage } from '../ultils/helper'
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 
 const usePAganation = (totalProductCount, currentPage, siblingCount = 1) => {
- 
+    
     const paginationArray = useMemo (() => {
         const pagasize = process.env.REACT_APP_PRODUCT_LIMIT || 10
         const paginationCount = Math.ceil(totalProductCount / pagasize)
