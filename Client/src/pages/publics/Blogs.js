@@ -41,7 +41,7 @@ const Blogs = () => {
                   <div className="w-[45%]">
                     <img
                       className="h-[250px] w-full object-cover"
-                      src="https://th.bing.com/th/id/OIP.GDH7bifW1-n_-n34o2ENFAHaFF?rs=1&pid=ImgDetMain"
+                      src="https://th.bing.com/th/id/OIP.aQJroiLQdvsMOTuCD9gZwAHaFj?w=1600&h=1200&rs=1&pid=ImgDetMain"
                       alt=""></img>
                   </div>
                   <div className="w-[55%] flex  flex-col ml-5">
@@ -69,7 +69,7 @@ const Blogs = () => {
                   <div className="w-[45%]">
                     <img
                       className="h-[250px] w-full object-cover"
-                      src="https://th.bing.com/th/id/OIP.GDH7bifW1-n_-n34o2ENFAHaFF?rs=1&pid=ImgDetMain"
+                      src="https://www.usinenouvelle.com/mediatheque/2/2/6/001218622_896x598_c.jpg"
                       alt=""></img>
                   </div>
                   <div className="w-[55%] flex  flex-col ml-5">
@@ -97,7 +97,7 @@ const Blogs = () => {
                   <div className="w-[45%]">
                     <img
                       className="h-[250px] w-full object-cover"
-                      src="https://th.bing.com/th/id/OIP.GDH7bifW1-n_-n34o2ENFAHaFF?rs=1&pid=ImgDetMain"
+                      src="https://images.hindustantimes.com/tech/img/2023/09/12/1600x900/iPhone_15_Pro_1694541536304_1694541571648.jpeg"
                       alt=""></img>
                   </div>
                   <div className="w-[55%] flex  flex-col ml-5">

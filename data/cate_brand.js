@@ -21,7 +21,7 @@ const data = [
     },
     {
         cate: 'Television',
-        brand: ['Apple', 'Samsung']
+        brand: ['Apple', 'Samsung','Asus']
     },
 ]
 module.exports = data

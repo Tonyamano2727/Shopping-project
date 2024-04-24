@@ -7,7 +7,7 @@ import { sorts } from "../../ultils/contants";
 
 const breakpointColumnsObj = {
   default: 4,
-  1100: 3,
+  1024: 3,
   700: 2,
   500: 1,
 };
@@ -114,7 +114,7 @@ const Products = () => {
           <Breadcrumb category={category} />
         </div>
       </div>
-      <div className="w-main border p-4 flex justify-between mt-8 m-auto">
+      <div className="xl:w-main  border p-4 flex justify-between mt-8 m-auto">
         <div className="w-4/5 flex-auto flex flex-col gap-3">
           <span className="font-semibold text-sm">Filter by</span>
           <div className="flex items-center gap-4">
@@ -138,7 +138,7 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8 w-main m-auto">
+      <div className="mt-8 xl:w-main  m-auto">
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
@@ -148,7 +148,7 @@ const Products = () => {
           ))}
         </Masonry>
       </div>
-      <div className=" w-main m-auto my-4 flex justify-end">
+      <div className="xl:w-main m-auto my-4 flex justify-end">
         <Pagination totalCount={products?.counts}/>
       </div>
     </div>

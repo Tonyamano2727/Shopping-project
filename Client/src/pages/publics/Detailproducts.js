@@ -49,8 +49,9 @@ const Detailproducts = () => {
   useEffect(() => {
     if (pid) fetchProductdata();
   }, [pid]);
-  window.scrollTo(0 , 0)
+ 
   const handleQuantity = useCallback((number) => {
+     window.scrollTo(0 , 0)
     let previous
     if(!Number(number) || Number(number) < 1) {
        return
@@ -92,9 +93,9 @@ const Detailproducts = () => {
           <span className="flex mt-3">
             {renderStarFromNumber(product?.totalRatings)}
           </span>
-          <div>
-              {product?.description?.length > 1 && <span className="flex leading-8 mt-4">{product?.description}</span>}
-              {product?.description?.length === 1 && <div className="flex leading-8 mt-4" dangerouslySetInnerHTML={{__html : DOMPurify.sanitize(product?.description[0]) }}></div>}
+          <div >
+              {product?.description?.length > 1 && <span className="flex leading-8 mt-4 flex-col">{product?.description}</span>}
+              {product?.description?.length === 1 && <div className="flex leading-8 mt-4 flex-col" dangerouslySetInnerHTML={{__html : DOMPurify.sanitize(product?.description[0]) }}></div>}
           </div>
           <span className="text-[17px] mt-4 font-semibold">
             Sold :{product?.sold}
