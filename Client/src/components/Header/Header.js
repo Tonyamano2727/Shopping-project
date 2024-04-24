@@ -38,7 +38,7 @@ const Header = () => {
             <Link
               to={
                 +current?.role === 1945
-                  ? `/${path.ADMIN}/${path.DASHBOARD}`
+                  ? `/${path.ADMIN}/${path.MANAGE_USER}`
                   : `/${path.MEMBER}/${path.PERSONAL}`
               }
               className="cursor-pointer flex items-center px-6 justify-center text-[16px] gap-2">

@@ -13,7 +13,7 @@ const path = {
 
     //Admin
     ADMIN : 'admin',
-    DASHBOARD: 'dashboard',
+    // DASHBOARD: 'dashboard',
     MANAGE_USER: 'manage-user',
     MANAGE_PRODUCTS: 'manage-products',
     MANAGE_ORDER: 'manage-order',

@@ -14,7 +14,6 @@ import {
 import {
   AdminLayout,
   CreateProducts,
-  Dashboard,
   ManageOrder,
   Manageuser,
   ManageProducts,
@@ -46,7 +45,7 @@ function App() {
           <Route path={path.LOGIN} element={<Login />}></Route>
         </Route>
         <Route path={path.ADMIN} element={<AdminLayout />}>
-          <Route path={path.DASHBOARD} element={<Dashboard />}></Route>
+          {/* <Route path={path.DASHBOARD} element={<Dashboard />}></Route> */}
           <Route path={path.MANAGE_ORDER} element={<ManageOrder />}></Route>
           <Route path={path.MANAGE_PRODUCTS} element={<ManageProducts />}></Route>
           <Route path={path.MANAGE_USER} element={<Manageuser />}></Route>

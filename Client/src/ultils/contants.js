@@ -163,25 +163,18 @@ export const sorts = [
 ]
 
  
-const {BiSolidDashboard , MdGroups2 , TbBrandProducthunt , FaRegMoneyBillAlt} = icons
+const { MdGroups2 , TbBrandProducthunt , FaRegMoneyBillAlt} = icons
 
 export const AdminSidebar = [
     {
         id : 1,
-        type : 'SINGLE',
-        text : 'Dasboard',
-        path: `/${path.ADMIN}/${path.DASHBOARD}`,
-        icon: <BiSolidDashboard/>
-    },
-    {
-        id : 2,
         type : 'SINGLE',
         text : 'Manage users',
         path: `/${path.ADMIN}/${path.MANAGE_USER}`,
         icon: <MdGroups2/>
     },
     {
-        id : 3,
+        id : 2,
         type : 'PARENT',
         text : 'Manage products',
         icon: <TbBrandProducthunt/>,
@@ -197,7 +190,7 @@ export const AdminSidebar = [
         ]
     },
     {
-        id : 4,
+        id : 3,
         type : 'SINGLE',
         text : 'Manage order',
         path: `/${path.ADMIN}/${path.MANAGE_ORDER}`,
