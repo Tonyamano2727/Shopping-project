@@ -58,11 +58,11 @@ const Bestseller = () => {
   return (
     <>
       <div>
-        <div className="flex text-[25px] gap-8  mt-[50px] mb-[50px] ml-[80px]">
+        <div className="flex text-[25px] gap-8  mt-[50px] w-[50%] mb-[50px] xl:ml-[80px]">
           {tabs.map((el) => (
             <span
               key={el.id}
-              className={`font-semibold capitalize cursor-pointer ${
+              className={`font-semibold capitalize cursor-pointer  ${
                 activedTab === el.id ? "text-main" : ""
               }`}
               onClick={() => setActivedTab(el.id)}>

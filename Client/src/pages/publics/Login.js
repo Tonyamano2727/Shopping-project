@@ -61,7 +61,8 @@ const Login = () => {
             userData: rs.userData,
           })
         );
-        navigate(`/${path.HOME}`);
+        window.location.reload()
+        // navigate(`/${path.HOME}`);
       } else {
         Swal.fire("Oops", rs.mes, "eroor");
       }
