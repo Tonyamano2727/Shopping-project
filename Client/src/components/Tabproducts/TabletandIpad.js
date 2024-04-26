@@ -13,7 +13,31 @@ var settings = {
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    }
+  ]
 };
+
 const TabletandIpad = () => {
     const [activedTab, setActivedTab] = useState(1);
     const [tablet, setTablet] = useState(null);
@@ -43,7 +67,7 @@ const TabletandIpad = () => {
   return (
     <>
       <div>
-        <div className="flex text-[25px] gap-8  mt-[50px] mb-[50px] ml-[80px]">
+        <div className="flex text-[25px] gap-8  mt-[50px] w-[50%] mb-[50px] xl:ml-[60px]">
           {tabs.map((el) => (
             <span
               key={el.id}

@@ -17,18 +17,14 @@ const Featureproducts = (productData) => {
   return (
     <>
       <div  className="w-full">
-        <h3 className=" font-semibold text-[25px] gap-8  mt-[10px] mb-[50px] ml-[60px] ">
+        <h3 className=" font-semibold text-[25px] gap-8  mt-[10px] ml-[60px] ">
           FEATURE PRODUCTS
         </h3>
-        <div className="flex flex-wrap mt-[15px] ">
+        <div className="flex flex-wrap p-4 justify-center items-center">
           {products?.map((el) => (
             <ProductsCard
               key={el.id}
               id={el._id}
-              // images={el.thumb}
-              // title={el.title}
-              // totalRatings={el.totalRatings}
-              // price={el.price}
               productData={el}
             />
           ))}

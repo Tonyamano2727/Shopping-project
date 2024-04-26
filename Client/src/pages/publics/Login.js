@@ -11,22 +11,22 @@ const Login = () => {
   const navigate = useNavigate();
   const dispath = useDispatch();
   const [payload, setpayload] = useState({
-    email: "",
-    password: "",
-    firstname: "",
-    lastname: "",
-    mobile: "",
+    // email: "",
+    // password: "",
+    // firstname: "",
+    // lastname: "",
+    // mobile: "",
   });
 
   const [isRegister, setisRegister] = useState(false);
   const [isForgotpassword, setisForgotpassword] = useState(false);
   const resetPayLoad = () => {
     setpayload({
-      email: "",
-      password: "",
-      firstname: "",
-      lastname: "",
-      mobile: "",
+      // email: "",
+      // password: "",
+      // firstname: "",
+      // lastname: "",
+      // mobile: "",
     });
   };
   const [email, Setemail] = useState("");
@@ -37,6 +37,8 @@ const Login = () => {
       toast.success(response.mes)
     } else toast.info(response.mes);
   };
+  
+ 
   const handleSubmit = useCallback(async () => {
     const { firstname, lastname, mobile, ...data } = payload;
     if (isRegister) {
@@ -61,8 +63,7 @@ const Login = () => {
             userData: rs.userData,
           })
         );
-        window.location.reload()
-        // navigate(`/${path.HOME}`);
+        window.location.href = `/${path.HOME}`;
       } else {
         Swal.fire("Oops", rs.mes, "eroor");
       }
@@ -122,9 +123,6 @@ const Login = () => {
             setValue={setpayload}
             nameKey="email"
           />
-          {/* {isRegister && (
-            
-          )} */}
           <Inputfields
             type="password"
             value={payload.password}

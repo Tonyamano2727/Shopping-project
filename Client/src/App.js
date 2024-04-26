@@ -31,7 +31,7 @@ function App() {
     dispath(getCategory());
   }, [dispath]);
   return (
-    <div className="font-main">
+    <div className="font-main overflow-hidden">
       <Routes>
         <Route path={path.PUBLIC} element={<Public />}>
           <Route path={path.HOME} element={<Home />}></Route>

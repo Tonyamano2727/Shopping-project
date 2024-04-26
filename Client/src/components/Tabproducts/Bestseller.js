@@ -14,6 +14,29 @@ var settings = {
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    }
+  ]
 };
 const Bestseller = () => {
   const [activedTab, setActivedTab] = useState(1);
@@ -58,7 +81,7 @@ const Bestseller = () => {
   return (
     <>
       <div>
-        <div className="flex text-[25px] gap-8  mt-[50px] w-[50%] mb-[50px] xl:ml-[80px]">
+        <div className="flex text-[25px] gap-8  mt-[50px] w-[50%] mb-[50px] xl:ml-[60px]">
           {tabs.map((el) => (
             <span
               key={el.id}

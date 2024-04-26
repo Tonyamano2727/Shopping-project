@@ -13,8 +13,8 @@ var settings = {
 const Blog = () => {
   return (
     <div className="w-full flex-col flex text-[25px] gap-8 mb-[50px] ">
-      <div className="">
-        <span className="font-semibold ml-[80px]">Blogs</span>
+      <div className="flex text-[25px] gap-8 xl:ml-[60px]">
+        <span className="font-semibold capitalize cursor-pointer ">Blogs</span>
       </div>
       <div className="w-full">
         <div className="w-[100%]">

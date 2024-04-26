@@ -40,13 +40,13 @@ const Banner = () => {
       setIsPlaying2(false);
     }
   };
-
+  
   return (
     <div className="w-full flex flex-col">
       <Slider {...settings}>
       <div className=" relative">
           <video
-            className="h-[700px] w-full object-cover"
+            className="xl:h-[700px] w-full object-cover"
             ref={videoRef2}
             controls={false} // Ẩn thanh điều khiển mặc định
             // autoPlay={true}
@@ -65,7 +65,7 @@ const Banner = () => {
         </div>
         <div className=" relative">
           <video
-            className="h-[700px] w-full object-cover"
+            className="xl:h-[700px] w-full object-cover"
             ref={videoRef1}
             controls={false} // Ẩn thanh điều khiển mặc định
             // autoPlay={true}
