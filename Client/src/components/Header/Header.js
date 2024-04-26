@@ -1,4 +1,4 @@
-import React,{Fragment} from "react";
+import React,{Fragment , useState} from "react";
 import logo from "../../assets/logo.png";
 import icons from "../../ultils/icons";
 import { Link} from "react-router-dom";
@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 const { MdPhone, IoMdMail, HiOutlineShoppingBag, FaUserCircle } = icons;
 const Header = () => {
   const { current } = useSelector(state => state.user);
+  const [isshowoptions, setisshowoptions] = useState(false)
   return (
     <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] ">
       <Link className="flex justify-center" to={`/${path.HOME}`}>
@@ -31,20 +32,25 @@ const Header = () => {
         </div>
         {current && 
           <Fragment>
-            <div className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r">
+            <div className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
               <HiOutlineShoppingBag color="red" />
               <span>0 item(s)</span>
             </div>
-            <Link
-              to={
-                +current?.role === 1945
-                  ? `/${path.ADMIN}/${path.MANAGE_USER}`
-                  : `/${path.MEMBER}/${path.PERSONAL}`
-              }
-              className="cursor-pointer flex items-center px-6 justify-center text-[16px] gap-2">
+            <div
+              onClick={() => setisshowoptions(prev => !prev)}
+              className="cursor-pointer flex items-center px-6 justify-center text-[16px] gap-2 relative">
               <FaUserCircle />
               <span>Profile</span>
-            </Link>
+              {isshowoptions && <div className='absolute flex-col text-[14px] p-2 flex top-full bg-gray-300 min-w-[150px] py-2'>
+                  <Link to={`/${path.MEMBER}/${[path.PERSONAL]}`}>
+                    PERSONAL
+                  </Link>
+                  {+current.role === 1945 && <Link className="mt-2" to={`/${path.ADMIN}/${[path.CREATE_PRODUCTS]}`}>
+                    Admin workspace
+                  </Link>}
+              </div>}
+            </div>
+            
           </Fragment>
         }
       </div>

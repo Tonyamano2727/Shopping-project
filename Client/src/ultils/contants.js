@@ -198,6 +198,38 @@ export const AdminSidebar = [
     },
 ]
 
+export const membersidebar = [
+    {
+        id : 1,
+        type : 'SINGLE',
+        text : 'PERSONAL',
+        path: `/${path.MEMBER}/${path.PERSONAL}`,
+        icon: <MdGroups2/>
+    },
+    {
+        id : 2,
+        type : 'SINGLE',
+        text : 'My cart',
+        path: `/${path.MEMBER}/${path.MY_CART}`,
+        icon: <TbBrandProducthunt/>,
+    },
+    {
+        id : 3,
+        type : 'SINGLE',
+        text : 'WHISLISH',
+        path: `/${path.MEMBER}/${path.WISHLIST}`,
+        icon: <FaRegMoneyBillAlt/>
+    },
+    {
+        id : 4,
+        type : 'SINGLE',
+        text : 'Buy history',
+        path: `/${path.MEMBER}/${path.HISTORY}`,
+        icon: <FaRegMoneyBillAlt/>
+    },
+]
+
+
 export const roles = [
     {
         code: 1945,
@@ -208,3 +240,4 @@ export const roles = [
         value: 'User'
     }
 ]
+

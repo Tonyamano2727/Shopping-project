@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import { validate, getBase64 } from "../../ultils/helper";
 import { toast } from "react-toastify";
 import icons from "../../ultils/icons";
-import { apiCreateProduct } from "../../apis";
+import { apiUpdateproduct } from "../../apis";
 import { useSelector } from "react-redux";
 
 const { IoTrashBin } = icons;
 
-const Updateproducts = ({ editproduct, render }) => {
+const Updateproducts = ({ editproduct, render, seteditproduct }) => {
   const { categories } = useSelector((state) => state.app);
   const {
     register,
@@ -26,18 +26,28 @@ const Updateproducts = ({ editproduct, render }) => {
     thumb: null,
     images: [],
   });
-
-  // useEffect(() => {
-  //   reset({
-  //     title : editproduct.title || '',
-  //     price : editproduct.price || '',
-  //     quantity : editproduct.quantity || '',
-  //     color : editproduct.color || '',
-
-
-  //   },[editproduct])
-  // })
-
+  
+  useEffect(() => {
+    reset({
+      title: editproduct?.title || "",
+      price: editproduct?.price || "",
+      quantity: editproduct?.quantity || "",
+      color: editproduct?.color || "",
+      category: editproduct?.category || "",
+      brand: editproduct?.brand?.toLowerCase() || "",
+      
+    });
+    setpayload({
+      description:
+        typeof editproduct?.description === "object"
+          ? editproduct?.description?.join(", ")
+          : editproduct?.description,
+    });
+    setpreview({
+      thumb: editproduct?.thumb || "",
+      images: editproduct?.images || [],
+    });
+  }, [editproduct]);
   const [invalidFields, setInvalidFields] = useState([]);
   const changeValue = useCallback(
     (e) => {
@@ -58,42 +68,74 @@ const Updateproducts = ({ editproduct, render }) => {
         return;
       }
       const base64 = await getBase64(file);
-      imagesPreview.push({ name: file.name, path: base64 });
+      imagesPreview.push(base64);
     }
     setpreview((prev) => ({ ...prev, images: imagesPreview }));
+    
   };
   useEffect(() => {
-    handlePreviewThumb(watch("thumb")[0]);
+    if (watch("thumb") instanceof FileList && watch('thumb').length > 0) handlePreviewThumb(watch("thumb")[0]);
   }, [watch("thumb")]);
 
   useEffect(() => {
-    handlePreviewimages(watch("images"));
+    if (watch("images") instanceof FileList && watch('images').length > 0) handlePreviewimages(watch("images"));
   }, [watch("images")]);
-  const handleCreateProduct = async (data) => {
+  
+  const handleUpdateProduct = async (data) => {
     const invalids = validate(payload, setInvalidFields);
     if (invalids === 0) {
       if (data.category)
         data.category = categories?.find(
-          (el) => el._id === data.category
+          (el) => el.title === data.category
         )?.title;
       const finalPayload = { ...data, ...payload };
       const formData = new FormData();
       for (let i of Object.entries(finalPayload)) formData.append(i[0], i[1]);
-      if (finalPayload.thumb) formData.append("thumb", finalPayload.thumb[0]);
+      if (finalPayload.thumb) formData.append("thumb", finalPayload?.thumb?.length === 0 ? preview.thumb : finalPayload.thumb[0]);
       if (finalPayload.images) {
-        for (let image of finalPayload.images) formData.append("images", image);
+        const images = finalPayload?.image?.length === 0 ? preview.images : finalPayload.images
+        for (let image of images) formData.append("images", image);
       }
-      const response = await apiCreateProduct(formData);
+      const response = await apiUpdateproduct(formData , editproduct._id);
+      console.log(response);
       if (response.success) {
         toast.success(response.mes);
-        reset();
-        setpayload({
-          thumb: "",
-          images: [],
-        });
+        render()
+        seteditproduct(null)
       } else toast.error(response.mes);
+      console.log(finalPayload);
     }
   };
+//   const handleUpdateProduct = async (data) => {
+//   const invalids = validate(payload, setInvalidFields);
+//   if (invalids === 0) {
+//     // Xử lý trường "thumb"
+//     let thumbData = data.thumb;
+//     if (data.thumb instanceof FileList && data.thumb.length > 0) {
+//       thumbData = await getBase64(data.thumb[0]);
+//     }
+
+//     // Xử lý trường "images"
+//     let imagesData = [];
+//     if (data.images instanceof FileList && data.images.length > 0) {
+//       for (let file of data.images) {
+//         if (file.type !== "image/png" && file.type !== "image/jpeg") {
+//           toast.warning("File not supported");
+//           return;
+//         }
+//         const base64 = await getBase64(file);
+//         imagesData.push(base64);
+//       }
+//     }
+
+//     const finalPayload = { ...data, ...payload, thumb: thumbData, images: imagesData };
+//     const formData = new FormData();
+//     for (let i of Object.entries(finalPayload)) formData.append(i[0], i[1]);
+
+//     const response = await apiUpdateproduct(formData , editproduct._id);
+//     console.log(response);
+//   }
+// };
 
   const handleRemoveimage = (name) => {
     const files = [...watch("images")];
@@ -111,9 +153,10 @@ const Updateproducts = ({ editproduct, render }) => {
     <div className="w-full flex flex-col gap-4 text-start relative">
       <div className="p-4 border-b w-full flex justify-between items-center">
         <h1 className="text-3xl font-bold tracking-tight ">Updateproducts</h1>
+        <span className='cursor-pointer text-main' onClick={() => seteditproduct(null)}>Cancel</span>
       </div>
       <div>
-        <form onSubmit={handleSubmit(handleCreateProduct)}>
+        <form onSubmit={handleSubmit(handleUpdateProduct)}>
           <InputForm
             label="Name product"
             register={register}
@@ -167,7 +210,7 @@ const Updateproducts = ({ editproduct, render }) => {
             <Select
               label="Category"
               options={categories?.map((el) => ({
-                code: el._id,
+                code: el.title,
                 value: el.title,
               }))}
               register={register}
@@ -179,8 +222,8 @@ const Updateproducts = ({ editproduct, render }) => {
             <Select
               label="Brand"
               options={categories
-                ?.find((el) => el._id === watch("category"))
-                ?.brand?.map((el) => ({ code: el, value: el }))}
+                ?.find((el) => el.title === watch("category"))
+                ?.brand?.map((el) => ({ code: el.toLowerCase(), value: el }))}
               register={register}
               id="brand"
               validate={{ required: "Need fill this field" }}
@@ -194,6 +237,8 @@ const Updateproducts = ({ editproduct, render }) => {
             label="Description"
             invalidFields={invalidFields}
             setinvalidFields={setInvalidFields}
+            value={payload.description}
+            
           />
           <div className="flex flex-col gap-2 mt-8">
             <label className="font-semibold" htmlFor="thumb">
@@ -203,7 +248,7 @@ const Updateproducts = ({ editproduct, render }) => {
               type="file"
               id="thumb"
               register={register}
-              {...register("thumb", { required: "Need fill" })}
+              {...register("thumb")}
             />
             {errors["thumb"] && (
               <small className="text-xs text-red-500">
@@ -228,7 +273,7 @@ const Updateproducts = ({ editproduct, render }) => {
               id="images"
               multiple
               register={register}
-              {...register("images", { required: "Need fill" })}
+              {...register("images")}
             />
             {errors["images"] && (
               <small className="text-xs text-red-500">
@@ -239,13 +284,10 @@ const Updateproducts = ({ editproduct, render }) => {
           {preview.images.length > 0 && (
             <div className="my-4 flex w-full gap-3 flex-wrap">
               {preview.images?.map((el, idx) => (
-                <div
-                  onMouseEnter={() => sethover(el.name)}
-                  className="w-fit flex relative"
-                  onMouseLeave={() => sethover(null)}>
+                <div className="w-fit flex relative">
                   <img
                     key={idx}
-                    src={el.path}
+                    src={el}
                     alt="product"
                     className="w-[200px] object-contain "></img>
                   {hover === el.name && (
@@ -260,7 +302,7 @@ const Updateproducts = ({ editproduct, render }) => {
             </div>
           )}
           <div className="mt-8">
-            <Button type="submit">Create new product</Button>
+            <Button type="submit">Updateproducts</Button>
           </div>
         </form>
       </div>

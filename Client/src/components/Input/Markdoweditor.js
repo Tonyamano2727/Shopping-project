@@ -1,7 +1,7 @@
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-const Markdoweditor = ({label , value , changevalue , name, invalidFields , setinvalidFields}) => {
+const Markdoweditor = ({label , value , changevalue , name, invalidFields , setinvalidFields , setisfousdescription}) => {
   return (
     <div className="flex flex-col ">
         <span className="">{label}</span>
@@ -17,7 +17,10 @@ const Markdoweditor = ({label , value , changevalue , name, invalidFields , seti
           height: 500,
         }}
         onChange={e => changevalue(prev => ({ ...prev, [name]: e.target.getContent() }))}
-        onFocus={() => setinvalidFields && setinvalidFields([])}
+        onFocus={() => {
+          setinvalidFields && setinvalidFields([])
+          setisfousdescription(true)
+        }}
       />
       {invalidFields?.some(el => el.name === name) && <small className="text-main text-sm">{invalidFields?.find(el => el.name === name)?.mes}</small>}
     </div>

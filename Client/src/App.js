@@ -18,7 +18,8 @@ import {
   Manageuser,
   ManageProducts,
 } from "./pages/admin";
-import { Personal, MemberLayout } from "./pages/Member";
+import {MemberLayout , Personal , Orderhistory ,Mycart,Mywhistlist} from "./pages/Member"
+
 import path from "./ultils/path";
 import { getCategory } from "./store/app/asyncAction";
 import { useDispatch } from "react-redux";
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path={path.MEMBER} element={<MemberLayout />}>
           <Route path={path.PERSONAL} element={<Personal />}></Route>
+          <Route path={path.MY_CART} element={<Mycart />}></Route>
+          <Route path={path.WISHLIST} element={<Mywhistlist />}></Route>
+          <Route path={path.HISTORY} element={<Orderhistory />}></Route>
         </Route>
       </Routes>
       <ToastContainer

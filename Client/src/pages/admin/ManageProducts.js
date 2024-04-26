@@ -6,6 +6,9 @@ import { formatMoney , renderStarFromNumber } from "../../ultils/helper";
 import {useSearchParams} from 'react-router-dom'
 import useDebounce from "../../hooks/useDebounce";
 import Updateproducts from "./Updateproducts";
+import { apiDeleteproduct } from "../../apis";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 const ManageProducts = () => {
   const {
     register,
@@ -39,12 +42,26 @@ const ManageProducts = () => {
     if (querydeBounce) searchParams.q = querydeBounce
     fetchProducts(searchParams)
   },[params , querydeBounce , Update])
-  
-  console.log(products);
+
+  const handledeleteproduct = (pid) => {
+      Swal.fire({
+        title: 'Are you sure',
+        text: 'Are you sure remove this product',
+        icon: 'warning',
+        showCancelButton:true
+      }).then(async(rs) => {
+        if(rs.isConfirmed){
+          const response = await apiDeleteproduct(pid)
+          if(response.success) toast.success(response.mes)
+          else toast.error(response.mes)
+        render()
+        }
+      })
+  }
   return (
     <div className="w-full flex flex-col gap-4 text-center relative">
       {editproduct && <div className="absolute inset-0 bg-white">
-        <Updateproducts editproduct={editproduct} render/>
+        <Updateproducts editproduct={editproduct} render={render} seteditproduct={seteditproduct}/>
       </div>}
       <div className="p-4 border-b w-full flex justify-between items-center">
         <h1 className="text-3xl font-bold tracking-tight ">ManageProducts</h1>
@@ -91,7 +108,7 @@ const ManageProducts = () => {
                     <td>{el.totalRatings}</td>
                     <td>
                       <span onClick={() => seteditproduct(el)} className="text-red-500 hover:underline cursor-pointer px-2">Edit</span>
-                      <span className="text-red-500 hover:underline cursor-pointer px-2">Delete</span>
+                      <span onClick={() => handledeleteproduct(el._id)} className="text-red-500 hover:underline cursor-pointer px-2">Delete</span>
                       </td>
                 </tr>
               ))}
