@@ -52,15 +52,59 @@ export const validate = (payload, setinvalidFields) => {
       ]);
     }
   }
+  for (let arr of formatPayload) {
+    switch (arr[0]) {
+      case "email":
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!arr[1].match(regex)) {
+          invalids++;
+          setinvalidFields((prev) => [
+            ...prev,
+            { name: arr[0], mes: "Email invalid" },
+          ]);
+        }
+        break;
+      case "password":
+        const regexpassword = /^(?=.*[A-Z])[A-Z0-9]+$/;
+        if (!regexpassword.test(arr[1]) || arr[1].length < 10) {
+          invalids++;
+          setinvalidFields((prev) => [
+            ...prev,
+            {
+              name: arr[0],
+              mes: "Password must be at least 10 characters long and contain at least one uppercase letter.",
+            },
+          ]);
+        }
+        break;
+
+      case "mobile":
+        const regexMobile = /^[0-9 +\-()]+$/;
+        if (!regexMobile.test(arr[1]) || arr[1].length < 10) {
+          invalids++;
+          setinvalidFields((prev) => [
+            ...prev,
+            {
+              name: arr[0],
+              mes: "Mobile number must be at least 10 digits long.",
+            },
+          ]);
+        }
+        break;
+
+      default:
+        break;
+    }
+  }
   return invalids;
 };
 
 export function getBase64(file) {
-  if (!file) return ''
+  if (!file) return "";
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+    reader.onerror = (error) => reject(error);
   });
 }

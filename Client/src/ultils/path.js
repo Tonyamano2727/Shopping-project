@@ -20,7 +20,6 @@ const path = {
     CREATE_PRODUCTS: 'create-products',
 
     // Member
-
     MEMBER: 'member',
     PERSONAL: 'personal',
     MY_CART: 'my-cart',

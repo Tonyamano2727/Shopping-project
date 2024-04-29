@@ -9,7 +9,7 @@ const Sidebar = () => {
   // console.log(categories);
   // null ko su dung duoc ap
   return (
-    <div className="flex flex-col w-[100%]  mb-5 flex-auto bg-gray-300">
+    <div className="flex flex-col w-[100%] flex-auto bg-gray-300">
       <div className='flex justify-center '>
       {categories?.map(el => (
         <NavLink
