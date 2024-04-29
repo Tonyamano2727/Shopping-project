@@ -25,7 +25,7 @@ const Membersidebar = () => {
         <img
           src={current?.avatar || logo}
           alt="logo"
-          className="w-[200px] object-contain"></img>
+          className="w-[80px] object-contain rounded-[50%]"></img>
       </Link>
       <div>
         <div className="flex w-full text-center justify-center items-center">

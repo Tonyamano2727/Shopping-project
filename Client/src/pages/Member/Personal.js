@@ -1,11 +1,16 @@
 import React, {useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Button, InputForm } from "../../components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment'
-
+import avatar from '../../assets/logo.png'
+import { validate } from "../../ultils/helper";
+import { toast } from "react-toastify";
+import { apiupdateUser } from "../../apis";
+import { getCurrent } from "../../store/user/asyncAction";
 const Personal = () => {
   const {current} = useSelector(state => state.user)
+  const dispath = useDispatch()
   const {
     register,
     formState: { errors },
@@ -21,8 +26,20 @@ const Personal = () => {
       avatar: current?.avatar,
     })
   },[current])
-  const handleUpdateinfor = (data) => {
-    console.log(data);
+  const handleUpdateinfor =async (data) => {
+    const formData = new FormData()
+   
+    if(data.avatar.length > 0) formData.append('avatar', data.avatar[0])
+    delete data.avatar
+    for(let i of Object.entries(data)) formData.append(i[0], i[1])
+
+    const response = await apiupdateUser(formData)
+    console.log(response);
+    if(response.success) {
+      dispath(getCurrent())
+      toast.success(response.mes)
+    }
+    else toast.error(response.mes)
   } 
   return (
     <div className="w-full p-4 flex relative flex-col ">
@@ -37,6 +54,7 @@ const Personal = () => {
           id="firstname"
           validate={{
             required: "Need fill this field",
+
           }}
         />
         <InputForm
@@ -55,6 +73,10 @@ const Personal = () => {
           id="email"
           validate={{
             required: "Need fill this field",
+            pattern : {
+              value : /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message : 'Email invalid'
+            }
           }}
         />
         <InputForm
@@ -64,6 +86,10 @@ const Personal = () => {
           id="mobile"
           validate={{
             required: "Need fill this field",
+            pattern : {
+              value : /^[0-9 +\-()]+$/,
+              message : 'Mobile number must be at least 10 digits long.'
+            }
           }}
         />
         <div className="flex items-center gap-2"> 
@@ -77,6 +103,13 @@ const Personal = () => {
         <div className="flex items-center gap-2"> 
             <span className='font-medium'>Create At : </span>
             <span>{moment(current?.createdAt).format("DD/MM/YYYY")}</span>
+        </div>
+        <div className="flex flex-col gap-2">
+          <span className="font-medium">Profile images :</span>
+          <label htmlFor="file">
+          <img src={current?.avatar || avatar} alt="avata" className="w-20 h-20 object-cover rounded-full"></img>
+          </label>
+          <input type="file" id="file" {...register('avatar')} hidden></input>
         </div>
         <Button type="submit">Update information</Button>
       </form>

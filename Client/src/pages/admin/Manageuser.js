@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { apigetuser , apiupdateUser , apideleteUser} from "../../apis/user";
+import { apigetuser , apiupdateUserbyadmin , apideleteUser} from "../../apis/user";
 import { roles } from "../../ultils/contants";
 import moment from "moment";
 import { Inputfields, InputForm , Button , Pagination} from "../../components";
@@ -46,7 +46,7 @@ const Manageuser = () => {
   }, [queriesDebounce , Update]);
 
   const handleUpdate = async (data) => {
-    const response = await apiupdateUser(data , EditEl._id)
+    const response = await apiupdateUserbyadmin(data , EditEl._id)
     if(response.success) {
       setEditEl(null)
       render()
