@@ -15,6 +15,7 @@ router.delete('/:uid',[verifyToken,isAdmin], ctrls.deleteUser)
 router.put('/current',[verifyToken],uploader.single('avatar'), ctrls.updateuser)
 router.put('/address',[verifyToken], ctrls.updateuserAddress)
 router.put('/cart',[verifyToken], ctrls.updateCart)
+router.delete('/remove-cart/:pid',[verifyToken], ctrls.removeProductInCart)
 router.put('/:uid',[verifyToken,isAdmin], ctrls.updateuserbyadmin)
 
 module.exports = router

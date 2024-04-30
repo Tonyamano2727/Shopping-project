@@ -34,7 +34,7 @@ const Header = () => {
           <Fragment>
             <div className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
               <HiOutlineShoppingBag color="red" />
-              <span>0 item(s)</span>
+              <span>{`${current?.cart?.length || 0} item(s)`}</span>
             </div>
             <div
               onClick={() => setisshowoptions(prev => !prev)}

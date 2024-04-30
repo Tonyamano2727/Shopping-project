@@ -92,7 +92,6 @@ const login = asyncHandler(async (req, res) => {
   }
 });
 
-
 const getCurrent = asyncHandler(async (req, res) => {
   //console.log('req   ', req);
   const { _id } = req.user;
@@ -168,9 +167,10 @@ const forgotPassword = asyncHandler(async (req, res) => {
   };
   const rs = await Sendemail(data);
   return res.status(200).json({
-    success:true,
-    mes: rs.response?.includes('OK') ? 'Check your email' : 'Email wrong try last'
-    
+    success: true,
+    mes: rs.response?.includes("OK")
+      ? "Check your email"
+      : "Email wrong try last",
   });
 });
 
@@ -198,7 +198,6 @@ const resetPassword = asyncHandler(async (req, res) => {
 });
 
 const getUser = asyncHandler(async (req, res) => {
-  
   const queries = { ...req.query };
   // Tách các trường dặt biệt
   const excludeFields = ["limit", "sort", "page", "fields"];
@@ -208,20 +207,20 @@ const getUser = asyncHandler(async (req, res) => {
   let queryString = JSON.stringify(queries);
   queryString = queryString.replace(
     /\b(gte|gt|lt|lte)\b/g,
-    macthedEl => `$${macthedEl}`
+    (macthedEl) => `$${macthedEl}`
   );
   const formatedQueries = JSON.parse(queryString);
   // Filtering
   if (queries?.name)
     formatedQueries.name = { $regex: queries.name, $options: "i" };
-  
-  if(req.query.q){
-      delete formatedQueries.q
-      formatedQueries['$or'] = [
-        {firstname : { $regex: req.query.q, $options: "i" }},
-        {lastname : { $regex: req.query.q, $options: "i" }},
-        {email : { $regex: req.query.q, $options: "i" }}
-      ]
+
+  if (req.query.q) {
+    delete formatedQueries.q;
+    formatedQueries["$or"] = [
+      { firstname: { $regex: req.query.q, $options: "i" } },
+      { lastname: { $regex: req.query.q, $options: "i" } },
+      { email: { $regex: req.query.q, $options: "i" } },
+    ];
   }
   let queryConmmand = User.find(formatedQueries);
 
@@ -238,7 +237,6 @@ const getUser = asyncHandler(async (req, res) => {
     queryConmmand = queryConmmand.select(fields);
   }
 
-  
   // Pagination
   // limit: số object lấy về goin API
   // skip: 2
@@ -277,17 +275,17 @@ const deleteUser = asyncHandler(async (req, res) => {
 const updateuser = asyncHandler(async (req, res) => {
   console.log(req.file);
   const { _id } = req.user;
-  const {firstname , lastname , email , mobile} = req.body
-  const data = {firstname , lastname , email , mobile}
-  if(req.file) data.avatar = req.file.path
+  const { firstname, lastname, email, mobile } = req.body;
+  const data = { firstname, lastname, email, mobile };
+  if (req.file) data.avatar = req.file.path;
   if (!_id || Object.keys(req.body).length === 0)
     throw new Error("Missing input");
-  const response = await User.findByIdAndUpdate(_id,data, {
+  const response = await User.findByIdAndUpdate(_id, data, {
     new: true,
   }).select("-password,-role");
   return res.status(200).json({
     success: response ? true : false,
-    mes: response ? 'Updated' : "Something went wrong",
+    mes: response ? "Updated" : "Something went wrong",
   });
 });
 
@@ -299,7 +297,7 @@ const updateuserbyadmin = asyncHandler(async (req, res) => {
   }).select("-password -role ");
   return res.status(200).json({
     success: response ? true : false,
-    mes: response ? 'Updated' : "Something went wrong",
+    mes: response ? "Updated" : "Something went wrong",
   });
 });
 
@@ -319,37 +317,28 @@ const updateuserAddress = asyncHandler(async (req, res) => {
 
 const updateCart = asyncHandler(async (req, res) => {
   const { _id } = req.user;
-  const { pid, quantity, color } = req.body;
-  if (!pid || !quantity || !color) throw new Error("Missing input");
-  const user = await User.findById(_id).select('cart')
-  const alreadyProduct = user?.cart?.find(el => el.product && el.product.toString() === pid) // đã fix bug "mes": "Cannot read properties of undefined (reading 'toString')"
+  const { pid, quantity = 1, color } = req.body;
+  if (!pid || !color) throw new Error("Missing input");
+  const user = await User.findById(_id).select("cart");
+  const alreadyProduct = user?.cart?.find(
+    (el) => el.product && el.product.toString() === pid
+  ); // đã fix bug "mes": "Cannot read properties of undefined (reading 'toString')"
   if (alreadyProduct) {
-      if(alreadyProduct.color === color){
-        // const response = await User.updateOne({cart: {$elmenMatch: alreadyProduct}}, {$set : {"cart.$.quantity":quantity}},{new:true})
-        // return res.status(200).json({
-        //   success: response ? true : false,
-        //   updateCart: response ? response : "Something went wrong",
-        // });
-        const response = await User.updateOne(
-          { cart: { $elemMatch: alreadyProduct } },
-          { $set: { "cart.$.quantity": quantity } },
-          { new: true }
-        );
-        return res.status(200).json({
-          success: response ? true : false,
-          updateCart: response ? response : "Something went wrong",
-        });
-      }else{
-        const response = await User.findByIdAndUpdate(
-          _id,
-          { $push: { cart: { product: pid, quantity, color } } },
-          { new: true }
-        );
-        return res.status(200).json({
-          success: response ? true : false,
-          updateCart: response ? response : "Something went wrong",
-        });
-      }
+    // if (alreadyProduct.color === color) {
+    // const response = await User.updateOne({cart: {$elmenMatch: alreadyProduct}}, {$set : {"cart.$.quantity":quantity}},{new:true})
+    // return res.status(200).json({
+    //   success: response ? true : false,
+    //   updateCart: response ? response : "Something went wrong",
+    // });
+    const response = await User.updateOne(
+      { cart: { $elemMatch: alreadyProduct } },
+      { $set: { "cart.$.quantity": quantity, "cart.$.color": color } },
+      { new: true }
+    );
+    return res.status(200).json({
+      success: response ? true : false,
+      mes: response ? "Updated your cart" : "Something went wrong",
+    });
   } else {
     const response = await User.findByIdAndUpdate(
       _id,
@@ -358,11 +347,33 @@ const updateCart = asyncHandler(async (req, res) => {
     );
     return res.status(200).json({
       success: response ? true : false,
-      updateCart: response ? response : "Something went wrong",
+      mes: response ? "Updated your cart" : "Something went wrong",
     });
   }
 });
 
+const removeProductInCart = asyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  const { pid } = req.params;
+  const user = await User.findById(_id).select("cart");
+  const alreadyProduct = user?.cart?.find(
+    (el) => el.product && el.product.toString() === pid
+  );
+  if (!alreadyProduct) 
+    return res.status(200).json({
+      success: true ,
+      mes: "Updated your cart",
+    })
+    const response = await User.findByIdAndUpdate(
+      _id,
+      { $pull: { cart: { product: pid} } },
+      { new: true }
+    );
+    return res.status(200).json({
+      success: response ? true : false,
+      mes: response ? "Updated your cart" : "Something went wrong",
+    });
+});
 
 module.exports = {
   register,
@@ -378,4 +389,5 @@ module.exports = {
   updateuserbyadmin,
   updateuserAddress,
   updateCart,
+  removeProductInCart
 };
