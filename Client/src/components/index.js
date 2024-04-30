@@ -30,4 +30,4 @@ export {default as Markdoweditor} from './Input/Markdoweditor'
 export {default as Select} from './Input/Select'
 export {default as Pagination} from './Pagination/Pagination'
 export {default as Pagiitem} from './Pagination/Pagiitem'
-
+export {default as Cart} from './Cart/Cart'

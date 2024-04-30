@@ -4,10 +4,13 @@ import icons from "../../ultils/icons";
 import { Link} from "react-router-dom";
 import path from "../../ultils/path";
 
-import { useSelector } from "react-redux";
+
+import { useSelector,useDispatch } from "react-redux";
+import { Showcart } from "../../store/app/appslice";
 
 const { MdPhone, IoMdMail, HiOutlineShoppingBag, FaUserCircle } = icons;
 const Header = () => {
+  const dispatch = useDispatch()
   const { current } = useSelector(state => state.user);
   const [isshowoptions, setisshowoptions] = useState(false)
   return (
@@ -32,7 +35,7 @@ const Header = () => {
         </div>
         {current && 
           <Fragment>
-            <div className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
+            <div onClick={() => dispatch(Showcart())} className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
               <HiOutlineShoppingBag color="red" />
               <span>{`${current?.cart?.length || 0} item(s)`}</span>
             </div>

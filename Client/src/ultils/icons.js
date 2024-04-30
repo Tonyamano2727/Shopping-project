@@ -24,6 +24,8 @@ import { MdOutlinePhoneIphone } from "react-icons/md";
 import { TbBrandProducthunt } from "react-icons/tb";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoTrashBin } from "react-icons/io5";
+import { BsCartCheckFill } from "react-icons/bs";
+import { BsCartPlusFill } from "react-icons/bs";
 const icons = {
   MdPhone,
   IoMdMail,
@@ -51,7 +53,9 @@ const icons = {
   MdGroups2,
   TbBrandProducthunt,
   FaRegMoneyBillAlt,
-  IoTrashBin
+  IoTrashBin,
+  BsCartCheckFill,
+  BsCartPlusFill
 };
 
 export default icons;

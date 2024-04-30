@@ -6,11 +6,12 @@ export const appSlice = createSlice({
   initialState: {
     categories: null,
     isLoading: false,
+    isShowCart: false
   },
   reducers: {
-    // logout: (state) => {
-    //     state.isLoading = false
-    // }
+    Showcart: (state) => {
+      state.isShowCart = state.isShowCart === false ? true : false
+    }
 
   },
   // Code logic xử lý async action
@@ -36,6 +37,6 @@ export const appSlice = createSlice({
     });
   },
 })
-// export const { } = appSlice.actions
+export const {Showcart } = appSlice.actions
 
 export default appSlice.reducer

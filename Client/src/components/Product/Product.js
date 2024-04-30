@@ -6,45 +6,46 @@ import icons from "../../ultils/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { apiupdatecart } from "../../apis";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { getCurrent } from "../../store/user/asyncAction";
 import Swal from "sweetalert2";
 import path from "../../ultils/path";
 
-
-const { FaEye, IoMenu, FaHeart } = icons;
+const { FaEye, IoMenu, FaHeart, BsCartCheckFill, BsCartPlusFill } = icons;
 const Product = ({ productData }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isShowOption, setIsShowOption] = useState(false);
-  const {current} = useSelector(state => state.user)
+  const { current } = useSelector((state) => state.user);
   const handleClickOptions = async (e, flag) => {
-    e.stopPropagation()
-    if(flag === 'CART'){
-      if(!current) return Swal.fire({
-        title: 'Almost',
-        text: 'Please login first',
-        icon: 'info',
-        cancelButtonText: 'Not now!',
-        showConfirmButton: true,
-        confirmButtonText: 'Go to login page'
-      }).then((rs) => {
-          if (rs.isConfirmed) navigate(`/${path.LOGIN}`)
-      })
+    e.stopPropagation();
+    if (flag === "CART") {
+      if (!current)
+        return Swal.fire({
+          title: "Almost",
+          text: "Please login first",
+          icon: "info",
+          cancelButtonText: "Not now!",
+          showConfirmButton: true,
+          confirmButtonText: "Go to login page",
+        }).then((rs) => {
+          if (rs.isConfirmed) navigate(`/${path.LOGIN}`);
+        });
       console.log(productData);
-        const response =  await apiupdatecart({pid : productData._id , color : productData.color})
-        if(response.success) {
-          toast.success(response.mes)
-          dispatch(getCurrent())
-        }
-        else toast.error(response.mes)
+      const response = await apiupdatecart({
+        pid: productData._id,
+        color: productData.color,
+      });
+      if (response.success) {
+        toast.success(response.mes);
+        dispatch(getCurrent());
+      } else toast.error(response.mes);
     }
-  }
+  };
   return (
     <div className="w-full px-[10px] text-base">
       <div
         className="w-full flex flex-col items-center"
-        
         onMouseEnter={(e) => {
           e.stopPropagation();
           setIsShowOption(true);
@@ -56,8 +57,25 @@ const Product = ({ productData }) => {
         <div className="w-full relative flex justify-center">
           {isShowOption && (
             <div className="absolute flex bottom-[-20px] left-0 right-0 justify-center gap-2 animate-slide-top">
-              <Link to={`/${productData?.category.toLowerCase()}/${productData?._id}/${productData?.title}`} ><Selectoption icon={<FaEye />} /></Link>
-              <span title="Add to cart" onClick={(e) => handleClickOptions(e, 'CART')}><Selectoption icon={<IoMenu />} /></span>
+              <Link
+                to={`/${productData?.category.toLowerCase()}/${
+                  productData?._id
+                }/${productData?.title}`}>
+                <Selectoption icon={<FaEye />} />
+              </Link>
+              {current?.cart?.some((el) => el.product === productData._id.toString()) ? (
+                <span
+                  title="Add to cart"
+                  onClick={(e) => handleClickOptions(e, "CART")}>
+                  <Selectoption icon={<BsCartCheckFill color="red" />} />
+                </span>
+              ) : (
+                <span
+                  title="Add to cart"
+                  onClick={(e) => handleClickOptions(e, "CART")}>
+                  <Selectoption icon={<BsCartPlusFill color="blue" />} />
+                </span>
+              )}
               <Selectoption icon={<FaHeart />} />
             </div>
           )}

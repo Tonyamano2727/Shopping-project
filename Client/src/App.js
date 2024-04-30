@@ -22,16 +22,22 @@ import {MemberLayout , Personal , Orderhistory ,Mycart,Mywhistlist} from "./page
 
 import path from "./ultils/path";
 import { getCategory } from "./store/app/asyncAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
+import Cart from "./components/Cart/Cart";
 import "react-toastify/dist/ReactToastify.css";
+import { Showcart } from "./store/app/appslice";
 function App() {
   const dispath = useDispatch();
   useEffect(() => {
     dispath(getCategory());
   }, [dispath]);
+  const {isShowCart} = useSelector(state => state.app)
   return (
-    <div className="font-main overflow-hidden">
+    <div className="relative font-main overflow-hidden">
+      {isShowCart && <div onClick={() => dispath(Showcart())} className='absolute inset-0 bg-overplay z-50 flex justify-end'>
+        <Cart/>
+      </div>}
       <Routes>
         <Route path={path.PUBLIC} element={<Public />}>
           <Route path={path.HOME} element={<Home />}></Route>
