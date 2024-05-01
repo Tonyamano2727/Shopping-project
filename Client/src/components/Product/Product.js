@@ -11,13 +11,13 @@ import { getCurrent } from "../../store/user/asyncAction";
 import Swal from "sweetalert2";
 import path from "../../ultils/path";
 
-const { FaEye, IoMenu, FaHeart, BsCartCheckFill, BsCartPlusFill } = icons;
+const { FaEye, FaHeart, BsCartCheckFill, BsCartPlusFill } = icons;
 const Product = ({ productData }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isShowOption, setIsShowOption] = useState(false);
   const { current } = useSelector((state) => state.user);
-  console.log({current , productData});
+ 
   const handleClickOptions = async (e, flag) => {
     e.stopPropagation();
     if (flag === 'CART') {
@@ -32,14 +32,13 @@ const Product = ({ productData }) => {
         }).then((rs) => {
           if (rs.isConfirmed) navigate(`/${path.LOGIN}`);
         });
-      console.log(productData);
       const response = await apiupdatecart({
         pid: productData._id,
         color: productData.color,
       });
       if (response.success) {
         dispatch(getCurrent());
-        // toast.success(response.mes); // bug togle 
+        toast.success(response.mes); // bug togle 
       } else toast.error(response.mes);
     }
   };

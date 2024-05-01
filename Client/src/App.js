@@ -9,6 +9,7 @@ import {
   Detailproducts,
   Blogs,
   Products,
+  Detailcart,
   Resetpassword,
 } from "./pages/publics";
 import {
@@ -50,6 +51,7 @@ function App() {
           <Route path={path.PRODUCTS} element={<Products />}></Route>
           <Route path={path.RESET_PASSWORD} element={<Resetpassword />}></Route>
           <Route path={path.LOGIN} element={<Login />}></Route>
+          <Route path={path.DETAIL_CART} element={<Detailcart />}></Route>
         </Route>
         <Route path={path.ADMIN} element={<AdminLayout />}>
           {/* <Route path={path.DASHBOARD} element={<Dashboard />}></Route> */}
