@@ -97,7 +97,13 @@ const getCurrent = asyncHandler(async (req, res) => {
   const { _id } = req.user;
   const user = await User.findById({ _id: _id }).select(
     "-refreshToken -password "
-  ); // select is hide truong trong database
+  ).populate({
+    path: 'cart',
+    populate : {
+      path: 'product',
+      select: 'title thumb price'
+    }
+  })
   return res.status(200).json({
     success: user ? true : false,
     rs: user ? user : "User not found",

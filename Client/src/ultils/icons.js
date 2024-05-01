@@ -26,6 +26,7 @@ import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoTrashBin } from "react-icons/io5";
 import { BsCartCheckFill } from "react-icons/bs";
 import { BsCartPlusFill } from "react-icons/bs";
+import { MdOutlineDeleteOutline } from "react-icons/md";
 const icons = {
   MdPhone,
   IoMdMail,
@@ -55,7 +56,8 @@ const icons = {
   FaRegMoneyBillAlt,
   IoTrashBin,
   BsCartCheckFill,
-  BsCartPlusFill
+  BsCartPlusFill,
+  MdOutlineDeleteOutline
 };
 
 export default icons;

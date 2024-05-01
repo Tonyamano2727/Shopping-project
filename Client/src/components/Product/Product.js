@@ -17,9 +17,10 @@ const Product = ({ productData }) => {
   const dispatch = useDispatch();
   const [isShowOption, setIsShowOption] = useState(false);
   const { current } = useSelector((state) => state.user);
+  console.log({current , productData});
   const handleClickOptions = async (e, flag) => {
     e.stopPropagation();
-    if (flag === "CART") {
+    if (flag === 'CART') {
       if (!current)
         return Swal.fire({
           title: "Almost",
@@ -37,8 +38,8 @@ const Product = ({ productData }) => {
         color: productData.color,
       });
       if (response.success) {
-        toast.success(response.mes);
         dispatch(getCurrent());
+        // toast.success(response.mes); // bug togle 
       } else toast.error(response.mes);
     }
   };
@@ -63,19 +64,19 @@ const Product = ({ productData }) => {
                 }/${productData?.title}`}>
                 <Selectoption icon={<FaEye />} />
               </Link>
-              {current?.cart?.some((el) => el.product === productData._id.toString()) ? (
-                <span
-                  title="Add to cart"
-                  onClick={(e) => handleClickOptions(e, "CART")}>
-                  <Selectoption icon={<BsCartCheckFill color="red" />} />
+              {current?.cart?.some(el => el?.product?._id === productData._id.toString()) ? <span
+                  title="Added to cart"
+                  >
+                  <Selectoption icon={<BsCartCheckFill color="blue" />} />
                 </span>
-              ) : (
-                <span
-                  title="Add to cart"
-                  onClick={(e) => handleClickOptions(e, "CART")}>
-                  <Selectoption icon={<BsCartPlusFill color="blue" />} />
-                </span>
-              )}
+                : <span onClick={(e) => handleClickOptions(e, 'CART')}
+                title="Add to cart"
+                >
+                <Selectoption icon={<BsCartPlusFill color="red" />} />
+              </span>
+                
+                }
+                
               <Selectoption icon={<FaHeart />} />
             </div>
           )}

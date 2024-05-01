@@ -72,3 +72,6 @@ button.slick-prev::before {
 .w500{
   width: 500px;
 }
+.bg-box{
+  background-color: #0000004d;
+}
