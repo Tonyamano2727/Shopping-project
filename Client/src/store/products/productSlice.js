@@ -6,7 +6,8 @@ export const productSlice = createSlice({
   name: 'products',
   initialState: {
     newProducts:null,
-    errorMessage: ''
+    errorMessage: '',
+    
   },
   reducers: {
    

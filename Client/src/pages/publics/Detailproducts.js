@@ -1,13 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { createSearchParams, useParams,useLocation,useNavigate } from "react-router-dom";
 import { apiGetProduct } from "../../apis/products";
-import { Breadcrumb, Button , Selectquantity , Productextraifitem , Productinformation ,Othermany} from "../../components";
+import { Breadcrumb, Button , Selectquantity , Productextraifitem , Productinformation ,Othermany, Search} from "../../components";
 import Slider from "react-slick";
 import { formatMoney, renderStarFromNumber } from "../../ultils/helper";
 import DOMPurify  from 'dompurify'
+import { useSelector,useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { getCurrent } from "../../store/user/asyncAction";
+import path from "../../ultils/path";
+import Swal from "sweetalert2";
+
 
 import { productExtraif } from "../../ultils/contants";
+import { apiupdatecart } from "../../apis";
 const Detailproducts = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { current } = useSelector((state) => state.user);
   const settings = {
     dots: true,
     infinite: true,
@@ -40,7 +51,7 @@ const Detailproducts = () => {
 
   const { pid, title } = useParams();
   const [product, setproduct] = useState(null);
-
+  const [color, setcolor] = useState('')
   const [quantity, setquantity] = useState(1)
   const fetchProductdata = async () => {
     const response = await apiGetProduct(pid);
@@ -64,6 +75,33 @@ const Detailproducts = () => {
     if(flag === 'minus') setquantity(prev => +prev - 1)
     if(flag === 'Plus') setquantity(prev => +prev + 1)
   },[quantity])
+  const handleAddtoCart = async () => {
+    if (!current)
+        return Swal.fire({
+          title: "Almost",
+          text: "Please login first",
+          icon: "info",
+          cancelButtonText: "Not now!",
+          showConfirmButton: true,
+          confirmButtonText: "Go to login page",
+        }).then(async(rs) => {
+          if (rs.isConfirmed) navigate({
+            pathname : `/${path.LOGIN}`,
+            search: createSearchParams({redirect : location.pathname}).toString()
+          });
+        });
+      const response = await apiupdatecart({
+        pid,
+        color: product?.color,
+        quantity,
+      });
+      console.log(response);
+      if (response.success) {
+        toast.success(response.mes); // bug togle 
+        dispatch(getCurrent());
+      } else toast.error(response.mes);
+  }
+  console.log({current});
   return (
     <div>
       <div className="h-[81px flex justify-center ">
@@ -98,6 +136,9 @@ const Detailproducts = () => {
               {product?.description?.length === 1 && <div className="flex leading-8 mt-4 flex-col" dangerouslySetInnerHTML={{__html : DOMPurify.sanitize(product?.description[0]) }}></div>}
           </div>
           <span className="text-[17px] mt-4 font-semibold">
+            Color :{product?.color}
+          </span>
+          <span className="text-[17px] mt-4 font-semibold">
             Sold :{product?.sold}
           </span>
           <span className="text-[17px] mt-4 font-semibold">
@@ -105,7 +146,7 @@ const Detailproducts = () => {
           </span>
           <div className="mt-4 flex flex-col gap-8">
             <Selectquantity quantity={quantity} handleQuantity={handleQuantity} handlechangequantity={handlechangequantity}/>
-            <Button fw>Addtocart</Button>
+            <Button fw handleOnclick={handleAddtoCart}>Addtocart</Button>
           </div>
         </div>
 

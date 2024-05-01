@@ -6,7 +6,8 @@ export const userSlice = createSlice({
     isLoggedIn:false,
     current : null,
     token:null,
-    isLoading:false
+    isLoading:false,
+    currentCart:[]
   },
   reducers: {
     login: (state, action) => {
@@ -19,6 +20,16 @@ export const userSlice = createSlice({
       state.current = null
       state.token = null
       state.isLoading = false
+    },
+    updateCart: (state , action)  => {
+        const {pid , color , quantity} = action.payload
+        const updatingCart = JSON.parse(JSON.stringify(state.currentCart))
+        state.currentCart = updatingCart.map(el => {
+          if (el.color === color && el.product?._id === pid){
+            return {...el ,quantity}
+          }else return el
+          
+        })
     }
   },
   extraReducers: (builder) => {
@@ -33,7 +44,8 @@ export const userSlice = createSlice({
       // Tắt trạng thái loading, lưu thông tin user vào store
       state.isLoading = false;
       state.current = action.payload;
-      // state.isLoggedIn = true
+      state.isLoggedIn = true
+      state.currentCart =  action.payload.cart
     });
 
     // Khi thực hiện action login thất bại (Promise rejected)
@@ -45,6 +57,6 @@ export const userSlice = createSlice({
   },
 
 })
-export const {login,logout } = userSlice.actions
+export const {login,logout,updateCart } = userSlice.actions
 
 export default userSlice.reducer

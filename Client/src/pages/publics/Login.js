@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Inputfields, Button } from "../../components";
 import { apiRegister, apiLogin, apiForgotPassword } from "../../apis/user";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import path from "../../ultils/path";
 import { login } from "../../store/user/userSlice";
 import { useDispatch } from "react-redux";
@@ -21,6 +21,8 @@ const Login = () => {
 
   const [isRegister, setisRegister] = useState(false);
   const [isForgotpassword, setisForgotpassword] = useState(false);
+  // const [searchParams] = useSearchParams()
+  
   const resetPayLoad = () => {
     setpayload({
       email: "",
@@ -65,7 +67,6 @@ const Login = () => {
       }
     } else {
       const rs = await apiLogin(data);
-      console.log("signin", rs);
       if (rs.success) {
         dispath(
           login({
@@ -74,6 +75,7 @@ const Login = () => {
             userData: rs.userData,
           })
         );
+        // searchParams.get('redirect') ? navigate(searchParams.get('redirect')) : 
         window.location.href = `/${path.HOME}`;
       } else {
         Swal.fire("Oops", rs.mes, "eroor");
