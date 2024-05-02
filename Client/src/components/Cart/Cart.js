@@ -25,7 +25,7 @@ const Cart = () => {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="w-[30%] h-auto overflow-y-auto bg-stone-200 text-black p-6">
+      className="w-[30%] h-auto overflow-y-auto bg-stone-200 text-black p-6 z-99">
       <header className="py-4 border-b font-bold flex justify-between items-center text-2xl ">
         <span>Your Cart</span>
         <span

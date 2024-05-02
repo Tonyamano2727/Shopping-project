@@ -36,7 +36,7 @@ function App() {
   const {isShowCart} = useSelector(state => state.app)
   return (
     <div className="relative font-main overflow-hidden ">
-      {isShowCart && <div onClick={() => dispath(Showcart())} className='absolute max-h-screen bg-box  inset-0 bg-overplay z-50 flex justify-end'>
+      {isShowCart && <div onClick={() => dispath(Showcart())} className='absolute min-h-screen bg-box  inset-0 bg-overplay z-50 flex justify-end'>
         <Cart/>
       </div>}
       <Routes>
