@@ -19,7 +19,7 @@ import {
   Manageuser,
   ManageProducts,
 } from "./pages/admin";
-import {MemberLayout , Personal , Orderhistory ,Mycart,Mywhistlist} from "./pages/Member"
+import {MemberLayout , Personal , Orderhistory ,Mycart,Mywhistlist , Checkout} from "./pages/Member"
 
 import path from "./ultils/path";
 import { getCategory } from "./store/app/asyncAction";
@@ -52,6 +52,7 @@ function App() {
           <Route path={path.RESET_PASSWORD} element={<Resetpassword />}></Route>
           <Route path={path.LOGIN} element={<Login />}></Route>
           <Route path={path.DETAIL_CART} element={<Detailcart />}></Route>
+          <Route path={path.CHECK_OUT} element={<Checkout />}></Route>
         </Route>
         <Route path={path.ADMIN} element={<AdminLayout />}>
           {/* <Route path={path.DASHBOARD} element={<Dashboard />}></Route> */}

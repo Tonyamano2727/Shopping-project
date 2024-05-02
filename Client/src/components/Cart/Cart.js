@@ -15,7 +15,7 @@ const { MdOutlineDeleteOutline } = icons;
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { current } = useSelector((state) => state.user);
+  const { currentCart } = useSelector((state) => state.user);
   const remoproductfromCart = async (pid) => {
     const response = await apiremovecart(pid);
     if (response.success) {
@@ -35,11 +35,11 @@ const Cart = () => {
         </span>
       </header>
       <section className="h-auto flex flex-col gap-3 mt-9 ">
-        {!current.cart && (
+        {!currentCart && (
           <span className="text-xs italic">Your cart is emty</span>
         )}
-        {current?.cart &&
-          current?.cart.map((el) => (
+        {currentCart &&
+          currentCart.map((el) => (
             <div
               key={el._id}
               className="flex gap-2 items-center border-b border-black">
@@ -57,6 +57,7 @@ const Cart = () => {
                   </span>
                 </div>
                 <span>Color : {el.color}</span>
+                <span>Quantity : {el.quantity}</span>
                 <span>Price : {formatMoney(el.product?.price) + "VND"}</span>
               </div>
             </div>
@@ -67,8 +68,8 @@ const Cart = () => {
           <span>Subtotal : </span>
           <span>
             {formatMoney(
-              current?.cart?.reduce(
-                (sum, el) => sum + Number(el.product?.price),
+              currentCart?.reduce(
+                (sum, el) => sum + Number(el.product?.price) * el.quantity,
                 0
               )
             ) + "VND"}

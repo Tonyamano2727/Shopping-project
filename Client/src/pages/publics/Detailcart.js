@@ -2,8 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Breadcrumb, Button, Orderitem } from "../../components";
 import { formatMoney } from "../../ultils/helper";
+import { useNavigate } from "react-router-dom";
+import path from "../../ultils/path";
 
 const Detailcart = ({ category }) => {
+  const navigate = useNavigate();
   const {currentCart} = useSelector((state) => state.user);
   return (
     <div className="w-full justify-center items-center flex flex-col">
@@ -39,7 +42,9 @@ const Detailcart = ({ category }) => {
           </span>
         </span>
         <span className=""> Shipping , taxes , and discounts calculated at checkout</span>
-        <Button>Check out</Button>
+        <Button handleOnclick={() =>{
+           navigate(`/${path.CHECK_OUT}`)}
+        }>Check out</Button>
       </div>
     </div>
   );
