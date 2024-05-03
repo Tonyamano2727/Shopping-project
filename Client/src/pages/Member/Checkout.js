@@ -1,11 +1,21 @@
 import React from "react";
 import payment from "../../assets/payment.svg";
+import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { formatMoney } from "../../ultils/helper";
-import { Paypal } from "../../components";
+import { InputForm, Paypal } from "../../components";
 
 const Checkout = () => {
   const { currentCart } = useSelector((state) => state.user);
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+    watch,
+  } = useForm({
+    category: "",
+  });
   console.log(currentCart);
   return (
     <div className="flex justify-center">
@@ -34,7 +44,7 @@ const Checkout = () => {
                   <td className="text-left p-2">{el.product?.title}</td>
                   <td className=" text-center p-2">{el.quantity}</td>
                   <td className=" text-right p-2">
-                    {formatMoney(el.product?.price) + "  VND" }
+                    {formatMoney(el.product?.price) + "  VND"}
                   </td>
                 </tr>
               ))}
@@ -51,9 +61,27 @@ const Checkout = () => {
               ) + "VND"}
             </span>
           </div>
-          <div className="">adress</div>
+          <div className="mt-9 mb-9">
+            <InputForm
+              label="Your address : "
+              register={register}
+              errors={errors}
+              id="address"
+              validate={{
+                required: "Need fill this field",
+              }}
+              style="flex-auto"
+              placeholder="Pleas type your address for ship"
+              fullwith={true}
+            />
+          </div>
           <div className="w-full flex justify-center">
-            <Paypal amount={120} />
+            <Paypal
+              amount={Math.round(+currentCart?.reduce(
+                (sum, el) => sum + Number(el.product?.price) * el.quantity,
+                0
+              ) / 23500)}
+            />
           </div>
         </div>
       </div>
