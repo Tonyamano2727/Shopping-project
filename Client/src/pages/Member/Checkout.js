@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import payment from "../../assets/payment.svg";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { formatMoney } from "../../ultils/helper";
-import { InputForm, Paypal } from "../../components";
+import { Conguration, InputForm, Paypal } from "../../components";
+import { useDispatch } from "react-redux";
+import { getCurrent } from "../../store/user/asyncAction";
 
 const Checkout = () => {
-  const { currentCart } = useSelector((state) => state.user);
+  const { currentCart, current } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [isSuccess, setIsSuccess] = useState(false);
   const {
     register,
     formState: { errors },
-    reset,
-    handleSubmit,
     watch,
-  } = useForm({
-    category: "",
-  });
-  console.log(currentCart);
+    setValue,
+  } = useForm();
+  useEffect(() => {
+    setValue("address", current?.address);
+    setValue("mobile", current?.mobile);
+  }, [current]);
+  const address = watch("address");
+  useEffect(() => {
+    if (isSuccess) dispatch(getCurrent());
+  }, [isSuccess]);
+
   return (
     <div className="flex justify-center">
       <div className="max-auto p-8 w-full gap-6 flex ">
+        {isSuccess && <Conguration />}
         <div className="w-[40%] flex  justify-center">
           <img
             src={payment}
@@ -61,7 +71,7 @@ const Checkout = () => {
               ) + "VND"}
             </span>
           </div>
-          <div className="mt-9 mb-9">
+          <div className="mt-9 mb-3">
             <InputForm
               label="Your address : "
               register={register}
@@ -71,18 +81,50 @@ const Checkout = () => {
                 required: "Need fill this field",
               }}
               style="flex-auto"
-              placeholder="Pleas type your address for ship"
+              placeholder="Please fill the address first"
               fullwith={true}
             />
           </div>
-          <div className="w-full flex justify-center">
-            <Paypal
-              amount={Math.round(+currentCart?.reduce(
-                (sum, el) => sum + Number(el.product?.price) * el.quantity,
-                0
-              ) / 23500)}
+          <div className="mb-9">
+            <InputForm
+              label="Phone"
+              register={register}
+              errors={errors}
+              id="mobile"
+              validate={{
+                required: "Need fill this field",
+                pattern: {
+                  value: /^[0-9 +\-()]+$/,
+                  message: "Mobile number must be at least 10 digits long.",
+                },
+              }}
             />
           </div>
+          {address && address?.length > 10 && (
+            <div className="w-full flex justify-center">
+              <Paypal
+                payload={{
+                  products: currentCart,
+                  total: Math.round(
+                    +currentCart?.reduce(
+                      (sum, el) =>
+                        sum + Number(el.product?.price) * el.quantity,
+                      0
+                    ) / 23500
+                  ),
+                  address,
+                 
+                }}
+                setIsSuccess={setIsSuccess}
+                amount={Math.round(
+                  +currentCart?.reduce(
+                    (sum, el) => sum + Number(el.product?.price) * el.quantity,
+                    0
+                  ) / 23500
+                )}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

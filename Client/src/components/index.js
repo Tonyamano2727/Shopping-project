@@ -33,3 +33,6 @@ export {default as Pagiitem} from './Pagination/Pagiitem'
 export {default as Cart} from './Cart/Cart'
 export {default as Orderitem} from './Product/Orderitem'
 export {default as Paypal} from './Paypal/Paypal'
+export {default as Conguration} from './Conguration/Conguration'
+
+

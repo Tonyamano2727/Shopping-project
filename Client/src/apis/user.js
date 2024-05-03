@@ -54,3 +54,9 @@ export const apiremovecart = (pid) => axios({
     url: '/user/remove-cart/' + pid,
     method: 'delete',
 })
+
+export const apicreateorder = (data) => axios({
+    url: '/order/',
+    method: 'post',
+    data
+})

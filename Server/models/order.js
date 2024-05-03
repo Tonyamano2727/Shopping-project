@@ -10,8 +10,8 @@ var OrderSchema = new mongoose.Schema({
     }],
     status:{
         type:String,
-        default: 'Processing',
-        enum : ['Cancelled' , 'Processing' , 'Successed'] // npm stripe if you use pay online
+        default: 'Cancelled',
+        enum : ['Cancelled', 'Successed'] // npm stripe if you use pay online
     },
     total: Number,
     orderBy:{

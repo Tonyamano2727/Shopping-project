@@ -12,6 +12,8 @@ const InputForm = ({
   fullwith,
   defaultValue,
   style,
+  value ,
+  setValue,
 }) => {
   return (
     <div className={clsx("flex flex-col h-[78px] gap-2", style)}>

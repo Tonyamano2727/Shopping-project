@@ -24,6 +24,7 @@ const Personal = () => {
       mobile: current?.mobile,
       email: current?.email,
       avatar: current?.avatar,
+      address: current?.address,
     })
   },[current])
   const handleUpdateinfor =async (data) => {
@@ -90,6 +91,15 @@ const Personal = () => {
               value : /^[0-9 +\-()]+$/,
               message : 'Mobile number must be at least 10 digits long.'
             }
+          }}
+        />
+        <InputForm
+          label="Address"
+          register={register}
+          errors={errors}
+          id="address"
+          validate={{
+            required: "Need fill this field",
           }}
         />
         <div className="flex items-center gap-2"> 
