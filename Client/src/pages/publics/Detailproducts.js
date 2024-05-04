@@ -60,9 +60,9 @@ const Detailproducts = () => {
   useEffect(() => {
     if (pid) fetchProductdata();
   }, [pid]);
- 
+  
   const handleQuantity = useCallback((number) => {
-     window.scrollTo(0 , 0)
+    window.scrollTo(0 , 0)
     let previous
     if(!Number(number) || Number(number) < 1) {
        return
@@ -105,7 +105,7 @@ const Detailproducts = () => {
   return (
     <div>
       <div className="h-[81px flex justify-center ">
-        <div className="w-main">
+        <div className="w-main mt-5 mb-5">
           <span className="text-[19px] font-medium ">{title}</span>
           <Breadcrumb title={title} category={product?.category} />
         </div>

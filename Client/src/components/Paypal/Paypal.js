@@ -17,7 +17,6 @@ const style = { layout: "vertical" };
 const ButtonWrapper = ({ currency, showSpinner, amount , payload , setIsSuccess}) => {
   const navigate = useNavigate();
   const {current } = useSelector((state) => state.user);
-  console.log(current);
   const [{ isPending, options }, dispatch] = usePayPalScriptReducer();
   useEffect(() => {
     dispatch({
@@ -74,7 +73,7 @@ const ButtonWrapper = ({ currency, showSpinner, amount , payload , setIsSuccess}
 export default function Paypal({setIsSuccess , amount , payload }) {
   return (
     <div className="w-[80%] flex flex-col justify-center z-0">
-      <PayPalScriptProvider
+      <PayPalScriptProvider 
         options={{ clientId: "test", components: "buttons", currency: "USD" }}>
         <ButtonWrapper setIsSuccess={setIsSuccess} payload={payload} currency={'USD'} amount={amount} showSpinner={false} />
       </PayPalScriptProvider>

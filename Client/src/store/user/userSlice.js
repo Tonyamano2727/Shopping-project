@@ -40,12 +40,25 @@ export const userSlice = createSlice({
     });
 
     // Khi thực hiện action login thành công (Promise fulfilled)
+    // builder.addCase(actions.getCurrent.fulfilled, (state, action) => {
+    //   // Tắt trạng thái loading, lưu thông tin user vào store
+    //   state.isLoading = false;
+    //   state.current = action.payload;
+    //   state.isLoggedIn = true
+    //   state.currentCart =  action.payload.cart
+    // });
     builder.addCase(actions.getCurrent.fulfilled, (state, action) => {
       // Tắt trạng thái loading, lưu thông tin user vào store
       state.isLoading = false;
       state.current = action.payload;
-      state.isLoggedIn = true
-      state.currentCart =  action.payload.cart
+      state.isLoggedIn = true;
+      
+      // Kiểm tra action.payload tồn tại và chứa thuộc tính 'cart' không trước khi gán giá trị
+      if (action.payload && action.payload.cart) {
+        state.currentCart = action.payload.cart;
+      } else {
+        state.currentCart = [];
+      }
     });
 
     // Khi thực hiện action login thất bại (Promise rejected)

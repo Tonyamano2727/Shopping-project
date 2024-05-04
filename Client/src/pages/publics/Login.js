@@ -17,6 +17,7 @@ const Login = () => {
     firstname: "",
     lastname: "",
     mobile: "",
+    address: "",
   });
 
   const [isRegister, setisRegister] = useState(false);
@@ -30,6 +31,7 @@ const Login = () => {
       firstname: "",
       lastname: "",
       mobile: "",
+      address: "",
     });
   };
   const [invalidFields, setinvalidFields] = useState([]);
@@ -48,7 +50,7 @@ const Login = () => {
       resetPayLoad()
   },[isRegister])
   const handleSubmit = useCallback(async () => {
-    const { firstname, lastname, mobile, ...data } = payload;
+    const { firstname, lastname, mobile, address, ...data } = payload;
 
     const invalids = isRegister ? validate(payload,setinvalidFields) : validate(data,setinvalidFields)
     console.log(invalids);
@@ -75,8 +77,11 @@ const Login = () => {
             userData: rs.userData,
           })
         );
-        // searchParams.get('redirect') ? navigate(searchParams.get('redirect')) : 
-        window.location.href = `/${path.HOME}`;
+        // if(searchParams.get('redirect')){
+        //   navigate(searchParams.get('redirect'))
+        // }else{
+          window.location.href = `/${path.HOME}`;
+        // }
       } else {
         Swal.fire("Oops", rs.mes, "eroor");
       }
@@ -133,6 +138,13 @@ const Login = () => {
                 value={payload.mobile}
                 setValue={setpayload}
                 nameKey="mobile"
+                invalidFields={invalidFields}
+                setinvalidFields={setinvalidFields}
+              />
+              <Inputfields
+                value={payload.address}
+                setValue={setpayload}
+                nameKey="address"
                 invalidFields={invalidFields}
                 setinvalidFields={setinvalidFields}
               />

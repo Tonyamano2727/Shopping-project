@@ -29,8 +29,8 @@ const crypto = require("crypto");
 // });
 const register = asyncHandler(async (req, res) => {
   try {
-    const { email, password, firstname, lastname } = req.body;
-    if (!email || !password || !lastname || !firstname)
+    const { email, password, firstname, lastname , address } = req.body;
+    if (!email || !password || !lastname || !firstname || !address)
       return res.status(400).json({
         success: false,
         mes: "Missing input",
@@ -281,8 +281,8 @@ const deleteUser = asyncHandler(async (req, res) => {
 const updateuser = asyncHandler(async (req, res) => {
   console.log(req.file);
   const { _id } = req.user;
-  const { firstname, lastname, email, mobile } = req.body;
-  const data = { firstname, lastname, email, mobile };
+  const { firstname, lastname, email, mobile , address } = req.body;
+  const data = { firstname, lastname, email, mobile,address };
   if (req.file) data.avatar = req.file.path;
   if (!_id || Object.keys(req.body).length === 0)
     throw new Error("Missing input");

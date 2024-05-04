@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { apigetorder } from "../../apis";
 
 const ManageOrder = () => {
-  return (
-    <div>
-      ManageOrder
-    </div>
-  )
-}
+  const fetchOrder = async (params) => {
+    const response = await apigetorder({
+      ...params,
+      limit: process.env.REACT_APP_PRODUCT_LIMIT,
+    });
+    console.log(response);
+  };
+  useEffect(() => {
+    fetchOrder()
+  },[])
+  return <div>ManageOrder</div>;
+};
 
-export default ManageOrder
+export default ManageOrder;

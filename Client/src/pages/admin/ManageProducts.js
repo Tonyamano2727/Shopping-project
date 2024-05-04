@@ -33,8 +33,9 @@ const ManageProducts = () => {
       setProducts(response.products)
       setcounts(response.counts)
     }
+    console.log(response);
   }
-
+  
   const querydeBounce = useDebounce(watch('q'),800)
 
   useEffect(() => {
