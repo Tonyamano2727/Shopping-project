@@ -7,6 +7,7 @@ var OrderSchema = new mongoose.Schema({
         quantity : Number,
         color: String,
         price:Number,
+        title: String,
     
     }],
     status:{

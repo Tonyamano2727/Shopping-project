@@ -323,13 +323,13 @@ const updateuserAddress = asyncHandler(async (req, res) => {
 
 const updateCart = asyncHandler(async (req, res) => {
   const { _id } = req.user;
-  const { pid, quantity = 1, color } = req.body;
+  const { pid, quantity = 1, color, price , title } = req.body;
   if (!pid || !color) throw new Error("Missing input");
   const user = await User.findById(_id).select("cart");
   const alreadyProduct = user?.cart?.find(
     (el) => el.product && el.product.toString() === pid
   ); // đã fix bug "mes": "Cannot read properties of undefined (reading 'toString')"
-  if (alreadyProduct) {
+  if (alreadyProduct && alreadyProduct.color === color) {
     // if (alreadyProduct.color === color) {
     // const response = await User.updateOne({cart: {$elmenMatch: alreadyProduct}}, {$set : {"cart.$.quantity":quantity}},{new:true})
     // return res.status(200).json({
@@ -338,7 +338,7 @@ const updateCart = asyncHandler(async (req, res) => {
     // });
     const response = await User.updateOne(
       { cart: { $elemMatch: alreadyProduct } },
-      { $set: { "cart.$.quantity": quantity, "cart.$.color": color } },
+      { $set: { "cart.$.quantity": quantity, "cart.$.price": price,"cart.$.title": title } },
       { new: true }
     );
     return res.status(200).json({
@@ -348,7 +348,7 @@ const updateCart = asyncHandler(async (req, res) => {
   } else {
     const response = await User.findByIdAndUpdate(
       _id,
-      { $push: { cart: { product: pid, quantity, color } } },
+      { $push: { cart: { product: pid, quantity, color , price , title} } },
       { new: true }
     );
     return res.status(200).json({

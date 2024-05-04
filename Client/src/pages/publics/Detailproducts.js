@@ -49,7 +49,7 @@ const Detailproducts = () => {
     ),
   };
 
-  const { pid, title } = useParams();
+  const { pid, title , price } = useParams();
   const [product, setproduct] = useState(null);
   const [color, setcolor] = useState('')
   const [quantity, setquantity] = useState(1)
@@ -94,6 +94,8 @@ const Detailproducts = () => {
         pid,
         color: product?.color,
         quantity,
+        price : product?.price,
+        title : product?.title
       });
       console.log(response);
       if (response.success) {

@@ -1,28 +1,45 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect, useState } from "react";
 import { apigetorder } from "../../apis";
 import { InputForm, Pagination } from "../../components";
 import { useForm } from "react-hook-form";
+import { formatMoney } from "../../ultils/helper";
+import moment from "moment";
 
 const ManageOrder = () => {
-  const [Order, setorder] = useState(null)
+  const [Order, setorder] = useState(null);
   const [counts, setcounts] = useState(0);
-  const {register, formState:{errors},watch} = useForm()
-  const q = watch('q')
+  const [totalAmount, setTotalAmount] = useState(0); // Thêm biến lưu tổng tiền
+  const {
+    register,
+    formState: { errors },
+    watch,
+  } = useForm();
+  const q = watch("q");
+
   const fetchOrder = async (params) => {
     const response = await apigetorder({
       ...params,
       limit: process.env.REACT_APP_PRODUCT_LIMIT,
     });
-    if(response.success){
-      setorder(response.Order)
+    if (response.success) {
+      setorder(response.Order);
       setcounts(response.counts);
-    } 
-    console.log(response);
+    }
   };
   useEffect(() => {
-    fetchOrder()
-  },[])
-  return(
+    fetchOrder();
+  }, []);
+
+  useEffect(() => {
+    if (Order) {
+      let total = 0;
+      Order.forEach((el) => {
+        total += el.total * 23500;
+      });
+      setTotalAmount(total);
+    }
+  }, [Order]);
+  return (
     <div>
       <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
         <span>ManageOrder</span>
@@ -46,28 +63,27 @@ const ManageOrder = () => {
             <th>Total</th>
             <th>Status</th>
             <th>Created At</th>
-            <th>Action</th>  
           </tr>
         </thead>
         <tbody>
           {Order?.map((el, idx) => (
-            <tr className="border-b " key={el._id}>
+            <tr className="border-b text-center" key={el._id}>
               <td>{idx + 1}</td>
               <td className="flex justify-center">
-                <span>
-                    {el.products?.map(item => <span>
-                      {`${item.title} - ${item.color}`}
-                    </span>)}
+                <span className="flex flex-col">
+                  {el.products?.map((item) => (
+                    <span>
+                      {`${item.title} - ${item.color} - ${formatMoney(
+                        item.price
+                      )} VND`}
+                    </span>
+                  ))}
                 </span>
               </td>
-              <td>{el.title}</td>
-              <td>{el.brand}</td>
-              <td>{el.category}</td>
-              
-              <td>{el.quantity}</td>
-              <td>{el.sold}</td>
-              <td>{el.color}</td>
-              <td>{el.totalRatings}</td>
+              <td>{`${formatMoney(el.total * 23500)} VND`}</td>
+              <td>{el.status}</td>
+              <td>{moment(el.createdAt).format("DD/MM/YYYY")}</td>
+
               {/* <td>
                 <span
                   onClick={() => seteditproduct(el)}
@@ -87,8 +103,11 @@ const ManageOrder = () => {
       <div className="w-full flex justify-end my-8">
         <Pagination totalCount={counts}></Pagination>
       </div>
+      <div>
+        <p>Total Amount: {formatMoney(totalAmount)} VND</p>{" "}
+      </div>
     </div>
-  ) 
+  );
 };
 
 export default ManageOrder;

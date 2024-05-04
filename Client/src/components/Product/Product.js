@@ -35,6 +35,8 @@ const Product = ({ productData }) => {
       const response = await apiupdatecart({
         pid: productData._id,
         color: productData.color,
+        price: productData.price,
+        title : productData.title,
       });
       if (response.success) {
         dispatch(getCurrent());

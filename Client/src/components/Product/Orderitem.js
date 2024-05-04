@@ -18,7 +18,7 @@ const Orderitem = ({ el , defaultquantity=1 }) => {
     if (+number > 1) setquantity(number);
   };
   useEffect(() => {
-    dispatch(updateCart({pid : el.product?._id , quantity , color : el.color}))
+    dispatch(updateCart({pid : el.product?._id , quantity , color : el.color , title : el.title }))
     
   },[quantity])
 
