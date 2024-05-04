@@ -99,12 +99,6 @@ const getOrderbyAdmin = asyncHandler(async (req, res) => {
       Order: response ? response : "Cant not get product",
     });
   });
-  // const { _id } = req.admin
-  // const response = await Order.find(_id)
-  // return res.json({
-  //   success: response ? true : false,
-  //   response: response ? response : "Something went wrong",
-  // })
 });
 
 

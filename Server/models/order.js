@@ -7,6 +7,7 @@ var OrderSchema = new mongoose.Schema({
         quantity : Number,
         color: String,
         price:Number,
+    
     }],
     status:{
         type:String,
@@ -18,6 +19,8 @@ var OrderSchema = new mongoose.Schema({
         type : mongoose.Types.ObjectId,
         ref: 'User'
     },
+},{
+    timestamps: true
 });
 
 //Export the model
