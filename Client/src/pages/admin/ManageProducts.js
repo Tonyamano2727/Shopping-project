@@ -9,6 +9,8 @@ import Updateproducts from "./Updateproducts";
 import { apiDeleteproduct } from "../../apis";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
 const ManageProducts = () => {
   const {
     register,
@@ -62,9 +64,9 @@ const ManageProducts = () => {
     });
   };
   return (
-    <div className="w-full flex flex-col gap-4 text-center relative">
+    <div className="w-full flex flex-col gap-4 relative ">
       {editproduct && (
-        <div className="absolute inset-0 bg-white">
+        <div className="absolute inset-0 bg-white ">
           <Updateproducts
             editproduct={editproduct}
             render={render}
@@ -72,11 +74,14 @@ const ManageProducts = () => {
           />
         </div>
       )}
-      <div className="p-4 border-b w-full flex justify-between items-center">
-        <h1 className="text-3xl font-bold tracking-tight ">ManageProducts</h1>
+      <div className="p-4 w-full flex  flex-col">
+        <h1 className="text-3xl font-semibold tracking-tight ">
+          ManageProducts
+        </h1>
+        <p>Let's grow to your business! Create your product and upload here</p>
       </div>
-      <div className="flex w-full justify-end items-center px-4">
-        <form className="w-[45%]">
+      <div className="flex w-full justify-end items-center ">
+        <form className="w-full">
           <InputForm
             id="q"
             register={register}
@@ -86,52 +91,56 @@ const ManageProducts = () => {
           />
         </form>
       </div>
-      <table className="table-auto">
+      <table className="table-auto text-center">
         <thead>
-          <tr className="border bg-sky-700 text-white">
-            <th>STT</th>
-            <th>Thumb</th>
-            <th>Title</th>
-            <th>Brand</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Sold</th>
-            <th>Color</th>
-            <th>Ratings</th>
-            <th>Action</th>
+          <tr className="border">
+            <th className="p-5 gap-x-2 items-center py-5 px-6 text-red-500 hover:text-indigo-600 ">STT</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Products</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Color</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Brand</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Category</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Price</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Quantity</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Sold</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Ratings</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Action</th>
           </tr>
         </thead>
         <tbody>
           {products?.map((el, idx) => (
-            <tr className="border-b " key={el._id}>
+            <tr className="border-b" key={el._id}>
               <td>{idx + 1}</td>
-              <td className="flex justify-center">
+              <td className="flex justify-center items-center">
                 <img
                   src={el.thumb}
                   alt="thumb"
-                  className="w-12 h-12 object-cover"
+                  className="w-[100px] h-[150px] object-contain"
                 />
+                <div className="flex flex-col">
+                  <span className='font-medium'>{el.title}</span>
+                </div>
               </td>
-              <td>{el.title}</td>
+              <td>{el.color}</td>
               <td>{el.brand}</td>
               <td>{el.category}</td>
               <td>{`${formatMoney(el.price)} VNĐ `}</td>
               <td>{el.quantity}</td>
               <td>{el.sold}</td>
-              <td>{el.color}</td>
+
               <td>{el.totalRatings}</td>
               <td>
-                <span
-                  onClick={() => seteditproduct(el)}
-                  className="text-red-500 hover:underline cursor-pointer px-2">
-                  Edit
-                </span>
-                <span
-                  onClick={() => handledeleteproduct(el._id)}
-                  className="text-red-500 hover:underline cursor-pointer px-2">
-                  Delete
-                </span>
+                <div className="flex items-center justify-center">
+                  <span
+                    onClick={() => seteditproduct(el)}
+                    className="hover:underline cursor-pointer px-2 text-blue-500">
+                     <FaEdit size={20} />
+                  </span>
+                  <span
+                    onClick={() => handledeleteproduct(el._id)}
+                    className="text-red-500 hover:underline cursor-pointer px-2">
+                    <RiDeleteBin6Line size={20} />
+                  </span>
+                </div>
               </td>
             </tr>
           ))}

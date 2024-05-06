@@ -16,6 +16,10 @@ const data = [
         brand: ['Samsung','Apple']
     },
     {
+        cate: 'Headphone',
+        brand: ['Samsung','Apple']
+    },
+    {
         cate: 'Accessories',
         brand: ['Samsung','Apple','JBL']
     },

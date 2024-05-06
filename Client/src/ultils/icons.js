@@ -27,6 +27,7 @@ import { IoTrashBin } from "react-icons/io5";
 import { BsCartCheckFill } from "react-icons/bs";
 import { BsCartPlusFill } from "react-icons/bs";
 import { MdOutlineDeleteOutline } from "react-icons/md";
+import { GoHeartFill } from "react-icons/go";
 const icons = {
   MdPhone,
   IoMdMail,
@@ -57,7 +58,8 @@ const icons = {
   IoTrashBin,
   BsCartCheckFill,
   BsCartPlusFill,
-  MdOutlineDeleteOutline
+  MdOutlineDeleteOutline,
+  GoHeartFill
 };
 
 export default icons;

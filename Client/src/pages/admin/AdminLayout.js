@@ -8,7 +8,7 @@ const AdminLayout = () => {
   const {isLoggedIn , current} = useSelector(state => state.user)
   if(!isLoggedIn || !current || +current.role !==1945) return <Navigate to={`/${path.LOGIN}`} replace={true}/>
   return (
-    <div className=' flex bg-blue-100 min-h-screen relative text-gray-900'>
+    <div className=' flex bg-white min-h-screen relative text-gray-900'>
       <div className='w-[327px] top-0 bottom-0 flex-none absolute'>
         <Adminsidebar/>
       </div>

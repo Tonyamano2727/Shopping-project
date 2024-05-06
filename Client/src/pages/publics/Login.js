@@ -90,7 +90,7 @@ const Login = () => {
   }, [payload, isRegister]);
 
   return (
-    <div className="h-100%">
+    <div className="bg-gray-100 flex justify-center">
       {isForgotpassword && (
         <div className="  flex items-center py-8 justify-center h-full">
           <div className="flex flex-col">
@@ -112,9 +112,8 @@ const Login = () => {
           </div>
         </div>
       )}
-      {/* <img src='https://th.bing.com/th/id/OIP.5Hnu1ejWN1hvIaK8p2yeNAHaEK?w=300&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt='' className='w-full h-full object-cover'></img> */}
-      <div className=" top-0 bottom-0 left-0 righ-1/2 items-center justify-center flex">
-        <div className="p-8 mt-5 mb-5 rounded-md flex items-center flex-col min-w-[500px] ">
+      <div className=" top-0 bottom-0 left-0 righ-1/2 items-center justify-center flex bg-white rounded shadow-lg p-4 px-4 md:p-8 w-main mt-[70px] mb-[70px]">
+        <div className=" mt-5 mb-5 rounded-md flex items-center flex-col min-w-[500px] justify-center">
           <h1 className="text-[28px] font-semibold text-main mb-8">
             {isRegister ? "Register" : "Login"}
           </h1>
@@ -126,6 +125,7 @@ const Login = () => {
                 nameKey="firstname"
                 invalidFields={invalidFields}
                 setinvalidFields={setinvalidFields}
+                
               />
               <Inputfields
                 value={payload.lastname}

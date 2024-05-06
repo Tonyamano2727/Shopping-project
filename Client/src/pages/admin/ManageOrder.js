@@ -8,6 +8,7 @@ import moment from "moment";
 const ManageOrder = () => {
   const [Order, setorder] = useState(null);
   const [counts, setcounts] = useState(0);
+  
   const [totalAmount, setTotalAmount] = useState(0); // Thêm biến lưu tổng tiền
   const {
     register,
@@ -40,13 +41,14 @@ const ManageOrder = () => {
     }
   }, [Order]);
   return (
-    <div>
+    <div className="flex justify-center w-full  flex-col">
       <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
         <span>ManageOrder</span>
       </h1>
       <div className="flex w-full justify-end items-center px-4">
-        <form className="w-[45%]">
+        <form className="w-[100%]">
           <InputForm
+            style={"w500"}
             id="q"
             register={register}
             errors={errors}
@@ -55,22 +57,22 @@ const ManageOrder = () => {
           />
         </form>
       </div>
-      <table className="w-full mt-5">
+      <table className="w-[98%] mt-5 ">
         <thead>
-          <tr className="border bg-sky-700 text-white">
-            <th>#</th>
-            <th>Products</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Created At</th>
+          <tr className="border border-black">
+            <th className="p-5 gap-x-2 items-center py-5 px-6 text-red-500 hover:text-indigo-600 ">#</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Products</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Total</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Status</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Created At</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {Order?.map((el, idx) => (
-            <tr className="border-b text-center" key={el._id}>
-              <td>{idx + 1}</td>
-              <td className="flex justify-center">
-                <span className="flex flex-col">
+            <tr className="border border-gray-500" key={el._id}>
+              <td className="text-center">{idx + 1}</td>
+              <td className="">
+                <span className="flex flex-col items-center justify-center p-5">
                   {el.products?.map((item) => (
                     <span>
                       {`${item.title} - ${item.color} - ${formatMoney(
@@ -80,9 +82,9 @@ const ManageOrder = () => {
                   ))}
                 </span>
               </td>
-              <td>{`${formatMoney(el.total * 23500)} VND`}</td>
-              <td>{el.status}</td>
-              <td>{moment(el.createdAt).format("DD/MM/YYYY")}</td>
+              <td className="text-center">{`${formatMoney(el.total * 23500)} VND`}</td>
+              <td className="text-center">{el.status}</td>
+              <td className="text-center">{moment(el.createdAt).format("DD/MM/YYYY")}</td>
 
               {/* <td>
                 <span

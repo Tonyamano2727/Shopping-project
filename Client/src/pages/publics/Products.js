@@ -45,6 +45,9 @@ const Products = () => {
     if (category === "speaker") {
       queries.category = "speaker";
     }
+    if (category === "headphone") {
+      queries.category = "headphone";
+    }
     if (category === "tablet") {
       queries.category = "tablet";
     } else if (category === "laptop") {

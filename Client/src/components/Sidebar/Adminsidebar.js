@@ -4,14 +4,17 @@ import { AdminSidebar } from "../../ultils/contants";
 import { NavLink , Link} from "react-router-dom";
 import clsx from "clsx";
 import { FaAngleDown } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 
 const activedStyle =
-  "px-4 py-2 flex items-center gap-2  bg-blue-500";
+  "px-4 py-2 flex items-center gap-2  bg-gray-300";
 const notactivedStyle =
-  "px-4 py-2 flex items-center gap-2  hover:bg-blue-100";
+  "px-4 py-2 flex items-center gap-2  hover:bg-gray-100";
 
 const Adminsidebar = () => {
+  const { current } = useSelector((state) => state.user);
+  console.log(current);
   const [actived, setactived] = useState([]);
   const handleShowtab = (tabID) => {
     if (actived.some(el => el === tabID)) setactived(prev => prev.filter(el => el!== tabID))
@@ -19,10 +22,10 @@ const Adminsidebar = () => {
   }
   
   return (
-    <div className="bg-white h-full py-4">
+    <div className="bg-white h-full w-[315px] py-4 border-r">
       <Link to={"/"} className="flex flex-col justify-center gap-2 p-4 items-center">
         <img src={logo} alt="logo" className="w-[200px] object-contain"></img>
-        <small>Admin Workspace</small>
+        <small>Welcome to Admin {current?.firstname} {current?.lastname} </small>
       </Link>
       <div>
         {AdminSidebar.map(el => (
@@ -39,7 +42,7 @@ const Adminsidebar = () => {
             )}
             {el.type === 'PARENT' && (
               <div onClick={() => handleShowtab(+el.id)} className="flex flex-col">
-                <div className="flex items-center justify-between px-4 py-2  hover:bg-blue-100 cursor-pointer">
+                <div className="flex items-center justify-between px-4 py-2  hover:bg-gray-100 cursor-pointer">
                   <div className="flex items-center gap-2">
                     <span> {el.icon} </span>
                     <span> {el.text} </span>

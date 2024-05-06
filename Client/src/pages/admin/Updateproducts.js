@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 const { IoTrashBin } = icons;
 
 const Updateproducts = ({ editproduct, render, seteditproduct }) => {
+  const [isfousdescription, setisfousdescription] = useState(null)
   const { categories } = useSelector((state) => state.app);
   const {
     register,
@@ -80,7 +81,7 @@ const Updateproducts = ({ editproduct, render, seteditproduct }) => {
   useEffect(() => {
     if (watch("images") instanceof FileList && watch('images').length > 0) handlePreviewimages(watch("images"));
   }, [watch("images")]);
-  
+  window.scrollTo(0 , 0)
   const handleUpdateProduct = async (data) => {
     const invalids = validate(payload, setInvalidFields);
     if (invalids === 0) {
@@ -150,12 +151,12 @@ const Updateproducts = ({ editproduct, render, seteditproduct }) => {
       }));
   };
   return (
-    <div className="w-full flex flex-col gap-4 text-start relative">
+    <div className="w-full flex flex-col gap-4 text-start relative ">
       <div className="p-4 border-b w-full flex justify-between items-center">
         <h1 className="text-3xl font-bold tracking-tight ">Updateproducts</h1>
         <span className='cursor-pointer text-main' onClick={() => seteditproduct(null)}>Cancel</span>
       </div>
-      <div>
+      <div className="">
         <form onSubmit={handleSubmit(handleUpdateProduct)}>
           <InputForm
             label="Name product"
@@ -238,7 +239,7 @@ const Updateproducts = ({ editproduct, render, seteditproduct }) => {
             invalidFields={invalidFields}
             setinvalidFields={setInvalidFields}
             value={payload.description}
-            
+            setisfousdescription={setisfousdescription}
           />
           <div className="flex flex-col gap-2 mt-8">
             <label className="font-semibold" htmlFor="thumb">

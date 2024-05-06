@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import path from "../../ultils/path";
 import { getCurrent } from "../../store/user/asyncAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 const { IoLogOut } = icons;
 const TopHeader = () => {
+  
   const dispatch = useDispatch();
   const { isLoggedIn, current } = useSelector((state) => state.user);
   useEffect(() => {
@@ -24,7 +25,7 @@ const TopHeader = () => {
         {isLoggedIn ? (
           <div className="flex gap-2 text-sm md:w-[30%] justify-center items-center">
             <span>{`Welcome, ${current?.firstname} ${current?.lastname}`}</span>
-            <span className="cursor-pointer" onClick={() => dispatch(logout())}>
+            <span className="cursor-pointer" onClick={() => dispatch(logout()) }>
               <IoLogOut />
             </span>
           </div>
