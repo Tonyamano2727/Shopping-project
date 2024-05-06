@@ -49,7 +49,7 @@ var productSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    ratings: [          // danh gia
+    ratings: [        
       {
         star: { type: Number },
         postedBy: { type: mongoose.Types.ObjectId, ref: 'User' },

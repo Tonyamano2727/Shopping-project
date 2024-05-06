@@ -54,6 +54,7 @@ function App() {
           <Route path={path.DETAIL_CART} element={<Detailcart />}></Route>
           <Route path={path.CHECK_OUT} element={<Checkout />}></Route>
           <Route path={path.PERSONAL} element={<Personal />}></Route>
+          <Route path={path.WISHLIST} element={<Mywhistlist />}></Route>
         </Route>
         <Route path={path.ADMIN} element={<AdminLayout />}>
           {/* <Route path={path.DASHBOARD} element={<Dashboard />}></Route> */}
@@ -63,11 +64,8 @@ function App() {
           <Route path={path.CREATE_PRODUCTS} element={<CreateProducts />}></Route>
         </Route>
         <Route path={path.MEMBER} element={<MemberLayout />}>
-         
           <Route path={path.MY_CART} element={<Mycart />}></Route>
-          <Route path={path.WISHLIST} element={<Mywhistlist />}></Route>
           <Route path={path.HISTORY} element={<Orderhistory />}></Route>
-          
         </Route>
       </Routes>
       <ToastContainer

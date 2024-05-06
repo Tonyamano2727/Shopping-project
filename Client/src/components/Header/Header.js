@@ -42,10 +42,10 @@ const Header = () => {
               <HiOutlineShoppingBag color="red" />
               <span>{`${current?.cart?.length || 0} item(s)`}</span>
             </div>
-            <div className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
+            <Link  to={`/${[path.WISHLIST]}`} className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
               <GoHeartFill color="red" />
               <span>{`${current?.wishlist?.length || 0} item(s)`}</span>
-            </div>
+            </Link>
             <div
               onClick={() => setisshowoptions((prev) => !prev)}
               className="cursor-pointer flex items-center px-6 justify-center text-[16px] gap-2 relative">

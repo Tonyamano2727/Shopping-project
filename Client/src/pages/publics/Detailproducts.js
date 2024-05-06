@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 
 import { productExtraif } from "../../ultils/contants";
-import { apiupdatecart } from "../../apis";
+import { apiupdatecart, apiupdatewhislist } from "../../apis";
 const Detailproducts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -103,7 +103,15 @@ const Detailproducts = () => {
         dispatch(getCurrent());
       } else toast.error(response.mes);
   }
-  console.log({current});
+
+  const handleAddtowishlist = async () => {
+    const response = await apiupdatewhislist(pid);
+    console.log(pid);
+    if (response.success) {
+      dispatch(getCurrent());
+      toast.success(response.mes); // bug togle
+    } else toast.error(response.mes);
+  }
   return (
     <div>
       <div className="h-[81px flex justify-center ">
@@ -149,6 +157,7 @@ const Detailproducts = () => {
           <div className="mt-4 flex flex-col gap-8">
             <Selectquantity quantity={quantity} handleQuantity={handleQuantity} handlechangequantity={handlechangequantity}/>
             <Button fw handleOnclick={handleAddtoCart}>Addtocart</Button>
+            <Button fw handleOnclick={handleAddtowishlist}>AddtoWishlist</Button>
           </div>
         </div>
 

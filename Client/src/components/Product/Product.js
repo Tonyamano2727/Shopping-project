@@ -17,9 +17,7 @@ const Product = ({ productData, pid }) => {
   const dispatch = useDispatch();
   const [isShowOption, setIsShowOption] = useState(false);
   const { current } = useSelector((state) => state.user);
-  const heartColor = current?.wishlist?.some((i) => i === pid)
-    ? "red"
-    : "black";
+  
 
   const handleClickOptions = async (e, flag) => {
     e.stopPropagation();
@@ -73,11 +71,16 @@ const Product = ({ productData, pid }) => {
           {isShowOption && (
             <div className="absolute flex bottom-[-20px] left-0 right-0 justify-center gap-2 animate-slide-top">
               <Link
-                to={`/${productData?.category.toLowerCase()}/${
-                  productData?._id
-                }/${productData?.title}`}>
+                to={
+                  productData
+                    ? `/${productData.category?.toLowerCase()}/${
+                        productData?._id
+                      }/${productData?.title}`
+                    : "#"
+                }>
                 <Selectoption icon={<FaEye />} />
               </Link>
+
               {current?.cart?.some(
                 (el) => el?.product?._id === productData._id.toString()
               ) ? (
@@ -95,7 +98,17 @@ const Product = ({ productData, pid }) => {
               <span
                 title="Add to Whistlist"
                 onClick={(e) => handleClickOptions(e, "WHISLIST")}>
-                <Selectoption icon={<FaHeart color={heartColor} />} />
+                <Selectoption
+                  icon={
+                    <FaHeart
+                      color={
+                        current?.wishlist?.some((el) => el.toString() === pid)
+                          ? "red"
+                          : "red"
+                      }
+                    />
+                  }
+                />
               </span>
             </div>
           )}

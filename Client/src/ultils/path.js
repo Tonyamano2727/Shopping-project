@@ -13,6 +13,7 @@ const path = {
     DETAIL_CART : 'detail-cart',
     CHECK_OUT : 'check-out',
     PRODUCTS : 'products',
+    WISHLIST: 'whistlist',
     
 
     //Admin
@@ -28,6 +29,6 @@ const path = {
     PERSONAL: 'personal',
     MY_CART: 'my-cart',
     HISTORY: 'buy-history',
-    WISHLIST: 'whistlist'
+    
 }
 export default path
