@@ -22,6 +22,7 @@ const Cart = () => {
       dispatch(getCurrent());
     } else toast.error(response.mes);
   };
+  console.log(currentCart);
   return (
     <div
       onClick={(e) => e.stopPropagation()}

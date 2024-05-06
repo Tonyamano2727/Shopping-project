@@ -66,3 +66,9 @@ export const apigetorder = (params) => axios({
     method: 'get',
     params
 })
+
+export const apiupdatewhislist = (pid) => axios({
+    url: '/user/whistlist/' + pid,
+    method: 'put',
+
+})

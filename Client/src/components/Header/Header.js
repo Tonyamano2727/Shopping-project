@@ -7,11 +7,13 @@ import path from "../../ultils/path";
 import { useSelector, useDispatch } from "react-redux";
 import { Showcart } from "../../store/app/appslice";
 
-const { MdPhone, IoMdMail, HiOutlineShoppingBag, FaUserCircle , GoHeartFill} = icons;
+const { MdPhone, IoMdMail, HiOutlineShoppingBag, FaUserCircle, GoHeartFill } =
+  icons;
 const Header = () => {
   const dispatch = useDispatch();
   const { current } = useSelector((state) => state.user);
   const [isshowoptions, setisshowoptions] = useState(false);
+  console.log(current);
   return (
     <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] ">
       <Link className="flex justify-center" to={`/${path.HOME}`}>
@@ -47,7 +49,11 @@ const Header = () => {
             <div
               onClick={() => setisshowoptions((prev) => !prev)}
               className="cursor-pointer flex items-center px-6 justify-center text-[16px] gap-2 relative">
-              <FaUserCircle />
+              {current && current.avatar ? (
+                <img className="h-10 w-10 rounded-full" src={current.avatar} alt="Avatar" />
+              ) : (
+                <FaUserCircle />
+              )}
               <span>Profile</span>
               {isshowoptions && (
                 <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2">

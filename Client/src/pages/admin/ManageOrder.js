@@ -74,10 +74,12 @@ const ManageOrder = () => {
               <td className="">
                 <span className="flex flex-col items-center justify-center p-5">
                   {el.products?.map((item) => (
+                    
                     <span>
                       {`${item.title} - ${item.color} - ${formatMoney(
                         item.price
                       )} VND`}
+                      {/* <img src={item.thumb}></img> */}
                     </span>
                   ))}
                 </span>

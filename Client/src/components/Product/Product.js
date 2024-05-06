@@ -4,7 +4,7 @@ import { renderStarFromNumber } from "../../ultils/helper";
 import { Selectoption } from "..";
 import icons from "../../ultils/icons";
 import { Link, useNavigate } from "react-router-dom";
-import { apiupdatecart } from "../../apis";
+import { apiupdatecart, apiupdatewhislist } from "../../apis";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrent } from "../../store/user/asyncAction";
@@ -12,15 +12,18 @@ import Swal from "sweetalert2";
 import path from "../../ultils/path";
 
 const { FaEye, FaHeart, BsCartCheckFill, BsCartPlusFill } = icons;
-const Product = ({ productData }) => {
+const Product = ({ productData, pid }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isShowOption, setIsShowOption] = useState(false);
   const { current } = useSelector((state) => state.user);
- 
+  const heartColor = current?.wishlist?.some((i) => i === pid)
+    ? "red"
+    : "black";
+
   const handleClickOptions = async (e, flag) => {
     e.stopPropagation();
-    if (flag === 'CART') {
+    if (flag === "CART") {
       if (!current)
         return Swal.fire({
           title: "Almost",
@@ -36,11 +39,21 @@ const Product = ({ productData }) => {
         pid: productData._id,
         color: productData.color,
         price: productData.price,
-        title : productData.title,
+        title: productData.title,
+        thumb: productData.thumb,
       });
       if (response.success) {
         dispatch(getCurrent());
-        toast.success(response.mes); // bug togle 
+        toast.success(response.mes); // bug togle
+      } else toast.error(response.mes);
+    }
+
+    if (flag === "WHISLIST") {
+      const response = await apiupdatewhislist(pid);
+      console.log(pid);
+      if (response.success) {
+        dispatch(getCurrent());
+        toast.success(response.mes); // bug togle
       } else toast.error(response.mes);
     }
   };
@@ -65,20 +78,25 @@ const Product = ({ productData }) => {
                 }/${productData?.title}`}>
                 <Selectoption icon={<FaEye />} />
               </Link>
-              {current?.cart?.some(el => el?.product?._id === productData._id.toString()) ? <span
-                  title="Added to cart"
-                  >
-                  <Selectoption icon={<BsCartCheckFill color="blue" />} />
+              {current?.cart?.some(
+                (el) => el?.product?._id === productData._id.toString()
+              ) ? (
+                <span title="Added to cart">
+                  <Selectoption icon={<BsCartCheckFill color="red" />} />
                 </span>
-                : <span onClick={(e) => handleClickOptions(e, 'CART')}
-                title="Add to cart"
-                >
-                <Selectoption icon={<BsCartPlusFill color="red" />} />
+              ) : (
+                <span
+                  onClick={(e) => handleClickOptions(e, "CART")}
+                  title="Add to cart">
+                  <Selectoption icon={<BsCartPlusFill color="pink" />} />
+                </span>
+              )}
+
+              <span
+                title="Add to Whistlist"
+                onClick={(e) => handleClickOptions(e, "WHISLIST")}>
+                <Selectoption icon={<FaHeart color={heartColor} />} />
               </span>
-                
-                }
-                
-              <Selectoption icon={<FaHeart />} />
             </div>
           )}
           <img

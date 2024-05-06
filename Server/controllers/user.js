@@ -7,29 +7,11 @@ const {
 const jwt = require("jsonwebtoken");
 const Sendemail = require("../ultils/sendemail");
 const crypto = require("crypto");
+const { response } = require("express");
 
-// const register = asyncHandler(async (req, res) => {
-//   const { email, password, firstname, lastname  } = req.body;
-//   if (!email || !password || !lastname || !firstname)
-//     return res.status(400).json({
-//       success: false,
-//       mes: "Missing input",
-//     });
-//   const user = await User.findOne({ email: email });
-//   if (user) throw new Error("Has User ");
-//   else {
-//     const newUser = await User.create(req.body);
-//     return res.status(200).json({
-//       success: newUser ? true : false,
-//       mes: newUser
-//         ? "Register succcessfull . GO to login"
-//         : " Something went wrong",
-//     });
-//   }
-// });
 const register = asyncHandler(async (req, res) => {
   try {
-    const { email, password, firstname, lastname , address } = req.body;
+    const { email, password, firstname, lastname, address } = req.body;
     if (!email || !password || !lastname || !firstname || !address)
       return res.status(400).json({
         success: false,
@@ -95,15 +77,15 @@ const login = asyncHandler(async (req, res) => {
 const getCurrent = asyncHandler(async (req, res) => {
   //console.log('req   ', req);
   const { _id } = req.user;
-  const user = await User.findById({ _id: _id }).select(
-    "-refreshToken -password "
-  ).populate({
-    path: 'cart',
-    populate : {
-      path: 'product',
-      select: 'title thumb price'
-    }
-  })
+  const user = await User.findById({ _id: _id })
+    .select("-refreshToken -password ")
+    .populate({
+      path: "cart",
+      populate: {
+        path: "product",
+        select: "title thumb price",
+      },
+    });
   return res.status(200).json({
     success: user ? true : false,
     rs: user ? user : "User not found",
@@ -281,8 +263,8 @@ const deleteUser = asyncHandler(async (req, res) => {
 const updateuser = asyncHandler(async (req, res) => {
   console.log(req.file);
   const { _id } = req.user;
-  const { firstname, lastname, email, mobile , address } = req.body;
-  const data = { firstname, lastname, email, mobile,address };
+  const { firstname, lastname, email, mobile, address } = req.body;
+  const data = { firstname, lastname, email, mobile, address };
   if (req.file) data.avatar = req.file.path;
   if (!_id || Object.keys(req.body).length === 0)
     throw new Error("Missing input");
@@ -323,7 +305,7 @@ const updateuserAddress = asyncHandler(async (req, res) => {
 
 const updateCart = asyncHandler(async (req, res) => {
   const { _id } = req.user;
-  const { pid, quantity = 1, color, price , title } = req.body;
+  const { pid, quantity = 1, color, price, title, thumb } = req.body;
   if (!pid || !color) throw new Error("Missing input");
   const user = await User.findById(_id).select("cart");
   const alreadyProduct = user?.cart?.find(
@@ -338,7 +320,14 @@ const updateCart = asyncHandler(async (req, res) => {
     // });
     const response = await User.updateOne(
       { cart: { $elemMatch: alreadyProduct } },
-      { $set: { "cart.$.quantity": quantity, "cart.$.price": price,"cart.$.title": title } },
+      {
+        $set: {
+          "cart.$.quantity": quantity,
+          "cart.$.price": price,
+          "cart.$.title": title,
+          "cart.$.thumb": thumb,
+        },
+      },
       { new: true }
     );
     return res.status(200).json({
@@ -348,7 +337,9 @@ const updateCart = asyncHandler(async (req, res) => {
   } else {
     const response = await User.findByIdAndUpdate(
       _id,
-      { $push: { cart: { product: pid, quantity, color , price , title} } },
+      {
+        $push: { cart: { product: pid, quantity, color, price, title, thumb } },
+      },
       { new: true }
     );
     return res.status(200).json({
@@ -365,21 +356,51 @@ const removeProductInCart = asyncHandler(async (req, res) => {
   const alreadyProduct = user?.cart?.find(
     (el) => el.product && el.product.toString() === pid
   );
-  if (!alreadyProduct) 
+  if (!alreadyProduct)
     return res.status(200).json({
-      success: true ,
+      success: true,
       mes: "Updated your cart",
-    })
+    });
+  const response = await User.findByIdAndUpdate(
+    _id,
+    { $pull: { cart: { product: pid } } },
+    { new: true }
+  );
+  return res.status(200).json({
+    success: response ? true : false,
+    mes: response ? "Updated your cart" : "Something went wrong",
+  });
+});
+
+const UpdateWhistlist = asyncHandler(async (req, res) => {
+  const { pid } = req.params;
+  const { _id } = req.user;
+  console.log(pid);
+  const user = await User.findById(_id);
+  const alreadywhistlist = user.wishlist?.find((el) => el.toString() === pid);
+  if (alreadywhistlist) {
     const response = await User.findByIdAndUpdate(
       _id,
-      { $pull: { cart: { product: pid} } },
+      { $pull: { wishlist: pid } },
       { new: true }
     );
-    return res.status(200).json({
+    return res.json({
       success: response ? true : false,
-      mes: response ? "Updated your cart" : "Something went wrong",
+      mes: response ? "Updated your whistlist" : "Failed to update wthlist!",
     });
+  } else {
+    const response = await User.findByIdAndUpdate(
+      _id,
+      { $push: { wishlist: pid } },
+      { new: true }
+    );
+    return res.json({
+      success: response ? true : false,
+      mes: response ? "Updated your whistlist" : "Failed to update wthlist!",
+    });
+  }
 });
+
 
 module.exports = {
   register,
@@ -395,5 +416,6 @@ module.exports = {
   updateuserbyadmin,
   updateuserAddress,
   updateCart,
-  removeProductInCart
+  removeProductInCart,
+  UpdateWhistlist,
 };

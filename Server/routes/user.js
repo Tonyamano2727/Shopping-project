@@ -17,6 +17,7 @@ router.put('/address',[verifyToken], ctrls.updateuserAddress)
 router.put('/cart',[verifyToken], ctrls.updateCart)
 router.delete('/remove-cart/:pid',[verifyToken], ctrls.removeProductInCart)
 router.put('/:uid',[verifyToken,isAdmin], ctrls.updateuserbyadmin)
+router.put('/whistlist/:pid',[verifyToken], ctrls.UpdateWhistlist)
 
 module.exports = router
 

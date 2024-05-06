@@ -1,28 +1,33 @@
-const mongoose = require('mongoose'); // Erase if already required
+const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var OrderSchema = new mongoose.Schema({
-    products:[{
-        product: {type : mongoose.Types.ObjectId , ref: 'Products'},
-        quantity : Number,
+var OrderSchema = new mongoose.Schema(
+  {
+    products: [
+      {
+        product: { type: mongoose.Types.ObjectId, ref: "Products" },
+        quantity: Number,
         color: String,
-        price:Number,
+        price: Number,
         title: String,
-    
-    }],
-    status:{
-        type:String,
-        default: 'Cancelled',
-        enum : ['Cancelled', 'Successed'] // npm stripe if you use pay online
+        thumb: String,
+      },
+    ],
+    status: {
+      type: String,
+      default: "Cancelled",
+      enum: ["Cancelled", "Successed"], // npm stripe if you use pay online
     },
     total: Number,
-    orderBy:{
-        type : mongoose.Types.ObjectId,
-        ref: 'User'
+    orderBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
     },
-},{
-    timestamps: true
-});
+  },
+  {
+    timestamps: true,
+  }
+);
 
 //Export the model
-module.exports = mongoose.model('Order', OrderSchema);
+module.exports = mongoose.model("Order", OrderSchema);

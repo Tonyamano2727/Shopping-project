@@ -148,7 +148,7 @@ const Products = () => {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column">
           {products?.products?.map((el) => (
-            <Product key={el._id} pid={el.id} productData={el} />
+            <Product key={el._id} pid={el._id} productData={el} />
           ))}
         </Masonry>
       </div>

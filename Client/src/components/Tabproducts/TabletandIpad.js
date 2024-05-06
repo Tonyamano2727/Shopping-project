@@ -86,7 +86,7 @@ const TabletandIpad = () => {
                 {products?.map((el) => (
                   <Product
                     key={el.id}
-                    pid={el.id}
+                    pid={el._id}
                     productData={el}
                     isNew={activedTab === 1 ? false : true}
                   />
