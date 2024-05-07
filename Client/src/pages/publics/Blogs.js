@@ -1,9 +1,16 @@
 import React from "react";
+import { Breadcrumb } from "../../components";
 
-const Blogs = () => {
-  window.scrollTo(0 , 0)
+const Blogs = ({ category }) => {
+  window.scrollTo(0, 0);
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center flex-col">
+      <div className="h-[81px flex justify-center ">
+        <div className="md:w-main w-auto mt-[50px] md:mt-5">
+          <span className="text-[30px] font-medium uppercase">BLOGS</span>
+          <Breadcrumb category={category} />
+        </div>
+      </div>
       <div className="w-main flex justify-center mt-5">
         <div className="w-[77%]">
           <div className="w-[100%]">

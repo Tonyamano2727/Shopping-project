@@ -1,6 +1,5 @@
 export { default as Header} from './Header/Header'
 export { default as Navigation} from './Nav/Navigation'
-export { default as Sidebar} from './Sidebar/Sidebar'
 export { default as Adminsidebar} from './Sidebar/Adminsidebar'
 export { default as Membersidebar} from './Sidebar/Membersidebar'
 export { default as Banner} from './Banner/Banner'

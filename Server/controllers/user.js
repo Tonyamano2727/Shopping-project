@@ -75,7 +75,6 @@ const login = asyncHandler(async (req, res) => {
 });
 
 const getCurrent = asyncHandler(async (req, res) => {
-  //console.log('req   ', req);
   const { _id } = req.user;
   const user = await User.findById({ _id: _id })
     .select("-refreshToken -password ")
@@ -261,7 +260,6 @@ const deleteUser = asyncHandler(async (req, res) => {
 
 // client
 const updateuser = asyncHandler(async (req, res) => {
-  console.log(req.file);
   const { _id } = req.user;
   const { firstname, lastname, email, mobile, address } = req.body;
   const data = { firstname, lastname, email, mobile, address };

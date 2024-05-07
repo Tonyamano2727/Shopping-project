@@ -42,7 +42,7 @@ const Banner = () => {
   };
   
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col mt-7 md:mt-0 relative top-[-80px] md:top-[0px] ">
       <Slider {...settings}>
       <div className=" relative">
           <video

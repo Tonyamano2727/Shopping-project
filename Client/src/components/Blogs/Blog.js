@@ -1,7 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import path from "../../ultils/path";
+import Breadcrumb from "../Breacrumb/Breadcrumb";
 var settings = {
   dots: false,
   infinite: false,
@@ -13,9 +14,6 @@ var settings = {
 const Blog = () => {
   return (
     <div className="w-full flex-col flex text-[25px] gap-8 mb-[50px] ">
-      <div className="flex text-[25px] gap-8 xl:ml-[60px]">
-        <span className="font-semibold capitalize cursor-pointer ">Blogs</span>
-      </div>
       <div className="w-full">
         <div className="w-[100%]">
           <div className="mt-4">

@@ -15,12 +15,12 @@ const Header = () => {
   const [isshowoptions, setisshowoptions] = useState(false);
   console.log(current);
   return (
-    <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] ">
+    <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] flex">
       <Link className="flex justify-center" to={`/${path.HOME}`}>
-        <img src={logo} alt="Logo" className="w-[234px] object-contain"></img>
+        <img src={logo} alt="Logo" className="w-[234px] object-contain z-50"></img>
       </Link>
       <div className="flex text-[14px] justify-center">
-        <div className="hidden md:block flex-col px-6 border-r items-center">
+        <div className="hidden lg:block flex-col px-6 border-r items-center">
           <span className="flex gap-4 items-center ">
             <MdPhone color="red" />
             <span className="font-semibold">(+1800) 000 8808</span>
@@ -38,17 +38,17 @@ const Header = () => {
           <Fragment>
             <div
               onClick={() => dispatch(Showcart())}
-              className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
+              className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r z-40">
               <HiOutlineShoppingBag color="red" />
               <span>{`${current?.cart?.length || 0} item(s)`}</span>
             </div>
-            <Link  to={`/${[path.WISHLIST]}`} className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r ">
+            <Link  to={`/${[path.WISHLIST]}`} className="cursor-pointer flex items-center justify-center gap-2 px-6 border-r z-40">
               <GoHeartFill color="red" />
               <span>{`${current?.wishlist?.length || 0} item(s)`}</span>
             </Link>
             <div
               onClick={() => setisshowoptions((prev) => !prev)}
-              className="cursor-pointer flex items-center px-6 justify-center text-[16px] gap-2 relative">
+              className="cursor-pointer items-center px-6 justify-center text-[16px] gap-2 relative hidden sm:block md:flex">
               {current && current.avatar ? (
                 <img className="h-10 w-10 rounded-full" src={current.avatar} alt="Avatar" />
               ) : (
@@ -56,7 +56,7 @@ const Header = () => {
               )}
               <span>Profile</span>
               {isshowoptions && (
-                <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2">
+                <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2 z-50">
                   <Link to={`/${[path.PERSONAL]}`}>PERSONAL</Link>
                   {+current.role === 1945 && (
                     <Link

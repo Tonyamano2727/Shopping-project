@@ -1,12 +1,19 @@
 import React from "react";
 import icons from "../../ultils/icons";
+import { Breadcrumb } from "../../components";
 
 const { FaStreetView, FaCheck, IoMdMail, MdOutlinePhoneIphone } = icons;
 
-const FQA = () => {
+const FQA = ({category}) => {
   return (
     <div className="w-full flex items-center justify-center flex-col">
-      <div className="w-main">
+       <div className="h-[81px flex justify-center ">
+        <div className="md:w-main w-auto mt-[50px] md:mt-5">
+          <span className="text-[30px] font-medium uppercase">BLOGS</span>
+          <Breadcrumb category={category} />
+        </div>
+      </div>
+      <div className="w-main mt-5">
         We would like to express our deep gratitude to you for taking the time
         and care to contact us. Your feedback and feedback play an important
         role in improving and developing our services. Here, we are not merely a

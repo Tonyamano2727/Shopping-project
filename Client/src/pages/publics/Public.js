@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Header, Navigation,TopHeader,Footer , Sidebar} from "../../components";
+import { Header, Navigation,TopHeader,Footer} from "../../components";
 
 const Public = () => {
   return (
@@ -9,7 +9,7 @@ const Public = () => {
      
       <Header />
       <Navigation />
-      <Sidebar/>
+      
       <div className='w-[100%]'>
         <Outlet/>
       </div>

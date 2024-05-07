@@ -1,9 +1,16 @@
 import React from "react";
+import { Breadcrumb } from "../../components";
 
-const Service = () => {
+const Service = ({category}) => {
   return (
-    <div className="w-full justify-center items-center flex">
-      <div className="w-main flex-wrap flex">
+    <div className="w-full justify-center items-center flex flex-col">
+      <div className="h-[81px flex justify-center ">
+        <div className="md:w-main w-auto mt-[50px] md:mt-5">
+          <span className="text-[30px] font-medium uppercase">BLOGS</span>
+          <Breadcrumb category={category} />
+        </div>
+      </div>
+      <div className="w-main flex-wrap flex mt-5">
         <div className="flex">
           <div className="w-[40%]">
             <img
