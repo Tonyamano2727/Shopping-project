@@ -17,7 +17,6 @@ const Product = ({ productData, pid }) => {
   const dispatch = useDispatch();
   const [isShowOption, setIsShowOption] = useState(false);
   const { current } = useSelector((state) => state.user);
-  
 
   const handleClickOptions = async (e, flag) => {
     e.stopPropagation();
@@ -40,6 +39,7 @@ const Product = ({ productData, pid }) => {
         title: productData.title,
         thumb: productData.thumb,
       });
+      
       if (response.success) {
         dispatch(getCurrent());
         toast.success(response.mes); // bug togle
@@ -47,6 +47,17 @@ const Product = ({ productData, pid }) => {
     }
 
     if (flag === "WHISLIST") {
+      if (!current)
+        return Swal.fire({
+          title: "Almost",
+          text: "Please login first",
+          icon: "info",
+          cancelButtonText: "Not now!",
+          showConfirmButton: true,
+          confirmButtonText: "Go to login page",
+        }).then((rs) => {
+          if (rs.isConfirmed) navigate(`/${path.LOGIN}`);
+        });
       const response = await apiupdatewhislist(pid);
       console.log(pid);
       if (response.success) {

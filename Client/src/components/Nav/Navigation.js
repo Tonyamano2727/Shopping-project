@@ -51,8 +51,8 @@ const Navigation = () => {
               {el.value}
             </NavLink>
           ))}
-          <div className="flex justify-center text-[13px] lg:text-[15px] xl:text-[17px] w-[100%] flex-auto md:bg-gray-300  bg-red-500 ">
-            <div className="flex justify-center w-full  ">
+          <div className="flex justify-center text-[13px] lg:text-[15px] xl:text-[17px] w-[100%] flex-auto md:bg-gray-300  bg-red-500  mt-[10px]">
+            <div className="flex justify-center w-full ">
               <div className="hidden md:flex">
                 {categories?.map((el) => (
                   <NavLink
