@@ -19,7 +19,7 @@ import {
   Manageuser,
   ManageProducts,
 } from "./pages/admin";
-import {MemberLayout , Personal , Orderhistory ,Mycart,Mywhistlist , Checkout} from "./pages/Member"
+import {MemberLayout , Personal , Orderhistory ,Mycart,Mywhistlist , Checkout } from "./pages/Member"
 
 import path from "./ultils/path";
 import { getCategory } from "./store/app/asyncAction";
@@ -55,6 +55,7 @@ function App() {
           <Route path={path.CHECK_OUT} element={<Checkout />}></Route>
           <Route path={path.PERSONAL} element={<Personal />}></Route>
           <Route path={path.WISHLIST} element={<Mywhistlist />}></Route>
+          <Route path={path.HISTORY} element={<Orderhistory />}></Route>
         </Route>
         <Route path={path.ADMIN} element={<AdminLayout />}>
           {/* <Route path={path.DASHBOARD} element={<Dashboard />}></Route> */}
@@ -65,7 +66,7 @@ function App() {
         </Route>
         <Route path={path.MEMBER} element={<MemberLayout />}>
           <Route path={path.MY_CART} element={<Mycart />}></Route>
-          <Route path={path.HISTORY} element={<Orderhistory />}></Route>
+          
         </Route>
       </Routes>
       <ToastContainer

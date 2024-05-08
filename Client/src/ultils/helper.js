@@ -72,7 +72,7 @@ export const validate = (payload, setinvalidFields) => {
             ...prev,
             {
               name: arr[0],
-              mes: "Password must be at least 10 characters long and contain at least one uppercase letter.",
+              mes: "Password must be at least 10 characters long",
             },
           ]);
         }

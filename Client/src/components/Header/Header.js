@@ -13,7 +13,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const { current } = useSelector((state) => state.user);
   const [isshowoptions, setisshowoptions] = useState(false);
-  console.log(current);
   return (
     <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] flex">
       <Link className="flex justify-center" to={`/${path.HOME}`}>
@@ -58,6 +57,7 @@ const Header = () => {
               {isshowoptions && (
                 <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2 z-50">
                   <Link to={`/${[path.PERSONAL]}`}>PERSONAL</Link>
+                  <Link className="mt-2" to={`/${[path.HISTORY]}`}>ORDER HISTORY</Link>
                   {+current.role === 1945 && (
                     <Link
                       className="mt-2"

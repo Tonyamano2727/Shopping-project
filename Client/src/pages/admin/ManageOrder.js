@@ -4,10 +4,14 @@ import { InputForm, Pagination } from "../../components";
 import { useForm } from "react-hook-form";
 import { formatMoney } from "../../ultils/helper";
 import moment from "moment";
+import useDebounce from "../../hooks/useDebounce";
+import { useSearchParams } from "react-router-dom";
 
 const ManageOrder = () => {
   const [Order, setorder] = useState(null);
   const [counts, setcounts] = useState(0);
+  const [params] = useSearchParams();
+  const [Update, setUpdate] = useState(false);
   
   const [totalAmount, setTotalAmount] = useState(0); // Thêm biến lưu tổng tiền
   const {
@@ -27,9 +31,18 @@ const ManageOrder = () => {
       setcounts(response.counts);
     }
   };
+  // useEffect(() => {
+  //   fetchOrder();
+  // }, []);
+  
+  const querydeBounce = useDebounce(watch("q"), 800);
+
   useEffect(() => {
-    fetchOrder();
-  }, []);
+    const searchParams = Object.fromEntries([...params]);
+    if (querydeBounce) searchParams.q = querydeBounce;
+    fetchOrder(searchParams);
+  }, [params, querydeBounce]);
+
 
   useEffect(() => {
     if (Order) {

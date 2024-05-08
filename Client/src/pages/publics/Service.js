@@ -6,7 +6,7 @@ const Service = ({category}) => {
     <div className="w-full justify-center items-center flex flex-col">
       <div className="h-[81px flex justify-center ">
         <div className="md:w-main w-auto mt-[50px] md:mt-5">
-          <span className="text-[30px] font-medium uppercase">BLOGS</span>
+          <span className="text-[30px] font-medium uppercase">Service</span>
           <Breadcrumb category={category} />
         </div>
       </div>

@@ -24,7 +24,7 @@ const Inputfields = ({
         onChange={e => setValue(prev=> ({...prev, [nameKey]: e.target.value}))}
         onFocus={() => setinvalidFields([])}
         ></input>
-        <div className="w-full justify-end flex absolute bottom-0">
+        <div className="w-full justify-end flex absolute bottom-[-20px]">
         {invalidFields?.some(el => el.name === nameKey) && <small className="text-main text-[13px] italic w-auto ">{invalidFields.find(el => el.name === nameKey)?.mes}</small>}
         </div>
     </div>

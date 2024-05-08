@@ -14,7 +14,6 @@ const notactivedStyle =
 
 const Adminsidebar = () => {
   const { current } = useSelector((state) => state.user);
-  console.log(current);
   const [actived, setactived] = useState([]);
   const handleShowtab = (tabID) => {
     if (actived.some(el => el === tabID)) setactived(prev => prev.filter(el => el!== tabID))
