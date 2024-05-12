@@ -90,7 +90,7 @@ const Login = () => {
   }, [payload, isRegister]);
 
   return (
-    <div className="bg-gray-100 flex justify-center">
+    <div className="bg-gray-100 flex justify-center flex-col items-center">
       {isForgotpassword && (
         <div className="  flex items-center py-8 justify-center h-full">
           <div className="flex flex-col">
@@ -102,7 +102,7 @@ const Login = () => {
               placeholder="email@gmail.com"
               value={email}
               onChange={(e) => Setemail(e.target.value)}></input>
-            <div className="flex items-center justify-center mt-5 gap-6">
+            <div className="flex  mt-5 gap-6">
               <Button name="Submit" handleOnclick={handleForgotPassword} />
               <Button
                 name="Back"
@@ -112,8 +112,8 @@ const Login = () => {
           </div>
         </div>
       )}
-      <div className=" top-0 bottom-0 left-0 righ-1/2 items-center justify-center flex bg-white rounded shadow-lg p-4 px-4 md:p-8 w-main mt-[70px] mb-[70px]">
-        <div className=" mt-5 mb-5 rounded-md flex items-center flex-col min-w-[500px] justify-center">
+      <div className=" top-0 bottom-0 left-0 righ-1/2 items-center justify-center flex bg-white rounded shadow-lg p-4 px-4 md:p-8 w-full lg:w-main mt-[70px] mb-[70px]">
+        <div className=" mt-5 mb-5 rounded-md flex items-center flex-col w-[100%] md:w-[70%] lg:w-[50%] justify-center">
           <h1 className="text-[28px] font-semibold text-main mb-8">
             {isRegister ? "Register" : "Login"}
           </h1>

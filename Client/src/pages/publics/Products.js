@@ -122,7 +122,7 @@ const Products = () => {
   }, [sort]);
 
   return (
-    <div className="w-full relative top-[-100px] md:top-0">
+    <div className="w-full">
       <div className="h-[81px flex justify-center ">
         <div className="md:w-main w-auto mt-[50px] md:mt-5">
           <span className="text-[30px] font-medium uppercase">{category}</span>
@@ -135,12 +135,12 @@ const Products = () => {
             id="q"
             register={register}
             errors={errors}
-            style={'p-5 w-[91%] flex justify-center items-center'}
+            style={'p-5 w-full xl:w-[91%] flex justify-center items-center'}
             placeholder="Search product by title"
           />
         </form>
       </div>
-      <div className="xl:w-main  border p-4 flex justify-between mt-8 m-auto">
+      <div className="xl:w-main  border p-4 flex justify-between mt-8 m-auto flex-wrap">
         <div className="md:w-3/5 lg:w-4/5 flex-auto flex flex-col gap-3">
           <span className="font-semibold text-sm">Filter by</span>
           <div className="flex items-center gap-4">
@@ -157,7 +157,7 @@ const Products = () => {
             />
           </div>
         </div>
-        <div className="md:w-2/5 lg:w-1/5 flex flex-col gap-3 ">
+        <div className="md:w-[30%] lg:w-1/5 flex flex-col gap-3 ">
           <span className="font-semibold text-sm">Sort by</span>
           <div className="w-full">
             <Selectinput

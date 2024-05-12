@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import icons from "../../ultils/icons";
 import { logout } from "../../store/user/userSlice";
 
-const { IoLogOut, FaUserCircle } = icons;
+const { IoLogOut } = icons;
 const TopHeader = () => {
-  const [isshowoptions, setisshowoptions] = useState(false);
+  
 
   const dispatch = useDispatch();
   const { isLoggedIn, current } = useSelector((state) => state.user);
@@ -31,38 +31,13 @@ const TopHeader = () => {
           </div>
         ) : (
           <Link
-            className="mt-2 md:mt-0 hover:text-gray-800"
+            className="mt-2 md:mt-0 hover:text-gray-800 mb-2 md:mb-0 md:w-[30%] w-full text-center"
             to={`/${path.LOGIN}`}>
             Sign In or Create Account
           </Link>
         )}
       </div>
-      <div
-        onClick={() => setisshowoptions((prev) => !prev)}
-        className="cursor-pointer items-center text-white flex px-6 justify-center text-[16px] gap-2 relative md:hidden sm:block m-2">
-        {current && current.avatar ? (
-          <img
-            className="h-10 w-10 rounded-full"
-            src={current.avatar}
-            alt="Avatar"
-          />
-        ) : (
-          <FaUserCircle />
-        )}
-        <span>Profile</span>
-        {isshowoptions && (
-          <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2 text-black md:hidden">
-            <Link to={`/${[path.PERSONAL]}`}>PERSONAL</Link>
-            {+current.role === 1945 && (
-              <Link
-                className="mt-2"
-                to={`/${path.ADMIN}/${[path.CREATE_PRODUCTS]}`}>
-                Admin workspace
-              </Link>
-            )}
-          </div>
-        )}
-      </div>
+      
     </div>
   );
 };

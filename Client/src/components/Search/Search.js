@@ -72,7 +72,7 @@ const Search = ({
       <span className="capitalize">{name}</span>
       <FaAngleDown />
       {activedclick === name && (
-        <div className="absolute top-full left-0 w-fit p-4 border z-20 bg-white">
+        <div className="absolute top-full left-0 w-fit p-4 border z-20 bg-white flex">
           {type === "checkbox" && (
             <div className="p-2">
               <div className="p-4 items-center flex justify-center gap-8">
@@ -111,7 +111,7 @@ const Search = ({
           )}
           {type === "input" && (
             <div onClick={(e) => e.stopPropagation()}>
-              <div className="p-4 items-center flex justify-center gap-8">
+              <div className="p-4 md:items-center items-start flex justify-center md:gap-4 flex-col w-full">
                 <span className="whitespace-nowrap">
                   {`The highest price is ${Number(
                     bestprice

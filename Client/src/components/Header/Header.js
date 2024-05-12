@@ -14,7 +14,7 @@ const Header = () => {
   const { current } = useSelector((state) => state.user);
   const [isshowoptions, setisshowoptions] = useState(false);
   return (
-    <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] flex">
+    <div className="w-full md:flex justify-center xl:justify-between xl:w-main items-center h-[110px] py-[35px] hidden">
       <Link className="flex justify-center" to={`/${path.HOME}`}>
         <img src={logo} alt="Logo" className="w-[234px] object-contain z-50"></img>
       </Link>

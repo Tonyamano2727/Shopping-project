@@ -1,58 +1,65 @@
-import React,{useEffect , useState} from 'react'
-import { apigetorderyuser } from '../../apis';
-import { useForm } from 'react-hook-form';
-import { InputForm, Pagination } from '../../components';
-import { formatMoney } from '../../ultils/helper';
-import moment from 'moment';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { apigetorder, apigetorderyuser } from "../../apis";
+import { InputForm, Pagination } from "../../components";
+import { useForm } from "react-hook-form";
+import { formatMoney } from "../../ultils/helper";
+import moment from "moment";
 import useDebounce from "../../hooks/useDebounce";
+import { useSearchParams } from "react-router-dom";
 
 const Orderhistory = () => {
-  const [Order, setorder] = useState(null)
+  const [Order, setorder] = useState(null);
   const [counts, setcounts] = useState(0);
   const [params] = useSearchParams();
   const [Update, setUpdate] = useState(false);
-  const [queries, setqueries] = useState({
-    q: "",
-  });
+  
+  const [totalAmount, setTotalAmount] = useState(0); // Thêm biến lưu tổng tiền
   const {
     register,
     formState: { errors },
     watch,
-  } = useForm({
-    status: ""
-  });
+  } = useForm();
   const q = watch("q");
-  
-  const queriesDebounce = useDebounce(queries.q, 800);
-  useEffect(() => {
-    const params = {};
-    if (queriesDebounce) params.q = queriesDebounce;
-    fetchOrders(params);
-  }, [queriesDebounce, Update]);
 
-  const fetchOrders = async (params) => {
+  const fetchOrder = async (params) => {
     const response = await apigetorderyuser({
       ...params,
       limit: process.env.REACT_APP_PRODUCT_LIMIT,
     });
-
-    if(response.success) {
-      setorder(response.Order)
+    if (response.success) {
+      setorder(response.Order);
       setcounts(response.counts);
     }
   };
-  useEffect(() => {
-    fetchOrders()
-  },[params])
+  // useEffect(() => {
+  //   fetchOrder();
+  // }, []);
   
+  const querydeBounce = useDebounce(watch("q"), 800);
+
+  useEffect(() => {
+    const searchParams = Object.fromEntries([...params]);
+    if (querydeBounce) searchParams.q = querydeBounce;
+    fetchOrder(searchParams);
+  }, [params, querydeBounce]);
+
+
+  useEffect(() => {
+    if (Order) {
+      let total = 0;
+      Order.forEach((el) => {
+        total += el.total * 23500;
+      });
+      setTotalAmount(total);
+    }
+  }, [Order]);
   return (
-    <div className=''>
-          <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
-        <span>ManageOrder</span>
+    <div className="flex justify-center w-full  flex-col p-5">
+      <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
+        <span>Orderhistory</span>
       </h1>
       <div className="flex w-full justify-end items-center px-4">
-        <form className="w-[100%]">
+        <form className="w-[100%] mt-2">
           <InputForm
             style={"w500"}
             id="q"
@@ -63,7 +70,7 @@ const Orderhistory = () => {
           />
         </form>
       </div>
-      <table className="w-[98%] mt-5 ">
+      <table className="w-[full] mt-5 ">
         <thead>
           <tr className="border border-black">
             <th className="p-5 gap-x-2 items-center py-5 px-6 text-red-500 hover:text-indigo-600 ">#</th>
@@ -97,11 +104,14 @@ const Orderhistory = () => {
           ))}
         </tbody>
       </table>
+      <div className="w-full flex justify-end items-center mt-2">
+        <p>Total Amount: {formatMoney(totalAmount)} VND</p>{" "}
+      </div>
       <div className="w-full flex justify-end my-8">
         <Pagination totalCount={counts}></Pagination>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Orderhistory
+export default Orderhistory;

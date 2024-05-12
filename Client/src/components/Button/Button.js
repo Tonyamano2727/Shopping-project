@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = ({children, handleOnclick, style, fw ,name , type = 'button'}) => {
   return (
-    <div className="w-full justify-end flex">
+    <div className="w-full justify-center flex">
       <button
         type={type}
         className={
