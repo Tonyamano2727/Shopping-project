@@ -4,21 +4,21 @@ import { Breadcrumb } from "../../components";
 const Service = ({category}) => {
   return (
     <div className="w-full justify-center items-center flex flex-col">
-      <div className="h-[81px flex justify-center ">
+      <div className="h-[81px flex justify-center w-full">
         <div className="md:w-main w-auto mt-[50px] md:mt-5">
           <span className="text-[30px] font-medium uppercase">Service</span>
           <Breadcrumb category={category} />
         </div>
       </div>
-      <div className="w-main flex-wrap flex mt-5">
-        <div className="flex">
-          <div className="w-[40%]">
+      <div className="xl:w-main w-full flex-wrap flex mt-5">
+        <div className="flex flex-wrap justify-center items-center">
+          <div className="md:w-[40%] w-full">
             <img
               className="h-[250px] w-full object-cover"
               src="https://th.bing.com/th/id/OIP.GDH7bifW1-n_-n34o2ENFAHaFF?rs=1&pid=ImgDetMain"
               alt=""></img>
           </div>
-          <div className="w-[60%] p-6">
+          <div className="md:w-[60%] p-6 ">
             <span className="text-[15px]">
               Cras magna tellus, congue vitae congue vel, facilisis id risus.
               Proin semper in lectus id faucibus. Aenean vitae quam eget mi
