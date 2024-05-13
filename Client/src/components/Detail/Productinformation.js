@@ -5,7 +5,7 @@ const Productinformation = () => {
   const [activedtab, setactivedtab] = useState(1);
   return (
     <div className="mt-9">
-      <div className="gap-2 flex items-center">
+      <div className="gap-2 flex items-center flex-wrap">
         {Productinfortabs.map((el) => (
           <span
             className={`cursor-pointer p-2 px-4 ${
@@ -19,7 +19,7 @@ const Productinformation = () => {
           </span>
         ))}
       </div>
-      <div className="w-full h-[300px] border p-3">
+      <div className="w-full h-[auto] border p-3 text-[15px] ">
       {Productinfortabs.some(el => el.id === activedtab) && Productinfortabs.find(el => el.id === activedtab)?.content}
       </div>
     </div>

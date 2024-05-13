@@ -4,10 +4,10 @@ const { MdOutlineEmail } = icons;
 const Footer = () => {
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="flex flex-col w-full">
-        <div className="h-[103px] w-full bg-main flex justify-center items-center">
-          <div className="w-main flex items-center justify-between">
-            <div className="flex-col flex flex-1">
+      <div className="flex w-full flex-wrap">
+        <div className="h-[140px] xl:h-[103px] w-full bg-main flex justify-center items-center">
+          <div className="w-main flex items-center justify-between flex-wrap">
+            <div className="flex-col flex xl:w-[40%] w-full p-4">
               <span className="text-[20px] text-gray-100">
                 SIGN UP TO NEWSLETTER
               </span>
@@ -15,9 +15,9 @@ const Footer = () => {
                 Subscribe now and receive weekly newsletter
               </small>
             </div>
-            <div className="flex-1 flex items-center">
+            <div className="xl:w-[60%] w-full flex items-center mb-3">
               <input
-                className="w-full p-3 rounded-l-full bg-[#e68989] outline-none text-gray-100 placeholder:text-sm placeholder:text-gray-200 placeholder:opacity-50"
+                className="w-[90%] p-3 rounded-l-full bg-[#e68989] outline-none text-gray-100 placeholder:text-sm placeholder:text-gray-200 placeholder:opacity-50"
                 type="text"
                 name=""
                 id=""
@@ -28,9 +28,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="h-[407px] w-full bg-gray-800 flex items-center justify-center text-white text-[13px]">
-          <div className="w-main   flex">
-            <div className="w-[35%] flex flex-col gap-3">
+        <div className="h-[607px] md:h-[387px] w-full bg-gray-800 flex items-center justify-center text-white text-[13px]">
+          <div className="w-main flex flex-wrap">
+            <div className="md:w-[33%] flex flex-col gap-3 w-full">
               <h3 className="mb-[20px] text-[15px] border-l-2 border-main p-l-[15px] font-semibold">
                 ABOUT US
               </h3>
@@ -49,7 +49,7 @@ const Footer = () => {
                 <span className="opacity-70">tadathemes@gmail.com</span>
               </span>
             </div>
-            <div className="w-[22%] flex flex-col gap-3">
+            <div className="md:w-[22%] flex flex-col gap-3 w-full">
               <h3 className="mb-[20px] text-[15px]  border-l-2 border-main p-l-[15px] font-semibold">
                 INFORMATION
               </h3>
@@ -59,7 +59,7 @@ const Footer = () => {
               <span>Today's Deals</span>
               <span>Contact</span>
             </div>
-            <div className="w-[22%] flex flex-col gap-3">
+            <div className="md:w-[22%] flex flex-col gap-3 w-full">
               <h3 className="mb-[20px] text-[15px]  border-l-2 border-main p-l-[15px] font-semibold">
                 WHO WE ARE
               </h3>
@@ -69,7 +69,7 @@ const Footer = () => {
               <span>Return & Exchange</span>
               <span>Testimonials</span>
             </div>
-            <div className="w-[22%] flex flex-col gap-3">
+            <div className="md:w-[22%] flex flex-col gap-3 w-full">
               <h3 className="mb-[20px] text-[15px]  border-l-2 border-main p-l-[15px] font-semibold">
               #DIGITALWORLDSTORE
               </h3>

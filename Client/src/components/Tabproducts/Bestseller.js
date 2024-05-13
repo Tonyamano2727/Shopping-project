@@ -59,17 +59,6 @@ const Bestseller = () => {
     if (newProductsResponse?.success) {
       setNewproducts(newProductsResponse.products);
     }
-
-    // if (response[0]?.success) {
-    //   setBestSeller(response[0].products);
-    //   setProducts(response[0].products)
-    //   setTablet(response[0].products);
-    // }
-    // if (response[1]?.success) setNewproducts(response[1].products);
-    // setProducts(response[0].products)
-
-    // if (response[1]?.success) setTablet(response[1].products);
-    // setTablet(response[0].products)
   };
   useEffect(() => {
     fectchProducts();
@@ -81,7 +70,7 @@ const Bestseller = () => {
   return (
     <>
       <div>
-        <div className="flex text-[25px] gap-8  mt-[50px] w-[50%] mb-[50px] xl:ml-[60px]">
+        <div className="flex sm:p-4 xl:text-[25px] text-[20px]  xl:p-0 gap-8 mt-[20px]  xl:mt-[50px] w-[full] xl:mb-[50px] xl:ml-[60px] ml-[30px]">
           {tabs.map((el) => (
             <span
               key={el.id}

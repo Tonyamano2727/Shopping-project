@@ -7,7 +7,7 @@ import path from "../../ultils/path";
 import { useSelector, useDispatch } from "react-redux";
 import { Showcart } from "../../store/app/appslice";
 
-const { MdPhone, IoMdMail, HiOutlineShoppingBag, FaUserCircle, GoHeartFill } =
+const { MdPhone, IoMdMail, HiOutlineShoppingBag, FaUserCircle, GoHeartFill , FaAngleDown } =
   icons;
 const Header = () => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const Header = () => {
               ) : (
                 <FaUserCircle />
               )}
-              <span>Profile</span>
+              <span className="flex items-center justify-center">Profile <FaAngleDown/></span>
               {isshowoptions && (
                 <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2 z-50">
                   <Link to={`/${[path.PERSONAL]}`}>PERSONAL</Link>

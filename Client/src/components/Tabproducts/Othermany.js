@@ -6,13 +6,35 @@ import Slider from "react-slick";
 const tabs = [
   { id: 1, name: "Best Seller" },
 ];
-//Setting Slider
 var settings = {
   dots: false,
   infinite: false,
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    }
+  ]
 };
 const Othermany = () => {
   const [activedTab, setActivedTab] = useState(1);
@@ -43,7 +65,7 @@ const Othermany = () => {
   return (
     <>
       <div>
-        <div className="flex text-[25px] gap-8  mt-[50px] mb-[50px] ml-[80px]">
+        <div className="flex sm:p-4 xl:text-[25px] text-[20px]  xl:p-0 gap-8 mt-[20px]  xl:mt-[50px] w-[50%] xl:mb-[50px] xl:ml-[60px] ml-[30px]">
           {tabs.map((el) => (
             <span
               key={el.id}

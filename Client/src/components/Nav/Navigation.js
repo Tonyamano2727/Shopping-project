@@ -8,7 +8,8 @@ import logo from "../../assets/logo.png";
 import path from "../../ultils/path";
 import { Showcart } from "../../store/app/appslice";
 
-const { FaUserCircle, HiOutlineShoppingBag, GoHeartFill } = icons;
+
+const { FaUserCircle, HiOutlineShoppingBag, GoHeartFill , FaAngleDown} = icons;
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -95,10 +96,11 @@ const Navigation = () => {
                 ) : (
                   <FaUserCircle />
                 )}
-                <span>Profile</span>
+                <span className="flex items-center justify-center">Profile <FaAngleDown/></span>
                 {isshowoptions && (
                   <div className="absolute flex-col text-[14px] p-2 ml-10 flex top-full bg-gray-100 min-w-[160px] py-2 text-black md:hidden">
                     <Link to={`/${[path.PERSONAL]}`}>PERSONAL</Link>
+                    <Link className="mt-2" to={`/${[path.HISTORY]}`}>ORDER HISTORY</Link>
                     {+current.role === 1945 && (
                       <Link
                         className="mt-2"

@@ -117,11 +117,11 @@ const ManageOrder = () => {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-end mt-4">
+        <p>Total Amount: {formatMoney(totalAmount)} VND</p>{" "}
+      </div>
       <div className="w-full flex justify-end my-8">
         <Pagination totalCount={counts}></Pagination>
-      </div>
-      <div>
-        <p>Total Amount: {formatMoney(totalAmount)} VND</p>{" "}
       </div>
     </div>
   );

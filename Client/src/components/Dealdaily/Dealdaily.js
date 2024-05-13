@@ -110,13 +110,13 @@ const Dealdaily = () => {
       <div className="w-[100%] xl:w-[70%]">
         <Link to={'/smartphone'}>
           <img
-            className="w-[100%] h-[250px] object-fill xl:object-cover  xl:h-[400px] "
+            className="w-[100%] mt-5 xl:mt-0 xl:object-cover xl:h-[400px] "
             src="https://deal.tomtop.com/activity/201712/20171220_jbl_banner.jpg"
             alt="banner products"></img>
         </Link>
         <Link to={'/smartphone'}>
           <img
-            className="w-[100%] h-[250px] object-fill xl:object-cover xl:h-[400px] "
+            className="w-[100%] mt-5 xl:mt-0 object-contain xl:object-cover xl:h-[400px] "
             src="https://i.pinimg.com/originals/8e/f7/26/8ef726ffe903afa19aa545e23f3b9c72.png"
             alt="banner products"></img>
         </Link>

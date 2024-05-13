@@ -86,7 +86,7 @@ const Manageuser = () => {
         <p>Let's grow to your business! Create your product and upload here</p>
       </div>
       <div className="w-full">
-        <div className="flex justify-end py-4 w-full">
+        <div className="flex justify-end w-full px-4">
           <Inputfields
             style={"w500"}
             nameKey={"q"}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Breadcrumb, Pagination, Product } from "../../components";
 import { useSelector } from "react-redux";
 
@@ -13,7 +13,7 @@ const Mywhistlist = ({ category }) => {
         </div>
         <div className="w-full flex flex-wrap gap-4">
           {current?.wishlist?.map((el) => (
-            <div className="flex w-[24%]">
+            <div className="flex w-[45%] md:w-[30%] lg:w-[22%] xl:w-[24%]">
               <Product key={el.id} pid={el._id} productData={el} />
             </div>
           ))}

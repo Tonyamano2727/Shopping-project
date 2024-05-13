@@ -94,7 +94,7 @@ const Products = () => {
     fetchProductsByCategory({ priceQuery, queries, category });
   }, [params, category]);
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   const ChangeActiveFilter = useCallback(
     (name) => {
@@ -135,7 +135,7 @@ const Products = () => {
             id="q"
             register={register}
             errors={errors}
-            style={'p-5 w-full xl:w-[91%] flex justify-center items-center'}
+            style={'p-6 w-full xl:w-[96%] flex justify-center items-center'}
             placeholder="Search product by title"
           />
         </form>
@@ -164,6 +164,7 @@ const Products = () => {
               changeValue={changeValue}
               value={sort}
               options={sorts}
+            
             />
           </div>
         </div>

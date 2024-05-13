@@ -45,9 +45,9 @@ const Personal = () => {
     <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
       <div class="container max-w-screen-lg mx-auto">
         <div>
-          <h2 class="font-semibold text-xl text-gray-600">Responsive Form</h2>
+          <h2 class="font-semibold text-xl text-gray-600">Personal of {current.lastname} {current.firstname}</h2>
           <p class="text-gray-500 mb-6">
-            Form is mobile responsive. Give it a try.
+            
           </p>
           <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
             <form

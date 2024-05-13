@@ -54,12 +54,14 @@ const Orderhistory = () => {
     }
   }, [Order]);
   return (
-    <div className="flex justify-center w-full  flex-col p-5">
-      <h1 className="h-[75px] flex justify-between items-center text-3xl font-bold px-4 border-b">
+    <div className="flex justify-center w-full  flex-col p-5 items-center">
+      <div className="h-[75px] flex text-start text-3xl font-bold px-6 w-full">
+     
         <span>Orderhistory</span>
-      </h1>
-      <div className="flex w-full justify-end items-center px-4">
-        <form className="w-[100%] mt-2">
+    
+      </div>
+      <div className="flex w-full justify-center items-center">
+        <form className="w-[96%] mt-2">
           <InputForm
             style={"w500"}
             id="q"
@@ -70,7 +72,7 @@ const Orderhistory = () => {
           />
         </form>
       </div>
-      <table className="w-[full] mt-5 ">
+      <table className="w-[95%] mt-5">
         <thead>
           <tr className="border border-black">
             <th className="p-5 gap-x-2 items-center py-5 px-6 text-red-500 hover:text-indigo-600 ">#</th>

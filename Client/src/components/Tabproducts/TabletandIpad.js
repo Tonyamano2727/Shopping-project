@@ -67,7 +67,7 @@ const TabletandIpad = () => {
   return (
     <>
       <div>
-        <div className="flex text-[25px] gap-8  mt-[50px] w-[50%] mb-[50px] xl:ml-[60px]">
+        <div className="flex sm:p-4 xl:text-[25px] text-[20px]  xl:p-0 gap-8 mt-[20px]  xl:mt-[50px] w-[50%] xl:mb-[50px] xl:ml-[60px] ml-[30px]">
           {tabs.map((el) => (
             <span
               key={el.id}
