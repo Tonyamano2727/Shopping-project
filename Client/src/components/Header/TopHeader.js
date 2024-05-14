@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import path from "../../ultils/path";
 import { getCurrent } from "../../store/user/asyncAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,13 +8,16 @@ import { logout } from "../../store/user/userSlice";
 
 const { IoLogOut } = icons;
 const TopHeader = () => {
-  
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoggedIn, current } = useSelector((state) => state.user);
   useEffect(() => {
     if (isLoggedIn) dispatch(getCurrent());
   }, [dispatch, isLoggedIn]);
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
     <div className="h-auto w-full bg-main flex justify-center items-center">
@@ -25,7 +28,7 @@ const TopHeader = () => {
         {isLoggedIn ? (
           <div className="flex gap-2 text-sm md:w-[30%] justify-center items-center">
             <span className="text-start md:text-center">{`Welcome, ${current?.firstname} ${current?.lastname}`}</span>
-            <span className="cursor-pointer" onClick={() => dispatch(logout())}>
+            <span className="cursor-pointer" onClick={handleLogout}>
               <IoLogOut />
             </span>
           </div>
@@ -37,7 +40,6 @@ const TopHeader = () => {
           </Link>
         )}
       </div>
-      
     </div>
   );
 };
