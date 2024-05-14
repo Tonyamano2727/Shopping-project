@@ -3,7 +3,7 @@ import { formatMoney } from "../../ultils/helper";
 import { renderStarFromNumber } from "../../ultils/helper";
 import { Selectoption } from "..";
 import icons from "../../ultils/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate , createSearchParams } from "react-router-dom";
 import { apiupdatecart, apiupdatewhislist } from "../../apis";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,9 +15,10 @@ const { FaEye, FaHeart, BsCartCheckFill, BsCartPlusFill } = icons;
 const Product = ({ productData, pid }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   const [isShowOption, setIsShowOption] = useState(false);
   const { current } = useSelector((state) => state.user);
-
+  
   const handleClickOptions = async (e, flag) => {
     e.stopPropagation();
     if (flag === "CART") {
@@ -29,8 +30,14 @@ const Product = ({ productData, pid }) => {
           cancelButtonText: "Not now!",
           showConfirmButton: true,
           confirmButtonText: "Go to login page",
-        }).then((rs) => {
-          if (rs.isConfirmed) navigate(`/${path.LOGIN}`);
+        }).then(async (rs) => {
+          if (rs.isConfirmed)
+            navigate({
+              pathname: `/${path.LOGIN}`,
+              search: createSearchParams({
+                redirect: location.pathname,
+              }).toString(),
+            });
         });
       const response = await apiupdatecart({
         pid: productData._id,
@@ -55,8 +62,14 @@ const Product = ({ productData, pid }) => {
           cancelButtonText: "Not now!",
           showConfirmButton: true,
           confirmButtonText: "Go to login page",
-        }).then((rs) => {
-          if (rs.isConfirmed) navigate(`/${path.LOGIN}`);
+        }).then(async (rs) => {
+          if (rs.isConfirmed)
+            navigate({
+              pathname: `/${path.LOGIN}`,
+              search: createSearchParams({
+                redirect: location.pathname,
+              }).toString(),
+            });
         });
       const response = await apiupdatewhislist(pid);
       console.log(pid);

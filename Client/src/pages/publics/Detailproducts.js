@@ -110,7 +110,7 @@ const Detailproducts = () => {
               redirect: location.pathname,
             }).toString(),
           });
-      });
+    });
     const response = await apiupdatecart({
       pid,
       color: product?.color,
@@ -118,7 +118,7 @@ const Detailproducts = () => {
       price: product?.price,
       title: product?.title,
     });
-    console.log(response);
+    
     if (response.success) {
       toast.success(response.mes); // bug togle
       dispatch(getCurrent());
@@ -126,8 +126,24 @@ const Detailproducts = () => {
   };
 
   const handleAddtowishlist = async () => {
+    if (!current)
+      return Swal.fire({
+        title: "Almost",
+        text: "Please login first",
+        icon: "info",
+        cancelButtonText: "Not now!",
+        showConfirmButton: true,
+        confirmButtonText: "Go to login page",
+      }).then(async (rs) => {
+        if (rs.isConfirmed)
+          navigate({
+            pathname: `/${path.LOGIN}`,
+            search: createSearchParams({
+              redirect: location.pathname,
+            }).toString(),
+          });
+    });
     const response = await apiupdatewhislist(pid);
-    console.log(pid);
     if (response.success) {
       dispatch(getCurrent());
       toast.success(response.mes); // bug togle
