@@ -5,9 +5,11 @@ import {
   TabletandIpad,
   Featureproducts,Blog,
 } from "../../components";
+import { useSelector } from "react-redux";
 import Bestseller from "../../components/Tabproducts/Bestseller";
 const Home = () => {
-  
+  const {isLoggedIn , current} = useSelector(state => state.user)
+  console.log({isLoggedIn , current});
   return (
     <div className="w-full flex justify-center flex-col">
       <div className="w-[100%] justify-center flex flex-col">

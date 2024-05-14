@@ -24,7 +24,7 @@ const Cart = () => {
   };
   
   const renderinfornotitemcart = () => {
-    if (current?.wishlist?.length === 0) {
+    if (current?.cart?.length === 0) {
       return <p>No item in cart.</p>;
     }
   };

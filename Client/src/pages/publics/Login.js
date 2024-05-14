@@ -22,7 +22,7 @@ const Login = () => {
 
   const [isRegister, setisRegister] = useState(false);
   const [isForgotpassword, setisForgotpassword] = useState(false);
-  // const [searchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
   
   const resetPayLoad = () => {
     setpayload({
@@ -53,7 +53,7 @@ const Login = () => {
     const { firstname, lastname, mobile, address, ...data } = payload;
 
     const invalids = isRegister ? validate(payload,setinvalidFields) : validate(data,setinvalidFields)
-    console.log(invalids);
+   
 
     if (invalids === 0) {
       if (isRegister) {
@@ -77,11 +77,12 @@ const Login = () => {
             userData: rs.userData,
           })
         );
-        // if(searchParams.get('redirect')){
-        //   navigate(searchParams.get('redirect'))
-        // }else{
+        if(searchParams.get('redirect')){
+          navigate(searchParams.get('redirect'))
+          window.location.reload();
+        }else{
           window.location.href = `/${path.HOME}`;
-        // }
+        }
       } else {
         Swal.fire("Oops", rs.mes, "eroor");
       }
