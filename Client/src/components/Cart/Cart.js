@@ -15,14 +15,20 @@ const { MdOutlineDeleteOutline } = icons;
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { currentCart } = useSelector((state) => state.user);
+  const { currentCart , current } = useSelector((state) => state.user);
   const remoproductfromCart = async (pid) => {
     const response = await apiremovecart(pid);
     if (response.success) {
       dispatch(getCurrent());
     } else toast.error(response.mes);
   };
-  console.log(currentCart);
+  
+  const renderinfornotitemcart = () => {
+    if (current?.wishlist?.length === 0) {
+      return <p>No item in cart.</p>;
+    }
+  };
+
   return (
     <div
       onClick={(e) => e.stopPropagation()}
@@ -64,6 +70,9 @@ const Cart = () => {
             </div>
           ))}
       </section>
+      <div className="w-full text-center text-main uppercase">
+          {renderinfornotitemcart()}
+          </div>
       <section className="h-auto flex flex-col justify-center">
         <div className="flex items-center mt-4 justify-between pt-4 border-t border-black">
           <span>Subtotal : </span>

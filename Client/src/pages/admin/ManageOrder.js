@@ -11,7 +11,6 @@ const ManageOrder = () => {
   const [Order, setorder] = useState(null);
   const [counts, setcounts] = useState(0);
   const [params] = useSearchParams();
-  const [Update, setUpdate] = useState(false);
   
   const [totalAmount, setTotalAmount] = useState(0); // Thêm biến lưu tổng tiền
   const {
@@ -31,9 +30,6 @@ const ManageOrder = () => {
       setcounts(response.counts);
     }
   };
-  // useEffect(() => {
-  //   fetchOrder();
-  // }, []);
   
   const querydeBounce = useDebounce(watch("q"), 800);
 
@@ -77,12 +73,13 @@ const ManageOrder = () => {
             <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Products</th>
             <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Total</th>
             <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Status</th>
+            <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Address</th>
             <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">Created At</th>
           </tr>
         </thead>
         <tbody className="">
           {Order?.map((el, idx) => (
-            <tr className="border border-gray-500" key={el._id}>
+            <tr className="border border-gray-500 text-center" key={el._id}>
               <td className="text-center">{idx + 1}</td>
               <td className="">
                 <span className="flex flex-col items-center justify-center p-5">
@@ -99,25 +96,13 @@ const ManageOrder = () => {
               </td>
               <td className="text-center">{`${formatMoney(el.total * 23500)} VND`}</td>
               <td className="text-center">{el.status}</td>
+              <td className="text-center">{el.address}</td>
               <td className="text-center">{moment(el.createdAt).format("DD/MM/YYYY")}</td>
-
-              {/* <td>
-                <span
-                  onClick={() => seteditproduct(el)}
-                  className="text-red-500 hover:underline cursor-pointer px-2">
-                  Edit
-                </span>
-                <span
-                  onClick={() => handledeleteproduct(el._id)}
-                  className="text-red-500 hover:underline cursor-pointer px-2">
-                  Delete
-                </span>
-              </td> */}
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="flex justify-end mt-4">
+      <div className="flex justify-end mt-4 mr-5">
         <p>Total Amount: {formatMoney(totalAmount)} VND</p>{" "}
       </div>
       <div className="w-full flex justify-end my-8">
