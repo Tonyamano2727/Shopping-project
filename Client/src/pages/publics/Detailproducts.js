@@ -13,7 +13,6 @@ import {
   Productextraifitem,
   Productinformation,
   Othermany,
-  Search,
 } from "../../components";
 import Slider from "react-slick";
 import { formatMoney, renderStarFromNumber } from "../../ultils/helper";
@@ -63,7 +62,6 @@ const Detailproducts = () => {
 
   const { pid, title, price } = useParams();
   const [product, setproduct] = useState(null);
-  const [color, setcolor] = useState("");
   const [quantity, setquantity] = useState(1);
   const fetchProductdata = async () => {
     const response = await apiGetProduct(pid);

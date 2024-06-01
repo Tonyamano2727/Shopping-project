@@ -4,10 +4,10 @@ import { Breadcrumb } from "../../components";
 
 const { FaStreetView, FaCheck, IoMdMail, MdOutlinePhoneIphone } = icons;
 
-const FQA = ({category}) => {
+const FQA = ({ category }) => {
   return (
     <div className="w-full flex items-center justify-center flex-col">
-       <div className="h-[81px flex justify-center w-full">
+      <div className="h-[81px flex justify-center w-full">
         <div className="md:w-main w-auto mt-[50px] md:mt-5">
           <span className="text-[30px] font-medium uppercase">contact</span>
           <Breadcrumb category={category} />
@@ -29,7 +29,8 @@ const FQA = ({category}) => {
           style={{ border: "0" }}
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Google Maps location of Lữ Gia Nông Sản Phẩm - Long Thành - Nhà Bè"></iframe>
       </div>
       <div className="w-full lg:w-main flex leading-7 text-[15px] flex-wrap">
         <div className="w-[100%] xl:w-[50%] flex justify-center flex-col text-[13px]">
@@ -63,7 +64,7 @@ const FQA = ({category}) => {
             <span className="flex items-center ml-2">0584450677</span>
           </div>
         </div>
-        <div className="w-[50%] flex justify-center">asDASDAS</div>
+        <div className="w-[50%] flex justify-center"></div>
       </div>
     </div>
   );

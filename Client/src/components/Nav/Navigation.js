@@ -16,9 +16,7 @@ const Navigation = () => {
   const { current } = useSelector((state) => state.user);
   const [showMenu, setShowMenu] = useState(false);
   const { categories } = useSelector((state) => state.app);
-  const [showSelect, setShowSelect] = useState(false);
   const [isshowoptions, setisshowoptions] = useState(false);
-
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -28,11 +26,6 @@ const Navigation = () => {
       ? "lg:pr-10 hover:text-main text-main"
       : "lg:pr-10 hover:text-main";
   };
-
-  const toggleSelect = () => {
-    setShowSelect(!showSelect);
-  };
-
   return (
     <div className="w-full">
       <div className="w-full h-auto flex justify-center items-center flex-col bg-gray-500">

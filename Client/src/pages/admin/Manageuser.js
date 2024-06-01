@@ -86,7 +86,7 @@ const Manageuser = () => {
         <p>Let's grow to your business! Create your product and upload here</p>
       </div>
       <div className="w-full">
-        <div className="flex justify-end w-full px-4">
+        <div className="flex justify-end w-[100%] px-8">
           <Inputfields
             style={"w500"}
             nameKey={"q"}
@@ -101,10 +101,10 @@ const Manageuser = () => {
           <table className="table-auto mb-6 text-left w-full">
             <thead className="font-bold border border-black text-center">
               <tr>
-                <th className="p-5 gap-x-2 items-center py-5 px-6 text-red-500 hover:text-indigo-600 ">
+                <th className="gap-x-2 items-center text-red-500 hover:text-indigo-600 ">
                   #
                 </th>
-                <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">
+                <th className="gap-x-2 items-center  text-gray-500 hover:text-red-600 ">
                   Email address
                 </th>
                 <th className="gap-x-2 items-center py-5 px-6 text-gray-500 hover:text-red-600 ">

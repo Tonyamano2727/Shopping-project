@@ -12,6 +12,7 @@ const {IoTrashBin} = icons
 const CreateProducts = () => {
   const [isfousdescription, setisfousdescription] = useState(null)
   const { categories } = useSelector((state) => state.app);
+  console.log(categories);
   const {
     register,
     formState: { errors },

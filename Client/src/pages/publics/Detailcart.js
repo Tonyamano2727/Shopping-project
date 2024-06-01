@@ -7,7 +7,7 @@ import path from "../../ultils/path";
 
 const Detailcart = ({ category }) => {
   const navigate = useNavigate();
-  const {currentCart} = useSelector((state) => state.user);
+  const { currentCart } = useSelector((state) => state.user);
   return (
     <div className="w-full justify-center items-center flex flex-col">
       <div className="h-[81px flex justify-center ">
@@ -23,10 +23,7 @@ const Detailcart = ({ category }) => {
           <span className="w-[20%] text-center">Price</span>
         </div>
         {currentCart?.map((el) => (
-          <Orderitem el={el} 
-          key={el._id} 
-          defaultquantity={el.quantity}
-          />
+          <Orderitem el={el} key={el._id} defaultquantity={el.quantity} />
         ))}
       </div>
       <div className="w-main mx-auto justify-end flex flex-col items-end gap-3 my-8">
@@ -41,10 +38,18 @@ const Detailcart = ({ category }) => {
             ) + "VND"}
           </span>
         </span>
-        <span className=""> Shipping , taxes , and discounts calculated at checkout</span>
-        <Button handleOnclick={() =>{
-           navigate(`/${path.CHECK_OUT}`)}
-        }>Check out</Button>
+        <span className="">
+          {" "}
+          Shipping , taxes , and discounts calculated at checkout
+        </span>
+        <div>
+          <Button
+            handleOnclick={() => {
+              navigate(`/${path.CHECK_OUT}`);
+            }}>
+            Check out
+          </Button>
+        </div>
       </div>
     </div>
   );

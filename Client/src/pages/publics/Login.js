@@ -43,9 +43,6 @@ const Login = () => {
       toast.success(response.mes);
     } else toast.info(response.mes);
   };
-
-  
-
   useEffect(() => {
       resetPayLoad()
   },[isRegister])
@@ -121,6 +118,7 @@ const Login = () => {
           {isRegister && (
             <div className="w-full">
               <Inputfields
+              
                 value={payload.firstname}
                 setValue={setpayload}
                 nameKey="firstname"
