@@ -16,7 +16,7 @@ const Resetpassword = () => {
       <div className="flex flex-col">
         <label htmlFor="password">Enter new your password : </label>
         <input
-          type="text"
+          type="password"
           id="password"
           className="w-[800px] p-4 border-b outline-none placeholder:text-sm"
           placeholder="password"
